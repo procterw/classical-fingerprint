@@ -1,8 +1,9 @@
 import { Work } from './services/getMusicData';
 
 import './App.css'
+import { RatingModule } from './components/RatingModule';
 
-export const WorkCard = (props: { work?: Work }) => {
+export const WorkCard = (props: { work?: Work | null }) => {
 
   const { work } = props;
   
@@ -16,12 +17,21 @@ export const WorkCard = (props: { work?: Work }) => {
       <iframe
         width="600"
         height="300"
-        src={`https://www.youtube.com/embed/${work.preview.video_id}?controls=0&amp;start=${work.preview.preview_start_s}&autoplay=1`}
+        src={`https://www.youtube.com/embed/${work.preview.video_id}?controls=1&start=${work.preview.preview_start_s}&autoplay=1`}
         title="YouTube video player"
-        // frameborder="0"
+        frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       >
         </iframe>
+
+      <div
+        style={{
+          marginTop: 10,
+          marginBottom: 10,
+        }}
+      >
+        <RatingModule workId={work.id} />
+      </div>
 
       <pre
         style={{
