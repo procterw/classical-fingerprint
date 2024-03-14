@@ -1,33 +1,44 @@
+import { Button, ButtonGroup } from "@mui/material";
+import { Work } from "../services/getMusicData";
 import { useWorkRatings } from "../services/useWorkRatings";
 
-export const RatingModule = (props: {workId: string}) => {
-    const { workRatings, updateWorkRatings } = useWorkRatings();
-    
-    const activeRating: number = workRatings[props.workId];
+export const RatingModule = (props: {work?: Work | null}) => {
+  const { work } = props;
 
-    const isSelectedStyle = (n: number) => {
-        if (!activeRating || activeRating !== n) return {};
+  if (!work) return;
 
-        return {
-            background: 'green'
-        };
-    }
+  const { workRatings, updateWorkRatings } = useWorkRatings();
+  
+  const activeRating: number = workRatings[work.id];
 
-    return (
-        <ul>
-            { [1, 2, 3, 4, 5].map((n) => {
-                return (
-                    <li key={n}>
-                        <button
-                            onClick={() => updateWorkRatings(props.workId, n)}
-                            style={isSelectedStyle(n)}
-                        >
-                            { n }
-                        </button>
-                    </li>
-                );
-            })}
-        </ul>
-    );
+  const isSelectedStyle = (n: number) => {
+    if (!activeRating || activeRating !== n) return 'primary';
+
+    return 'secondary';
+  };
+
+  const options = [
+    { rating: 1, label: "I hate this" },
+    { rating: 2, label: "I don't like this" },
+    { rating: 3, label: "This is fun" },
+    { rating: 4, label: "I like this" },
+    { rating: 5, label: "I love this!" },
+  ];
+
+  return (
+    <ButtonGroup variant="contained" aria-label="Basic button group" orientation="vertical">
+      { options.map(({ rating, label }) => {
+        return (
+          <Button
+            key={rating}
+            onClick={() => updateWorkRatings(work.id, rating)}
+            color={isSelectedStyle(rating)}
+          >
+            { label }
+          </Button>
+        );
+      })}
+    </ButtonGroup>
+  );
 };
 
