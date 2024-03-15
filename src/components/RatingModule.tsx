@@ -26,7 +26,7 @@ export const RatingModule = (props: {work?: Work | null}) => {
   ];
 
   return (
-    <ButtonGroup variant="contained" aria-label="Basic button group" orientation="vertical">
+    <ButtonGroup variant="contained" aria-label="Basic button group" orientation="horizontal">
       { options.map(({ rating, label }) => {
         return (
           <Button
