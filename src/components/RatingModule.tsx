@@ -18,11 +18,10 @@ export const RatingModule = (props: {work?: Work | null}) => {
   };
 
   const options = [
-    { rating: 1, label: "I hate this" },
-    { rating: 2, label: "I don't like this" },
-    { rating: 3, label: "This is fun" },
-    { rating: 4, label: "I like this" },
-    { rating: 5, label: "I love this!" },
+    { rating: 1, label: "Not my cup of tea" },
+    { rating: 2, label: "This is fine" },
+    { rating: 3, label: "My cup of tea" },
+    { rating: 4, label: "I love this!" },
   ];
 
   return (

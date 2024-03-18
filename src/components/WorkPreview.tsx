@@ -8,14 +8,14 @@ export const WorkPreview = (props: { work?: Work | null }) => {
   return (
     <div
       style={{
-        height: 500,
+        height: 400,
         overflow: 'hidden',
       }}
     >
       <iframe
         style={{
           marginTop: -60,
-          height: 560,
+          height: 460,
           width: '100%',
         }}
         src={`https://www.youtube.com/embed/${work.preview.video_id}?controls=1&start=${work.preview.preview_start_s}&autoplay=0`}

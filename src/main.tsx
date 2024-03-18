@@ -33,6 +33,7 @@ export const themeOptions: ThemeOptions = {
     },
     h5: {
       fontFamily: '"Baskerville", "Helvetica", "Arial", sans-serif',
+      fontSize: 24,
     },
     body2: {
       fontFamily: '"Baskerville", serif',

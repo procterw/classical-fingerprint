@@ -11,7 +11,12 @@ export const WorkCard = (props: { work?: Work | null }) => {
     <>
       <Typography
         variant="h4"
-        sx={{ bgcolor: 'black', color: 'white' }}
+        sx={{
+          // bgcolor: 'black',
+          // color: 'white',
+          fontStyle: 'italic',
+          mb: 2,
+        }}
       >
         { work.title }
       </Typography>
