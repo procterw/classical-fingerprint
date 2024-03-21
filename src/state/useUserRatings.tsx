@@ -18,14 +18,31 @@ export const UserRatingsProvider = (props: { children: React.ReactNode }) => {
   const [userRatings, setUserRatings] = useState<{ [key: string]: Rating }>({});
 
   const updateUserRatings = (workId: string, rating: Rating) => {
-    setUserRatings({
+    const nextRatings = {
       ...userRatings,
       [workId]: rating,
-    });
+    };
+
+    setUserRatings(nextRatings);
+
+    try {
+      localStorage.setItem('classicalFingerprintRatings', JSON.stringify(nextRatings));
+    } catch (e) {
+      console.error("Unable to write user ratings: ");
+      console.error(e);
+    }
   };
 
   useEffect(() => {
-    // TODO get ratings from local storage
+    try {
+      const item = localStorage.getItem('classicalFingerprintRatings');
+      if (item) {
+        setUserRatings(JSON.parse(item));
+      }
+    } catch (e) {
+      console.error("Unable to get user ratings: ");
+      console.error(e);
+    }
   }, []);
 
   const state = {
