@@ -23,19 +23,20 @@ export interface Composer {
   name: string,
   complete_name: string,
   birth: string,
-  death: string,
+  death: string | null, // null indicates still alive
   epoch: string,
-  portrait: string,
+  portrait: string, // URL?
 }
 
 export const getMusicData = async (onLoad: Function) => {
   let allWorks: Array<Work> = [];
 
   const composerWorksRequests = selectedComposers.map((c: Composer) => {
-    return fetch(`https://api.openopus.org/work/list/composer/${c.id}/genre/Popular.json`)
+    return fetch(`https://api.openopus.org/work/list/composer/${c.id}/genre/Recommended.json`)
       .then((r) => r.json())
       .then((d) => {
-        const works = d.works.filter((w: Work) => w.recommended === "1")
+        const works = d.works
+          .filter((w: Work) => w.popular === "1")
           .map((w: Work) => getWorkPreview(w))
 
         allWorks = [
@@ -47,7 +48,7 @@ export const getMusicData = async (onLoad: Function) => {
             }
           }),
         ];
-        
+
         return { ...c, works };
       })
   });

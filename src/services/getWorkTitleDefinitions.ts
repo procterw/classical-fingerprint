@@ -267,8 +267,6 @@ export const getWorkTitleDefinitions = (title: string) : Array<DefinitionMatch> 
     }
   });
 
-  console.log(definitionMatches.map((d) => title.indexOf(d.match)).reverse())
-
   return definitionMatches
     .sort((a, b) => {
       return title.indexOf(a.match) - title.indexOf(b.match)

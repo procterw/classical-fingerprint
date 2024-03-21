@@ -1,4 +1,4 @@
-import { Card, CardContent, List, Typography } from '@mui/material';
+import { List, ListItem, ListItemText } from '@mui/material';
 import { Work } from '../services/getMusicData';
 import { DefinitionMatch, getWorkTitleDefinitions } from '../services/getWorkTitleDefinitions';
 
@@ -10,44 +10,22 @@ export const DefinitionList = (props: { work?: Work | null }) => {
 
   return (
     <>
-      <List>
+      <List
+        dense
+        disablePadding
+        sx={{ width: '100%', bgcolor: 'background.paper' }}
+      >
         { getWorkTitleDefinitions(work.title).map((d: DefinitionMatch) => {
           return (
-            <Card
-              key={d.label}
-              sx={{
-                p: 0,
-                my: 0,
-              }}
-            >
-              <CardContent
-                sx={{
-                  p: 1,
-                  my: 0,
-                  mx: 1,
-                  pb: 0,
+            <ListItem>
+              <ListItemText
+                primary={d.match}
+                secondary={d.definition}
+                primaryTypographyProps={{
+                  fontStyle: 'italic',
                 }}
-              >
-                <Typography
-                  variant="h6"
-                  sx={{
-                    fontSize: 16,
-                    m:0,
-                  }}
-                >
-                  { d.match }
-                </Typography>
-                <Typography
-                  variant="body2"
-                  sx={{
-                    m: 0,
-                    p: 0,
-                  }}
-                >
-                  { d.definition }
-                </Typography>
-              </CardContent>
-            </Card>
+              />
+            </ListItem>
           );
         }) }
       </List>

@@ -1,13 +1,12 @@
 import { Composer } from "../services/getMusicData";
-import { Box, Stack, Typography } from "@mui/material";
-import { EpochTimeLine } from "./EpochTimeLine";
+import { Box } from "@mui/material";
 
 export const ComposerCard = (props: { composer?: Composer }) => {
   const { composer } = props;
 
   if (!composer) return null;
 
-  const avatarSize = 75;
+  const avatarSize = 80;
 
   return (
     <Box
@@ -18,7 +17,6 @@ export const ComposerCard = (props: { composer?: Composer }) => {
             width: avatarSize,
             height: avatarSize,
             borderRadius: avatarSize,
-            boxShadow: '5px 5px 0px 0px #58A8DC',
           }}
         >
           <img
@@ -27,16 +25,11 @@ export const ComposerCard = (props: { composer?: Composer }) => {
             height={avatarSize}
             style={{
               borderRadius: avatarSize,
-              filter: 'grayscale(80%)  sepia(100%) hue-rotate(170deg)',
+              border: '1px solid black',
+              filter: 'grayscale(100%)  sepia(100%) hue-rotate(-40deg) contrast(110%)',
             }}
           />
         </div>
-
-        <Typography variant="h5" sx={{ mb: 1, mt: 0, whiteSpace: 'no-wrap' }} >
-          { composer.complete_name }
-        </Typography>
-
-        <EpochTimeLine composer={composer} />
     </Box>
   );
 };

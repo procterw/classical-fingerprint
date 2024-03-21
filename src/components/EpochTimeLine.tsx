@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import { Composer } from "../services/getMusicData";
 
 
@@ -42,9 +43,10 @@ export const EpochTimeLine = (props: { composer?: Composer | null }) => {
     return ticks;
   };
 
-  console.log(getYearTicks());
-
-  const getComposerYear = (cYear: string) => {
+  const getComposerYear = (cYear: string | null) => {
+    if (cYear == null) {
+      return Number((new Date()).getFullYear);
+    }
     return Number(cYear.split('-')[0]);
   }
 
@@ -86,18 +88,19 @@ export const EpochTimeLine = (props: { composer?: Composer | null }) => {
         }}
       >
 
-        <div
-          style={{
+        <Box
+          sx={{
             position: 'absolute',
             left: `${xScale(getComposerYear(composer.birth))}%`,
             right: `${100 - xScale(getComposerYear(composer.death))}%`,
-            top: -8,
-            bottom: -4,
+            top: 17,
+            height: 20,
             transitionProperty: 'left, right',
             transitionDuration: '0.5s',
-            background: '#FBEBBA',
-            boxShadow: '5px 5px 1px 0px #E2C055',
-            borderRadius: 5,
+            // background: '#ddd',
+            backgroundColor: theme => theme.palette.primary.light,
+            borderLeft: '2px dotted black',
+            borderRight: '2px dotted black',
           }}
         />
 
@@ -109,7 +112,7 @@ export const EpochTimeLine = (props: { composer?: Composer | null }) => {
               borderTop: '1px solid black',
               borderLeft: '1px solid black',
               borderRight: '1px solid black',
-              background: '#D9F0FF',
+              // background: '#D9F0FF',
               left: `calc(${xScale(epoch.startYear)}% + 1px)`,
               right: `calc(${100 - xScale(epoch.endYear)}% + 1px)`,
               height: 8,
@@ -138,7 +141,7 @@ export const EpochTimeLine = (props: { composer?: Composer | null }) => {
           style={{
             position: 'absolute',
             left: 0,
-            top: 26,
+            top: 36,
             width: '100%',
             background: 'black',
             height: 1,
@@ -151,7 +154,7 @@ export const EpochTimeLine = (props: { composer?: Composer | null }) => {
             style={{
               position: 'absolute',
               left: `${xScale(tick.year)}%`,
-              top: 26,
+              top: 36,
             }}
           >
             <label

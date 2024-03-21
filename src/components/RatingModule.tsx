@@ -1,37 +1,47 @@
 import { Button, ButtonGroup } from "@mui/material";
-import { Work } from "../services/getMusicData";
-import { useWorkRatings } from "../services/useWorkRatings";
+import { useUserRatings } from "../state/useUserRatings";
+import { useWorkQueue } from "../state/useWorkQueue";
 
-export const RatingModule = (props: {work?: Work | null}) => {
-  const { work } = props;
+export const RatingModule = () => {
+  const { activeWork } = useWorkQueue();
+  const { userRatings, updateUserRatings } = useUserRatings();
 
-  if (!work) return;
-
-  const { workRatings, updateWorkRatings } = useWorkRatings();
+  if (!activeWork) return null;
   
-  const activeRating: number = workRatings[work.id];
+  const activeRating: number = userRatings[activeWork.id];
 
   const isSelectedStyle = (n: number) => {
-    if (!activeRating || activeRating !== n) return 'primary';
+    if (!activeRating || activeRating !== n) return 'secondary';
 
-    return 'secondary';
+    return 'primary';
   };
 
   const options = [
-    { rating: 1, label: "Not my cup of tea" },
+    { rating: 1, label: "Not for me" },
     { rating: 2, label: "This is fine" },
-    { rating: 3, label: "My cup of tea" },
-    { rating: 4, label: "I love this!" },
+    { rating: 3, label: "I like this" },
+    { rating: 4, label: "I LOVE this" },
   ];
 
   return (
-    <ButtonGroup variant="contained" aria-label="Basic button group" orientation="horizontal">
+    <ButtonGroup
+      variant="contained"
+      orientation="horizontal"
+      // fullWidth
+      sx={{
+        boxShadow: 'none',
+      }}
+    >
       { options.map(({ rating, label }) => {
         return (
           <Button
             key={rating}
-            onClick={() => updateWorkRatings(work.id, rating)}
+            onClick={() => updateUserRatings(activeWork.id, rating)}
             color={isSelectedStyle(rating)}
+            sx={{
+              px: 3
+            }}
+            // size="large"
           >
             { label }
           </Button>

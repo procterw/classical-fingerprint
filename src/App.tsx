@@ -1,29 +1,45 @@
 import { WorkCard } from './components/WorkCard';
-import { useWorkFeeder } from './services/workFeeder';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-import Button from '@mui/material/Button';
-import { ComposerCard } from './components/ComposerCard';
 import { WorkPreview } from './components/WorkPreview';
 import { RatingModule } from './components/RatingModule';
-import { MusicNote } from '@mui/icons-material';
-import { AppBar, Box, Icon, Toolbar, Typography } from '@mui/material';
+import { AppBar, Box, Toolbar, Typography } from '@mui/material';
 import { DefinitionList } from './components/DefinitionList';
+import { EpochTimeLine } from './components/EpochTimeLine';
+import { WorkControl } from './components/WorkControl';
+import { useWorkQueue } from './state/useWorkQueue';
+import { useUserRatings } from './state/useUserRatings';
 
 function App() {
-  const [
+  const {
     activeWork,
-    getNextWork,
-  ] = useWorkFeeder();
+    previousWorks,
+    nextWorks,
+  } = useWorkQueue();
+
+  const { userRatings } = useUserRatings();
 
   return (
-    <>
-      <AppBar position="static">
+    <Box
+      sx={{
+        backgroundColor: theme => theme.palette.background.default,
+        pb: 4,
+      }}
+    >
+      <AppBar
+        position="static"
+        sx={{
+          boxShadow: 'none',
+          mb: 4,
+          backgroundColor: theme => theme.palette.background.default,
+          color: theme => theme.palette.text.primary,
+        }}
+      >
         <Container maxWidth="lg">
           <Toolbar disableGutters>
+            {/* <img src={iconUrl} style={{ width: 30, }} /> */}
             <Typography
-              variant="h5"
-              sx={{}}
+              variant="h4"
             >
               Classical Fingerprint
             </Typography>
@@ -38,59 +54,59 @@ function App() {
         }}
         maxWidth="lg"
       >
-
         <WorkCard work={activeWork} />
-
-        <ComposerCard composer={activeWork?.composer} />
-
       </Container>
 
       <Container
-        sx={{
-          bgcolor: 'black',
-          py: 0,
-        }}
         maxWidth={false}
       >
-        <Container maxWidth="lg">
+        <EpochTimeLine composer={activeWork?.composer} />
+      </Container>
 
-          <Grid container spacing={3} sx={{ my: 2 }} >
-            <Grid item md={8} sm={12}>
+      <Container maxWidth="lg">
 
-              <WorkPreview work={activeWork} />
+        <Grid container spacing={3} sx={{ my: 2 }} >
+          <Grid item md={8} sm={12}>
 
-              <Box
-                sx={{
-                  pb: 3
-                }}
-              >
-                <RatingModule work={activeWork} />
-              </Box>
+            <WorkPreview work={activeWork} />
 
-              <Box>
-                <Button
-                  startIcon={<MusicNote/>}
-                  onClick={getNextWork}
-                  variant="contained"
-                  size="large"
-                >
-                  Next work
-                </Button>
-              </Box>
-            </Grid>
-
-            <Grid item md={4} sm={12}>
-              <DefinitionList work={activeWork} />
-            </Grid>
-
+            <Box
+              display="flex"
+              justifyContent="space-between"
+              sx={{
+                my: 2,
+              }}
+            >
+              <RatingModule />
+              <WorkControl />
+            </Box>
           </Grid>
-        </Container>
+
+          <Grid item md={4} sm={12}>
+            <DefinitionList work={activeWork} />
+          </Grid>
+
+        </Grid>
       </Container>
 
-      <Container maxWidth="lg" sx={{ my: 3 }}>
-        {/* <ComposerCard composer={activeWork?.composer} /> */}
+      <Container maxWidth="lg">
+        <pre>
+          { JSON.stringify(userRatings, null, 2) }
+        </pre>
+        
+        <hr />
+
+        <pre>
+          { JSON.stringify(previousWorks, null, 2) }
+        </pre>
+
+        <hr />
+
+        <pre>
+          { JSON.stringify(nextWorks, null, 2) }
+        </pre>
       </Container>
-    </>
+    </Box>
   )
 }
 
