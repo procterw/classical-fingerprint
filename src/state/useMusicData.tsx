@@ -31,7 +31,7 @@ export const MusicDataProvider = (props: { children: React.ReactNode }) => {
         works: Array<Work>,
         composers: Array<Composer>,
       }) => {
-        setWorks(d.works);
+        setWorks(d.works.filter((w) => !!w.preview.title));
         setComposers(d.composers);
 
         setLoading(false);
