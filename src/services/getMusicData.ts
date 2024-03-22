@@ -9,7 +9,7 @@ export interface Work {
   subtitle: string,
   title: string,
   preview: WorkPreview,
-  composer?: Composer,
+  composer: Composer,
 };
 
 export interface WorkPreview {
