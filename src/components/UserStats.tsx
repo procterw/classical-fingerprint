@@ -2,15 +2,6 @@ import * as d3Scale from 'd3-scale';
 import * as d3Array from 'd3-array';
 import { RatedWork, useGetRatedWorks } from '../state/selectors';
 
-const getUniqueValues = (arr: Array<string | number>) => {
-  const unique: Array<string | number> = [];
-  arr.forEach((d) => {
-    if (unique.includes(d)) return;
-    unique.push(d);
-  });
-  return unique;
-};
-
 interface NestedChartData {
   key: string | undefined,
   value: Array<{

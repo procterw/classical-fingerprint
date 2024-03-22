@@ -9,6 +9,7 @@ import { WorkControl } from '../components/WorkControl';
 import { useWorkQueue } from '../state/useWorkQueue';
 import { useUserRatings } from '../state/useUserRatings';
 import { UserStats } from '../components/UserStats';
+import { RatedWorkList } from '../components/RatedWorkList';
 
 export const ExplorationView = () => {
   const {
@@ -36,31 +37,39 @@ export const ExplorationView = () => {
       </Container>
 
 
-      <Container maxWidth="lg">
+      <Container maxWidth="xl">
 
         <Grid container spacing={3} sx={{ my: 2 }} >
-          <Grid item md={8} sm={12}>
+            <Grid item md={7} sm={12}>
 
-            {/* <AppBar position="sticky"> */}
-            <WorkPreview work={activeWork} /> 
+              <AppBar
+                position="sticky"
+                sx={{
+                  backgroundColor: theme => theme.palette.background.default,
+                  boxShadow: 'none',
+                }}
+              >
 
-            <Box
-              display="flex"
-              justifyContent="space-between"
-              sx={{
-                my: 2,
-              }}
-            >
-              <RatingModule />
-              <WorkControl />
-            </Box>
+                <WorkPreview work={activeWork} /> 
 
-            <UserStats />
+                <Box
+                  display="flex"
+                  justifyContent="space-between"
+                  sx={{
+                    my: 2,
+                  }}
+                >
+                  <RatingModule />
+                  <WorkControl />
+                </Box>
 
-          </Grid>
+                {/* <UserStats /> */}
 
-          <Grid item md={4} sm={12}>
+              </AppBar>
+            </Grid>
 
+          <Grid item md={5} sm={12}>
+            <RatedWorkList />
           </Grid>
 
         </Grid>
