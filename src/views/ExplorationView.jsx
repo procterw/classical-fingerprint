@@ -20,7 +20,7 @@ export const ExplorationView = () => {
 
   return (
     <>
-      <Container
+      {/* <Container
         sx={{
           py: 0,
           mb: 3,
@@ -28,7 +28,7 @@ export const ExplorationView = () => {
         maxWidth="lg"
       >
         <WorkCard work={activeWork} />
-      </Container>
+      </Container> */}
 
       <Container
         maxWidth={false}
@@ -69,6 +69,10 @@ export const ExplorationView = () => {
             </Grid>
 
           <Grid item md={5} sm={12}>
+            <WorkCard work={activeWork} />
+
+            <div style={{ marginBottom: 30, width: 1 }} />
+
             <RatedWorkList />
           </Grid>
 
