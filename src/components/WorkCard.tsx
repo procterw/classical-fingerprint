@@ -1,12 +1,29 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, Zoom, Tooltip } from '@mui/material';
 import { Work } from '../services/getMusicData';
 import { ComposerCard } from './ComposerCard';
+import { getWorkTitleDefinitions } from '../services/getWorkTitleDefinitions';
+import { scaleOrdinal } from 'd3-scale';
 
 export const WorkCard = (props: { work?: Work | null }) => {
 
   const { work } = props;
   
   if (!work) return null;
+
+  const x = getWorkTitleDefinitions(work.title);
+  
+  let y = work.title;
+
+  x.forEach((wt, i) => {
+    y = y.replace(wt.match, `___---${i}___`);
+  });
+
+  const z = y.split('___');
+
+  const colorScale = scaleOrdinal(
+    ['orchestration', 'counting', 'key', 'form'],
+    ['#d1c4e9', '#bbdefb', '#c8e6c9', '#ffccbc'],
+  );
 
   return (
     <Box display="flex" gap={2}>
@@ -24,8 +41,35 @@ export const WorkCard = (props: { work?: Work | null }) => {
             fontStyle: 'italic',
             // fontSize: 36,
           }}
-        >      
-          { work.title }
+        >
+          { z.map((segment) => {
+            if (segment.startsWith('---')) {
+              const i = Number(segment.replace('---', ''));
+
+              return (
+                <Tooltip
+                  TransitionComponent={Zoom}
+                  title={x[i].definition}
+                  key={segment}
+                >
+                  <span
+                    style={{
+                      background: colorScale(x[i].category),
+                    }}
+                  >
+                    { x[i].match }
+                  </span>
+                </Tooltip>
+              );
+            }
+            return (
+              <span key={segment}>
+                { segment }
+              </span>
+            );
+          })}
+          {/* // <span  dangerouslySetInnerHTML={{ __html: y }} /> */}
+          {/* { work.title } */}
         </Typography>
         
         <Typography

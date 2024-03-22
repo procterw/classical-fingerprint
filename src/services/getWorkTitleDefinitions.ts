@@ -28,7 +28,7 @@ const definitions: Array<Definition> = [
   },
   {
     "label": "Key signature",
-    "regex": /(\sin\s)([ABDCEFG]\s)(flat\s|sharp\s)?(major|minor)/g,
+    "regex": /(in\s)([ABDCEFG]\s)(flat\s|sharp\s)?(major|minor)/g,
     "definition": "A key signature is any of several combinations of sharps or flats after the clef at the beginning of each stave, indicating the key of a composition.",
     "category": "key",
   },
@@ -97,6 +97,12 @@ const definitions: Array<Definition> = [
     "regex": /Suite/gi,
     "definition": "suite, in music, a group of self-contained instrumental movements of varying character, usually in the same key.",
     "category": "form",
+  },
+  {
+    "label": "Piano quartet",
+    "regex": /Piano\sQuartet/gi,
+    "definition": "A piano quartet is a chamber music composition for piano and three other instruments, or a musical ensemble comprising such instruments. Those other instruments are usually a string trio consisting of a violin, viola and cello.",
+    "category": "orchestration",
   },
   {
     "label": "Piano quintet",
