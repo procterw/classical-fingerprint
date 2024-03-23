@@ -3,17 +3,15 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import { WorkPreview } from '../components/WorkPreview';
 import { RatingModule } from '../components/RatingModule';
-import { AppBar, Box, Tabs, Toolbar, Typography } from '@mui/material';
+import { AppBar, Box, Tab, Tabs } from '@mui/material';
 import { EpochTimeLine } from '../components/EpochTimeLine';
 import { WorkControl } from '../components/WorkControl';
 import { useWorkQueue } from '../state/useWorkQueue';
-import { useUserRatings } from '../state/useUserRatings';
-import { UserStats } from '../components/UserStats';
-import { RatedWorkList } from '../components/RatedWorkList';
 import { ExplorationPlaylist } from '../components/ExplorationPlaylist';
 import { useState } from 'react';
+import { RatedWorkList } from '../components/RatedWorkList';
 
-function a11yProps(index: string) {
+function a11yProps(index: number) {
   return {
     id: `simple-tab-${index}`,
     'aria-controls': `simple-tabpanel-${index}`,
@@ -25,9 +23,11 @@ export const ExplorationView = () => {
     activeWork,
   } = useWorkQueue();
 
-  const { userRatings } = useUserRatings();
-  
   const [tabValue, setTabValue] = useState(0);
+
+  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+    setTabValue(newValue);
+  };
 
   return (
     <>
@@ -80,17 +80,19 @@ export const ExplorationView = () => {
             </Grid>
 
           <Grid item md={5} sm={12}>
-            {/* <Tabs value={tabValue}>
-                <Tab label="Explore" {...a11yProps('explore')} />
-                <Tab label="My Favorites" {...a11yProps('favorites')} />
-            </Tabs> */}
             <WorkCard work={activeWork} />
+
+            <Tabs value={tabValue} onChange={handleChange}>
+                <Tab label="Explore" {...a11yProps(0)} />
+                <Tab label="My Favorites" {...a11yProps(1)} />
+            </Tabs>
 
             <div style={{ marginBottom: 30, width: 1 }} />
 
-            {/* <RatedWorkList /> */}
+            { tabValue === 0 && <ExplorationPlaylist /> }
 
-            <ExplorationPlaylist />
+            { tabValue === 1 && <RatedWorkList /> }
+
           </Grid>
 
         </Grid>
