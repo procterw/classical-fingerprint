@@ -1,6 +1,7 @@
-import { Button, ButtonGroup } from "@mui/material";
+import { ButtonGroup, Button } from "@mui/material";
 import { useUserRatings } from "../state/useUserRatings";
 import { useWorkQueue } from "../state/useWorkQueue";
+import { Favorite, ThumbDown, ThumbUp } from "@mui/icons-material";
 
 export const RatingModule = () => {
   const { activeWork } = useWorkQueue();
@@ -17,10 +18,9 @@ export const RatingModule = () => {
   };
 
   const options = [
-    { rating: 1, label: "Not for me" },
-    { rating: 2, label: "This is fine" },
-    { rating: 3, label: "I like this" },
-    { rating: 4, label: "I LOVE this" },
+    { rating: 1, label: 'Not for me', icon: <ThumbDown /> },
+    { rating: 2, label: 'I like this', icon: <ThumbUp /> },
+    { rating: 3, label: 'I love this!', icon: <Favorite /> },
   ];
 
   return (
@@ -32,7 +32,7 @@ export const RatingModule = () => {
         boxShadow: 'none',
       }}
     >
-      { options.map(({ rating, label }) => {
+      { options.map(({ rating, label, icon }) => {
         return (
           <Button
             key={rating}
@@ -41,7 +41,8 @@ export const RatingModule = () => {
             sx={{
               px: 3
             }}
-            // size="large"
+            size="large"
+            startIcon={icon}
           >
             { label }
           </Button>

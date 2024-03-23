@@ -1,10 +1,10 @@
-import { Button, ButtonGroup } from "@mui/material";
+import { Button, ButtonGroup, IconButton } from "@mui/material";
 import { SkipNext, SkipPrevious } from "@mui/icons-material";
 import { useWorkQueue } from "../state/useWorkQueue";
 
 export const WorkControl = () => {
   const {
-    previousWorks,
+    activeWorkIndex,
     getNextWork,
     getPreviousWork,
    } = useWorkQueue();
@@ -18,18 +18,20 @@ export const WorkControl = () => {
         boxShadow: 'none',
       }}
     >
-      <Button
-        startIcon={<SkipPrevious/>}
+      <IconButton
         onClick={() => getPreviousWork()}
-        variant="contained"
+        // variant="contained"
         color="secondary"
-        disabled={previousWorks.length < 1}
+        disabled={activeWorkIndex < 1}
+        size="large"
       >
-      </Button>
+        <SkipPrevious/>
+      </IconButton>
       <Button
         startIcon={<SkipNext/>}
         onClick={() => getNextWork()}
         variant="contained"
+        size="large"
       >
         Next
       </Button>

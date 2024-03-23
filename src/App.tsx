@@ -8,6 +8,7 @@ function App() {
       sx={{
         backgroundColor: theme => theme.palette.background.default,
         pb: 4,
+        minHeight: '100vh',
       }}
     >
       <AppBar

@@ -1,6 +1,7 @@
 import { Work } from "../services/getMusicData";
 import { useMusicData } from "./useMusicData";
 import { useUserRatings } from "./useUserRatings";
+import { useWorkQueue } from "./useWorkQueue";
 
 export interface RatedWork extends Work {
   rating: number,
@@ -24,4 +25,19 @@ export const useGetRatedWorks = () => {
   });
 
   return ratedWorks;
+};
+
+// TODO I'm not fond of this sort method
+export const useGetWorkQueue = () => {
+  const { works } = useMusicData();
+  const { workQueue } = useWorkQueue();
+
+  const filledWorkQueue: Array<Work> = [];
+
+  workQueue.forEach((id) => {
+    const w = works.find((w) => w.id === id);
+    if (w) filledWorkQueue.push(w);
+  });
+
+  return filledWorkQueue;
 };

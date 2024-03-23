@@ -26,7 +26,9 @@ export const WorkCard = (props: { work?: Work | null }) => {
   );
 
   return (
-    <Box display="flex" gap={2}>
+    <Box display="flex" gap={2} style={{
+      height: 103
+    }}>
 
       <ComposerCard composer={work.composer} />
       
@@ -36,7 +38,7 @@ export const WorkCard = (props: { work?: Work | null }) => {
         gap={0.5}
       >
         <Typography
-          variant="h2"
+          variant="h3"
           sx={{
             fontStyle: 'italic',
             // fontSize: 36,

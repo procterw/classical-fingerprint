@@ -4,29 +4,36 @@ import { useUserRatings } from "./useUserRatings";
 import { useMusicData } from "./useMusicData";
 
 type WorkQueueContextType = {
+  activeWorkIndex: number,
+  setActiveWorkIndex: Function,
   activeWork: Work | null,
-  previousWorks: Array<Work>,
-  nextWorks: Array<Work>,
+  workQueue: Array<string>,
   getNextWork: Function,
   getPreviousWork: Function,
 };
 
 const WorkQueueContext = createContext<WorkQueueContextType>({
+  activeWorkIndex: 0,
+  setActiveWorkIndex: () => {},
   activeWork: null,
-  previousWorks: [],
-  nextWorks: [],
+  workQueue: [],
   getNextWork: () => {},
   getPreviousWork: () => {},
 });
 
-export const WorkQueueProvider = (props: { children: React.ReactNode }) => {
-  // Work that is currently displayed on the page
-  const [activeWork, setActiveWork] = useState<Work | null>(null);
+const shuffleArray = (array: Array<any>): Array<any> => {
+  const arr = [...array];
+  for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
 
-  // Previous and next works are used for a 'undo/redo' system
-  // for navigating through past work
-  const [previousWorks, setPreviousWorks] = useState<Array<Work>>([]);
-  const [nextWorks, setNextWorks] = useState<Array<Work>>([]);
+export const WorkQueueProvider = (props: { children: React.ReactNode }) => {
+
+  const [activeWorkIndex, setActiveWorkIndex]  = useState<number>(0);
+  const [workQueue, setWorkQueue] = useState<Array<string>>([]);
 
   const musicData = useMusicData();
   const { userRatings } = useUserRatings();
@@ -35,57 +42,34 @@ export const WorkQueueProvider = (props: { children: React.ReactNode }) => {
   useEffect(() => {
     if (musicData.completed) {
       getNextWork();
+
+      setWorkQueue(
+        shuffleArray(
+          musicData.works.map((w) => w.id)
+            .filter((wid) => !Object.keys(userRatings).includes(wid)),
+        ),
+      );
     }
   }, [musicData.completed]);
-
   
   const getNextWork = () => {
-    if (activeWork) {
-      setPreviousWorks([...previousWorks, activeWork]);
-    }
-
-    // If the user has previousWorks it means they were backtracking
-    // so we want them to be able to return to works they backed away from
-    if (nextWorks.length > 0) {
-      const nextWorksCopy = [...nextWorks];
-      setActiveWork(nextWorksCopy.pop() || null);
-      setNextWorks(nextWorksCopy);
-
-      return;
-    }
-
-    // What hasn't the user rated yet?
-    const filteredWorks = musicData.works.filter((w: Work) => {
-      return !Object.keys(userRatings).includes(w.id);
-    });
-
-    // Get a random index from the remaining works
-    const i = Math.floor(Math.random() * filteredWorks.length);
-
-    const nextWork = filteredWorks[i];
-  
-    setActiveWork(nextWork);
-  };
-
+    if (activeWorkIndex >= workQueue.length) return;
+    setActiveWorkIndex(activeWorkIndex + 1);
+  }
 
   const getPreviousWork = () => {
-    const previousWorksCopy = [...previousWorks];
-    const nextWork = previousWorksCopy.pop();
-
-    if (!nextWork) return;
-    if (!activeWork) return;
-
-    setNextWorks([...nextWorks, activeWork]);
-
-    setActiveWork(nextWork);
-    setPreviousWorks(previousWorksCopy);
+    if (activeWorkIndex === 0) return;
+    setActiveWorkIndex(activeWorkIndex - 1);
   };
 
+  const activeWorkId = workQueue[activeWorkIndex];
+  const activeWork = musicData.works.find((w) => w.id === activeWorkId) || null;
 
   const state = {
+    activeWorkIndex,
+    setActiveWorkIndex,
     activeWork,
-    previousWorks,
-    nextWorks,
+    workQueue,
     getNextWork,
     getPreviousWork,
   };
