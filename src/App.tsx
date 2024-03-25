@@ -11,7 +11,7 @@ function App() {
         minHeight: '100vh',
       }}
     >
-      <AppBar
+      {/* <AppBar
         position="static"
         sx={{
           boxShadow: 'none',
@@ -22,7 +22,6 @@ function App() {
       >
         <Container maxWidth="lg">
           <Toolbar disableGutters>
-            {/* <img src={iconUrl} style={{ width: 30, }} /> */}
             <Typography
               variant="h4"
             >
@@ -30,7 +29,7 @@ function App() {
             </Typography>
           </Toolbar>
         </Container>
-      </AppBar>
+      </AppBar> */}
 
       <ExplorationView />
     </Box>

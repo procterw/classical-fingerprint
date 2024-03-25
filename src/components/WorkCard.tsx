@@ -69,25 +69,17 @@ export const WorkCard = (props: { work?: Work | null }) => {
                 </span>
               );
             })}
-            {/* // <span  dangerouslySetInnerHTML={{ __html: y }} /> */}
-            {/* { work.title } */}
           </Typography>
           
           <Typography
             variant="h4"
             sx={{
               mt: 0,
-              // fontStyle: 'italic',
             }} >
             { work.composer.complete_name }
           </Typography>
         </Box>
       </Box>
-
-      <Typography
-        variant="body2">
-        {work.composer.bio_preview }
-      </Typography>
     </Box>
   );
 };

@@ -3,13 +3,15 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import { WorkPreview } from '../components/WorkPreview';
 import { RatingModule } from '../components/RatingModule';
-import { AppBar, Box, Tab, Tabs } from '@mui/material';
+import { AppBar, Box, Paper, Tab, Tabs, Toolbar, Typography } from '@mui/material';
 import { EpochTimeLine } from '../components/EpochTimeLine';
 import { WorkControl } from '../components/WorkControl';
 import { useWorkQueue } from '../state/useWorkQueue';
 import { ExplorationPlaylist } from '../components/ExplorationPlaylist';
 import { useState } from 'react';
 import { RatedWorkList } from '../components/RatedWorkList';
+import { ComposerBio } from '../components/ComposerBio';
+import { UserStats } from '../components/UserStats';
 
 function a11yProps(index: number) {
   return {
@@ -39,44 +41,79 @@ export const ExplorationView = () => {
 
       <Container maxWidth="xl">
 
-        <Grid container spacing={3} sx={{ my: 2 }} >
-            <Grid item md={7} sm={12}>
+        <Grid container spacing={3} sx={{ my: 0 }} >
+          <Grid item md={6} sm={12}>
 
-              {/* <AppBar
-                position="sticky"
-                sx={{
-                  backgroundColor: theme => theme.palette.background.default,
-                  boxShadow: 'none',
-                }}
-              > */}
+            {/* <AppBar
+              position="sticky"
+              sx={{
+                backgroundColor: theme => theme.palette.background.default,
+                boxShadow: 'none',
+              }}
+            > */}
 
-                <WorkPreview work={activeWork} /> 
+              <WorkPreview work={activeWork} /> 
 
 
-                <WorkCard work={activeWork} />
-
-                <Box sx={{ mb: 3 }}>
-                  <EpochTimeLine composer={activeWork?.composer} />
-                </Box>
-
-                {/* <UserStats /> */}
-
-              {/* </AppBar> */}
-            </Grid>
-
-          <Grid item md={5} sm={12}>
               <Box
                 display="flex"
-                justifyContent="space-between"
-                sx={{
-                  my: 2,
-                }}
+                // justifyContent="space-between"
+                flexDirection="row-reverse"
+                gap={2}
               >
-                <RatingModule />
                 <WorkControl />
+                <RatingModule />
               </Box>
 
-              <ExplorationPlaylist />
+              {/* <ComposerBio composer={activeWork?.composer} /> */}
+
+            {/* </AppBar> */}
+          </Grid>
+
+          <Grid item md={6} sm={12}>
+
+            {/* <AppBar> */}
+              {/* <Container maxWidth={false}>
+                <Toolbar disableGutters>
+                  <Typography
+                    variant="h4"
+                  >
+                    Classical Fingerprint
+                  </Typography>
+                </Toolbar>
+              </Container> */}
+            {/* </AppBar> */}
+
+
+            <WorkCard work={activeWork} />
+
+            <Box sx={{ mb: 2 }}>
+              <EpochTimeLine composer={activeWork?.composer} />
+            </Box>
+
+            {/* <Paper sx={{ p: 2 }}> */}
+            <ComposerBio composer={activeWork?.composer} />
+            {/* </Paper> */}
+
+            <UserStats />
+
+            {/* <RatedWorkList /> */}
+
+{/* 
+            <Box
+              display="flex"
+              flexDirection="column"
+              maxHeight="100%"
+              overflow="hidden"
+            >
+
+              <Box
+                sx={{ flexGrow: 1, overflow: 'hidden' }}
+              >
+                <ExplorationPlaylist />
+              </Box>
+            </Box> */}
+
             {/* <WorkCard work={activeWork} />
 
             <Tabs value={tabValue} onChange={handleChange}>

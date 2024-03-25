@@ -1,6 +1,9 @@
 import * as d3Scale from 'd3-scale';
 import * as d3Array from 'd3-array';
 import { RatedWork, useGetRatedWorks } from '../state/selectors';
+import { Favorite, ThumbDown, ThumbDownAltRounded, ThumbDownOutlined, ThumbDownRounded, ThumbUp, ThumbUpRounded } from '@mui/icons-material';
+import { themeOptions } from '../main';
+import { Box, Grid, Typography } from '@mui/material';
 
 interface NestedChartData {
   key: string | undefined,
@@ -14,9 +17,16 @@ const RatingChart = (props: {
   data: Array<NestedChartData>,
 }) => {
 
+
+  // const x = `repeating-linear-gradient(-45deg, white, white 2px, ${themeOptions.palette?.primary.main} 2px, ${themeOptions.palette?.primary.main} 4px)`;
+
   const colorScale = d3Scale.scaleOrdinal(
-    [1, 2, 3, 4],
-    ['red', 'pink', 'yellow', 'green'],
+    [1, 2, 3],
+    [
+      'black',
+      `repeating-linear-gradient(-45deg, white, white 2px, ${themeOptions.palette?.primary.main} 2px, ${themeOptions.palette?.primary.main} 4px)`,
+      themeOptions.palette?.primary.main,
+    ],
   );
 
   return (
@@ -24,12 +34,12 @@ const RatingChart = (props: {
       // position: 'absolute',
       display: 'flex',
       width: '100%',
-      background: '#ddd',
+      // background: '#ddd',
       marginBottom: 10,
     }}>
       {/* LABELS */}
 
-      <ul style={{
+      {/* <ul style={{
         listStyle: 'none',
         padding: 0,
         margin: 0,
@@ -46,7 +56,7 @@ const RatingChart = (props: {
 
           </li>
         ))}
-      </ul>
+      </ul> */}
 
       {/* DATA */}
 
@@ -59,22 +69,43 @@ const RatingChart = (props: {
           return (
             <li key={categories.key} style={{
               display: 'flex',
-              height: 20,
+              flexDirection: 'column',
+              // height: 20,
               padding: 0,
               margin: 0,
               marginBottom: 5,
             }}>
-              { categories.value.map((ratings) => {
-                return (
-                  <div key={ratings.key} id={String(categories.key)} style={{
-                    height: 20,
-                    width: (ratings.value.length || 0) * 30,
-                    border: '1px solid black',
-                    marginRight: '2px',
-                    background: colorScale(ratings.key),
-                  }} />
-                );
-              }) }
+              <Typography variant="h5">
+                { categories.key }
+              </Typography>
+              <Box display="flex" flexDirection="row">
+                { categories.value.map((ratings) => {
+                  return (
+                    <Box mr={1}>
+                      { ratings.value.map((_) => {
+                        if (ratings.key === 1) {
+                          return <ThumbDownOutlined fontSize="small"   />
+                        }
+                        if (ratings.key === 2) {
+                          return <ThumbUpRounded fontSize="small" />
+                        }
+                        if (ratings.key === 3) {
+                          return <Favorite fontSize="small" color="primary" />
+                        }
+                      }) }
+                    </Box>
+                  );
+                // return (
+                //   <div key={ratings.key} id={String(categories.key)} style={{
+                //     height: 20,
+                //     width: (ratings.value.length || 0) * 30,
+                //     border: '1px solid black',
+                //     marginRight: '2px',
+                //     background: colorScale(ratings.key),
+                //   }} />
+                // );
+                }) }
+              </Box>
             </li>
           )
         })}
@@ -153,16 +184,14 @@ export const UserStats = () => {
   });
 
   return (
-    <div style={{
-      position: 'relative',
-    }}>
-      
-      <RatingChart data={epochData} />
-
-      <RatingChart data={genreData} />
-
-      <RatingChart data={composerData} />
-
-    </div>
+    <Grid container spacing={2}>
+      <Grid item xs={6}>
+        <RatingChart data={epochData} />
+      </Grid>
+      <Grid item xs={6}>
+        <RatingChart data={genreData} />
+      </Grid>
+      {/* <RatingChart data={composerData} /> */}
+    </Grid>
   );
 };

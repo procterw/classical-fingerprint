@@ -16,9 +16,10 @@ export const EpochTimeLine = (props: { composer?: Composer | null }) => {
     { label: "Early Romantic", startYear: 1830, endYear: 1860, visible: false },
     { label: "Romantic", startYear: 1830, endYear: 1920, visible: true },
     { label: "Late Romantic", startYear: 1860, endYear: 1920, visible: false },
-    { label: "20th Century", startYear: 1920, endYear: 1999, visible: true },
+    { label: "20th Century", startYear: 1920, endYear: 1999, visible: false },
     { label: "Post-War", startYear: 1945, endYear: 1960, visible: false },
     { label: "21st Century", startYear: 2000, endYear: (new Date()).getFullYear(), visible: false },
+    { label: "Modern", startYear: 1920, endYear: (new Date()).getFullYear(), visible: true },
   ];
 
   const yearRange = [

@@ -11,10 +11,10 @@ export const ExplorationPlaylist = () => {
   const workQueue = useGetWorkQueue();
   const { userRatings } = useUserRatings();
 
-  const range = [
-    Math.max(activeWorkIndex - 1, 0),
-    Math.max(activeWorkIndex - 1, 0) + 10,
-  ];
+  // const range = [
+  //   Math.max(activeWorkIndex - 1, 0),
+  //   Math.max(activeWorkIndex - 1, 0) + 10,
+  // ];
 
   return (
     <List
@@ -24,10 +24,14 @@ export const ExplorationPlaylist = () => {
         width: '100%',
         mb: 2,
         bgcolor: 'background.paper',
+        // flexGrow: 1,
+        // maxHeight: '100vh',
+        // height: 400,
+        // overflowY: 'scroll',
       }}
     >
       {
-        workQueue.slice(range[0], range[1]).map((work, i) => {
+        workQueue.map((work, i) => {
           const isActiveTrack = work.id === activeWork?.id;
           const rating = userRatings[work.id];
 

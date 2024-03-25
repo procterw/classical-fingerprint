@@ -6,6 +6,7 @@ export const WorkPreview = (props: { work?: Work | null }) => {
   
   if (!work) return null;
 
+
   return (
     <YouTube
       videoId={work.preview.video_id}
@@ -14,6 +15,7 @@ export const WorkPreview = (props: { work?: Work | null }) => {
         height: '460',
         playerVars: {
           autoplay: 0,
+          start: work.preview.preview_start_s,
         },
       }}
       onReady={() => console.log('gotime!')}

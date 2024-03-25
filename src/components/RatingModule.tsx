@@ -25,11 +25,12 @@ export const RatingModule = () => {
 
   return (
     <ButtonGroup
-      variant="contained"
-      orientation="horizontal"
+      variant="text"
+      // orientation="horizontal"
       // fullWidth
       sx={{
         boxShadow: 'none',
+        // color: 'black',
       }}
     >
       { options.map(({ rating, label, icon }) => {
@@ -39,9 +40,12 @@ export const RatingModule = () => {
             onClick={() => updateUserRatings(activeWork.id, rating)}
             color={isSelectedStyle(rating)}
             sx={{
-              px: 3
+              // px: 3
+              // py: 0,
+              color: 'black',
+              border: 'none',
             }}
-            size="large"
+            // size="large"
             startIcon={icon}
           >
             { label }
