@@ -20,7 +20,8 @@
     "d3-array": "^3.2.4",
     "d3-scale": "^4.0.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-youtube": "^10.1.0"
   },
   "devDependencies": {
     "@types/d3-array": "^3.2.1",

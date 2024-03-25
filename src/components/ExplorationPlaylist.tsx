@@ -7,9 +7,14 @@ import { useUserRatings } from "../state/useUserRatings";
 
 export const ExplorationPlaylist = () => {
 
-  const { activeWork, setActiveWorkIndex } = useWorkQueue();
+  const { activeWork, activeWorkIndex, setActiveWorkIndex } = useWorkQueue();
   const workQueue = useGetWorkQueue();
   const { userRatings } = useUserRatings();
+
+  const range = [
+    Math.max(activeWorkIndex - 1, 0),
+    Math.max(activeWorkIndex - 1, 0) + 10,
+  ];
 
   return (
     <List
@@ -22,7 +27,7 @@ export const ExplorationPlaylist = () => {
       }}
     >
       {
-        workQueue.map((work, i) => {
+        workQueue.slice(range[0], range[1]).map((work, i) => {
           const isActiveTrack = work.id === activeWork?.id;
           const rating = userRatings[work.id];
 

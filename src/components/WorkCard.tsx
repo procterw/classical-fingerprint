@@ -26,63 +26,68 @@ export const WorkCard = (props: { work?: Work | null }) => {
   );
 
   return (
-    <Box display="flex" gap={2} style={{
-      height: 103
-    }}>
+    <Box>
+      <Box display="flex" gap={2} sx={{ mb: 2 }}>
 
-      <ComposerCard composer={work.composer} />
-      
-      <Box
-        display="flex"
-        flexDirection="column"
-        gap={0.5}
-      >
-        <Typography
-          variant="h3"
-          sx={{
-            fontStyle: 'italic',
-            // fontSize: 36,
-          }}
-        >
-          { z.map((segment) => {
-            if (segment.startsWith('---')) {
-              const i = Number(segment.replace('---', ''));
-
-              return (
-                <Tooltip
-                  TransitionComponent={Zoom}
-                  title={x[i].definition}
-                  key={segment}
-                >
-                  <span
-                    style={{
-                      background: colorScale(x[i].category),
-                    }}
-                  >
-                    { x[i].match }
-                  </span>
-                </Tooltip>
-              );
-            }
-            return (
-              <span key={segment}>
-                { segment }
-              </span>
-            );
-          })}
-          {/* // <span  dangerouslySetInnerHTML={{ __html: y }} /> */}
-          {/* { work.title } */}
-        </Typography>
+        <ComposerCard composer={work.composer} />
         
-        <Typography
-          variant="h4"
-          sx={{
-            mt: 0,
-            // fontStyle: 'italic',
-          }} >
-          { work.composer?.complete_name }
-        </Typography>
+        <Box
+          display="flex"
+          flexDirection="column"
+          gap={0.5}
+        >
+          <Typography
+            variant="h3"
+            sx={{
+              fontStyle: 'italic',
+              // fontSize: 36,
+            }}
+          >
+            { z.map((segment) => {
+              if (segment.startsWith('---')) {
+                const i = Number(segment.replace('---', ''));
+
+                return (
+                  <Tooltip
+                    TransitionComponent={Zoom}
+                    title={x[i].definition}
+                    key={segment}
+                  >
+                    <span
+                      style={{
+                        background: colorScale(x[i].category),
+                      }}
+                    >
+                      { x[i].match }
+                    </span>
+                  </Tooltip>
+                );
+              }
+              return (
+                <span key={segment}>
+                  { segment }
+                </span>
+              );
+            })}
+            {/* // <span  dangerouslySetInnerHTML={{ __html: y }} /> */}
+            {/* { work.title } */}
+          </Typography>
+          
+          <Typography
+            variant="h4"
+            sx={{
+              mt: 0,
+              // fontStyle: 'italic',
+            }} >
+            { work.composer.complete_name }
+          </Typography>
+        </Box>
       </Box>
+
+      <Typography
+        variant="body2">
+        {work.composer.bio_preview }
+      </Typography>
     </Box>
   );
 };

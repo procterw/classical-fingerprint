@@ -32,55 +32,52 @@ export const ExplorationView = () => {
   return (
     <>
       {/* <Container
-        sx={{
-          py: 0,
-          mb: 3,
-        }}
-        maxWidth="lg"
-      >
-        <WorkCard work={activeWork} />
-      </Container> */}
-
-      <Container
         maxWidth={false}
       >
         <EpochTimeLine composer={activeWork?.composer} />
-      </Container>
-
+      </Container> */}
 
       <Container maxWidth="xl">
 
         <Grid container spacing={3} sx={{ my: 2 }} >
             <Grid item md={7} sm={12}>
 
-              <AppBar
+              {/* <AppBar
                 position="sticky"
                 sx={{
                   backgroundColor: theme => theme.palette.background.default,
                   boxShadow: 'none',
                 }}
-              >
+              > */}
 
                 <WorkPreview work={activeWork} /> 
 
-                <Box
-                  display="flex"
-                  justifyContent="space-between"
-                  sx={{
-                    my: 2,
-                  }}
-                >
-                  <RatingModule />
-                  <WorkControl />
+
+                <WorkCard work={activeWork} />
+
+                <Box sx={{ mb: 3 }}>
+                  <EpochTimeLine composer={activeWork?.composer} />
                 </Box>
 
                 {/* <UserStats /> */}
 
-              </AppBar>
+              {/* </AppBar> */}
             </Grid>
 
           <Grid item md={5} sm={12}>
-            <WorkCard work={activeWork} />
+              <Box
+                display="flex"
+                justifyContent="space-between"
+                sx={{
+                  my: 2,
+                }}
+              >
+                <RatingModule />
+                <WorkControl />
+              </Box>
+
+              <ExplorationPlaylist />
+            {/* <WorkCard work={activeWork} />
 
             <Tabs value={tabValue} onChange={handleChange}>
                 <Tab label="Explore" {...a11yProps(0)} />
@@ -91,7 +88,7 @@ export const ExplorationView = () => {
 
             { tabValue === 0 && <ExplorationPlaylist /> }
 
-            { tabValue === 1 && <RatedWorkList /> }
+            { tabValue === 1 && <RatedWorkList /> } */}
 
           </Grid>
 

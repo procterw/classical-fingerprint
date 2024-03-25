@@ -26,6 +26,9 @@ export interface Composer {
   death: string | null, // null indicates still alive
   epoch: string,
   portrait: string, // URL?
+  bio_preview: string,
+  biography: string,
+  wiki_url: string,
 }
 
 export const getMusicData = async (onLoad: Function) => {
