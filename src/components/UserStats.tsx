@@ -1,8 +1,6 @@
-import * as d3Scale from 'd3-scale';
 import * as d3Array from 'd3-array';
 import { RatedWork, useGetRatedWorks } from '../state/selectors';
-import { Favorite, ThumbDown, ThumbDownAltRounded, ThumbDownOutlined, ThumbDownRounded, ThumbUp, ThumbUpRounded } from '@mui/icons-material';
-import { themeOptions } from '../main';
+import { Favorite, ThumbDownOutlined, ThumbUpRounded } from '@mui/icons-material';
 import { Box, Grid, Paper, Typography } from '@mui/material';
 
 interface NestedChartData {
@@ -17,26 +15,12 @@ const RatingChart = (props: {
   data: Array<NestedChartData>,
 }) => {
 
-
-  // const x = `repeating-linear-gradient(-45deg, white, white 2px, ${themeOptions.palette?.primary.main} 2px, ${themeOptions.palette?.primary.main} 4px)`;
-
-  const colorScale = d3Scale.scaleOrdinal(
-    [1, 2, 3],
-    [
-      'black',
-      `repeating-linear-gradient(-45deg, white, white 2px, ${themeOptions.palette?.primary.main} 2px, ${themeOptions.palette?.primary.main} 4px)`,
-      themeOptions.palette?.primary.main,
-    ],
-  );
-
   return (
     <div style={{
       display: 'flex',
       width: '100%',
       marginBottom: 10,
     }}>
-    
-
       <ul style={{
         listStyle: 'none',
         padding: 0,

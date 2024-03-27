@@ -1,8 +1,7 @@
-import { ButtonGroup, Button, Box } from "@mui/material";
+import { Button, Box } from "@mui/material";
 import { useUserRatings } from "../state/useUserRatings";
 import { useWorkQueue } from "../state/useWorkQueue";
 import { Favorite, FavoriteBorderOutlined, ThumbDown, ThumbDownAltOutlined, ThumbUp, ThumbUpOffAltOutlined } from "@mui/icons-material";
-import { themeOptions } from "../main";
 
 export const RatingModule = () => {
   const { activeWork } = useWorkQueue();
@@ -24,9 +23,6 @@ export const RatingModule = () => {
 
   return (
     <Box
-      // variant="text"  
-      // orientation="horizontal"
-      // fullWidth
       sx={{
         // py: 2,
       }}

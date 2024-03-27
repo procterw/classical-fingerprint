@@ -1,11 +1,10 @@
 import { Box, IconButton, List, ListItem, ListItemIcon, ListItemText, Typography } from '@mui/material';
 import { useGetRatedWorks } from '../state/selectors';
-import { group, sort } from 'd3-array';
-import { Favorite, FavoriteBorderOutlined, PlayArrowOutlined, PlayCircleFilledOutlined, PlayCircleOutlineRounded, ThumbDownAltOutlined, ThumbUpAlt, ThumbUpAltOutlined } from '@mui/icons-material';
+import { group } from 'd3-array';
+import { Favorite, PlayCircleOutlineRounded, ThumbDownAltOutlined, ThumbUpAlt } from '@mui/icons-material';
 import { Work } from '../services/getMusicData';
 import { useWorkQueue } from '../state/useWorkQueue';
 import { LoaderIcon } from './LoaderIcon';
-import { themeOptions } from '../main';
 
 const WorkItem = (props: { work: Work, rating: number }) => {
   const { activeWork, setActiveWork } = useWorkQueue();
@@ -94,13 +93,6 @@ export const RatedWorkList = () => {
   ).sort((a, b) => {
     return b.rating - a.rating;
   });
-
-  const labels: { [key: number]: string} = {
-    1: 'Not for me',
-    2: 'This is fine',
-    3: 'I like this',
-    4: 'I LOVE this',
-  };
 
   return (
     <Box
