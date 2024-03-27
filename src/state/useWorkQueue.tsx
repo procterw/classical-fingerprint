@@ -6,7 +6,7 @@ import { useMusicData } from "./useMusicData";
 type WorkQueueContextType = {
   activeWorkIndex: number,
   setActiveWorkIndex: Function,
-  setActiveWork: Function,
+  playWork: Function,
   activeWork: Work | null,
   workQueue: Array<string>,
   getNextWork: Function,
@@ -16,7 +16,7 @@ type WorkQueueContextType = {
 const WorkQueueContext = createContext<WorkQueueContextType>({
   activeWorkIndex: 0,
   setActiveWorkIndex: () => {},
-  setActiveWork: () => {},
+  playWork: () => {},
   activeWork: null,
   workQueue: [],
   getNextWork: () => {},
@@ -33,9 +33,11 @@ const shuffleArray = (array: Array<any>): Array<any> => {
 }
 
 export const WorkQueueProvider = (props: { children: React.ReactNode }) => {
-
+  const [activeDirectId, setActiveDirectId] = useState<string | undefined>();
   const [activeWorkIndex, setActiveWorkIndex]  = useState<number>(0);
   const [workQueue, setWorkQueue] = useState<Array<string>>([]);
+
+  const [playMode, setPlayMode] = useState<'random' | 'direct'>('random');
 
   const musicData = useMusicData();
   const { userRatings } = useUserRatings();
@@ -55,30 +57,36 @@ export const WorkQueueProvider = (props: { children: React.ReactNode }) => {
   }, [musicData.completed]);
   
   const getNextWork = () => {
+    // Remove direct play flag
+    setPlayMode('random');
     if (activeWorkIndex >= workQueue.length) return;
     setActiveWorkIndex(activeWorkIndex + 1);
   }
 
   const getPreviousWork = () => {
+    // TODO
+    setPlayMode('random');
     if (activeWorkIndex === 0) return;
     setActiveWorkIndex(activeWorkIndex - 1);
   };
 
-  const setActiveWork = (wId: string) => {
-    const index = workQueue.findIndex(id => id === wId);
-    if (index === undefined) return;
-    if (index > -1) {
-      setActiveWorkIndex(index);
-    }
+  const playWork = (wId: string) => {
+    setPlayMode('direct');
+    setActiveDirectId(wId);
   };
 
   const activeWorkId = workQueue[activeWorkIndex];
-  const activeWork = musicData.works.find((w) => w.id === activeWorkId) || null;
+  const activeWork = musicData.works.find((w) => {
+    if (playMode === 'direct') {
+      return w.id === activeDirectId;
+    }
+    return w.id === activeWorkId;
+  }) || null;
 
   const state = {
     activeWorkIndex,
     setActiveWorkIndex,
-    setActiveWork,
+    playWork,
     activeWork,
     workQueue,
     getNextWork,

@@ -23,9 +23,11 @@ export const ExplorationView = () => {
         <Grid container spacing={3} sx={{ my: 0 }} >
           <Grid item md={7} sm={12}>
 
+              <EpochTimeLine composer={activeWork?.composer} />
+
               <WorkPreview work={activeWork} /> 
 
-              <Box
+               <Box
                 display="flex"
                 justifyContent="space-between"
                 flexDirection="row"
@@ -42,7 +44,7 @@ export const ExplorationView = () => {
               </Box>
 
               <WorkCard work={activeWork} />
-              <EpochTimeLine composer={activeWork?.composer} />
+
               <ComposerBio composer={activeWork?.composer} />
 
           </Grid>

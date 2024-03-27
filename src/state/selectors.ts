@@ -11,6 +11,7 @@ export interface RatedWork extends Work {
 export const useGetRatedWorks = () => {
   const { works } = useMusicData();
   const { userRatings } = useUserRatings();
+  const { activeWork } = useWorkQueue();
 
   const ratedWorks: Array<RatedWork> = [];
 
@@ -24,8 +25,15 @@ export const useGetRatedWorks = () => {
       rating: userRatings[w.id],
     });
   });
+  
+  const sortedRatedWorks = sort(ratedWorks, d => (d.rating * -1), d => d.composer.name, d => d.title);
 
-  return sort(ratedWorks, d => d.composer.name, d => d.title);
+  const activeRating = ratedWorks.find((w) => w.id === activeWork?.id);
+
+  if (activeRating) return sortedRatedWorks;
+  if (!activeWork) return sortedRatedWorks;
+  
+  return [{ ...activeWork, rating: 99 }, ...sortedRatedWorks];
 };
 
 // TODO I'm not fond of this sort method

@@ -79,6 +79,7 @@ export const WorkPreview = (props: { work?: Work | null }) => {
             }}
             onReady={() => console.log('gotime!')}
             onPlay={() => console.log('play time')}
+            onStateChange={() => console.log('hello?????')}
             // onReady=() => console.log('sdfsdfdsfdffff')
             // onPlay=() => console.log('sdfsdfsd')
             // onStateChange=() => console.log('fffff')

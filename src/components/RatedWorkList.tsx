@@ -1,13 +1,28 @@
 import { Box, IconButton, List, ListItem, ListItemIcon, ListItemText, Typography } from '@mui/material';
-import { useGetRatedWorks } from '../state/selectors';
-import { group } from 'd3-array';
+import { SxProps } from '@mui/system';
+import { useEffect, useRef, useState } from 'react';
+import { RatedWork, useGetRatedWorks } from '../state/selectors';
 import { Favorite, PlayCircleOutlineRounded, ThumbDownAltOutlined, ThumbUpAlt } from '@mui/icons-material';
-import { Work } from '../services/getMusicData';
 import { useWorkQueue } from '../state/useWorkQueue';
 import { LoaderIcon } from './LoaderIcon';
+import { cumsum, sum } from 'd3-array';
 
-const WorkItem = (props: { work: Work, rating: number }) => {
-  const { activeWork, setActiveWork } = useWorkQueue();
+const WorkItem = (props: { work: RatedWork, sx?: SxProps, onRender: Function }) => {
+  const { activeWork, playWork } = useWorkQueue();
+  const refContainer = useRef(null);
+  
+  useEffect(() => {
+    // TODO why do I need to ignore this?
+    // @ts-ignore
+    let height = refContainer?.current?.offsetHeight || 0;
+
+    props.onRender(height);
+
+    // TODO debounce?
+    const handleResize = () => props.onRender(height);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   if (!activeWork) return null;
 
@@ -29,7 +44,7 @@ const WorkItem = (props: { work: Work, rating: number }) => {
       <ListItemIcon>
         <IconButton
           size="small"
-          onClick={setActiveWork(activeWork.id)}
+          onClick={() => playWork(props.work.id)}
         >
           <PlayCircleOutlineRounded fontSize="small" />
         </IconButton>
@@ -38,23 +53,19 @@ const WorkItem = (props: { work: Work, rating: number }) => {
   }
 
   const getIcon = () => {
-    // if (!props.rating) return null;
-
     let icon = null;
 
-    if (props.rating == 1) icon = <ThumbDownAltOutlined fontSize="small" />;
-    if (props.rating == 2) icon = <ThumbUpAlt fontSize="small" />;
-    if (props.rating == 3) icon = <Favorite fontSize="small" color="primary" />;
+    if (props.work.rating == 1) icon = <ThumbDownAltOutlined fontSize="small" />;
+    if (props.work.rating == 2) icon = <ThumbUpAlt fontSize="small" />;
+    if (props.work.rating == 3) icon = <Favorite fontSize="small" color="primary" />;
 
     return <ListItemIcon>{ icon }</ListItemIcon>;
   };
 
   return (
     <ListItem
-      sx={{
-        px: 2,
-        py: 0.5,
-      }}
+      sx={props.sx}
+      ref={refContainer}
     >
       { getIcon() }
       { getPlayingIcon() }
@@ -69,35 +80,27 @@ const WorkItem = (props: { work: Work, rating: number }) => {
   );
 };
 
-export const UnratedWorkItem = () => {
+const heights: {[key: string]: number} = {};
+
+export const RatedWorkList = () => {
   const { activeWork } = useWorkQueue();
   const ratedWorks = useGetRatedWorks();
+  const [t, setT] = useState<number>(0);
 
   if (!activeWork) return null;
 
-  const rating = ratedWorks.find((w) => w.id === activeWork.id);
+  const cumHeights = cumsum(
+    ratedWorks.map((w) => heights[w.id] || 0)
+  );
 
-  // if (rating) return <Box height="48px" />
-  if (rating) return null;
-
-  return <WorkItem work={activeWork} rating={0} />;
-}
-
-export const RatedWorkList = () => {
-
-  const ratedWorks = useGetRatedWorks();
-
-  const groupedRatedWorks = Array.from(
-    group(ratedWorks, d => d.rating),
-    ([rating, works]) => ({ rating, works }),
-  ).sort((a, b) => {
-    return b.rating - a.rating;
-  });
+  const totalHeight = cumHeights[cumHeights.length - 1];
 
   return (
     <Box
       sx={{
         width: '100%',
+        pb: `${Math.min(450, totalHeight)}px`,
+        mb: 2,
       }}
     >
       <Typography variant="h4" sx={{ mb: 2 }}>
@@ -111,29 +114,29 @@ export const RatedWorkList = () => {
           width: '100%',
           bgcolor: 'background.paper',
           mb: 2,
+          position: 'absolute',
+          height: Math.min(450, totalHeight),
+          overflowY: 'scroll',
         }}
       >
-        <UnratedWorkItem />
+        { ratedWorks.map((work, i) => {
+          return (
+            <WorkItem
+              key={work.id}
+              work={work}
+              onRender={(height: number) => {
+                heights[work.id] = height;
+                setT(Date.now());
+              }}
+              sx={{
+                position: 'absolute',
+                top: `${cumHeights[i - 1] || 0}px`,
+                transition: 'top 0.2s ease-out'
+              }}
+            />
+          );
+        })}
       </List>
-
-      { groupedRatedWorks.map((ratingGroup) => (
-        <>
-          <List
-            dense
-            disablePadding
-            sx={{
-              width: '100%',
-              bgcolor: 'background.paper',
-            }}
-          >
-            { ratingGroup.works.map((work) => {
-              return (
-                <WorkItem work={work} rating={ratingGroup.rating} />
-              );
-            })}
-          </List>
-        </>
-      ))}
     </Box>
   );
 };

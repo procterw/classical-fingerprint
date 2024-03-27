@@ -6,8 +6,6 @@ export const EpochTimeLine = (props: { composer?: Composer | null }) => {
 
   const { composer } = props;
 
-  if (!composer) return null;
-
   const epochs = [
     { label: "Medieval", startYear: 1150, endYear: 1400, visible: true },
     { label: "Renaissance", startYear: 1400, endYear: 1600, visible: true },
@@ -44,9 +42,9 @@ export const EpochTimeLine = (props: { composer?: Composer | null }) => {
     return ticks;
   };
 
-  const getComposerYear = (cYear: string | null) => {
-    if (cYear == null) {
-      return Number((new Date()).getFullYear);
+  const getComposerYear = (cYear: string | undefined | null) => {
+    if (!cYear) {
+      return Number((new Date()).getFullYear());
     }
     return Number(cYear.split('-')[0]);
   }
@@ -92,8 +90,8 @@ export const EpochTimeLine = (props: { composer?: Composer | null }) => {
         <Box
           sx={{
             position: 'absolute',
-            left: `${xScale(getComposerYear(composer.birth))}%`,
-            right: `${100 - xScale(getComposerYear(composer.death))}%`,
+            left: `${xScale(getComposerYear(composer?.birth))}%`,
+            right: `${100 - xScale(getComposerYear(composer?.death))}%`,
             top: 17,
             height: 20,
             transitionProperty: 'left, right',
