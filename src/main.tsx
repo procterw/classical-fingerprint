@@ -14,7 +14,7 @@ export const themeOptions: ThemeOptions = {
       main: '#DA6A57',
     },
     secondary: {
-      main: '#FFF',
+      main: '#000',
     },
     background: {
       default: '#F6F1EA',
@@ -23,6 +23,7 @@ export const themeOptions: ThemeOptions = {
     text: {
       primary: '#000',
     },
+    
   },
   typography: {
     fontFamily: '"Playfair Display", serif',

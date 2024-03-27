@@ -29,7 +29,7 @@ export const WorkCard = (props: { work?: Work | null }) => {
     <Box>
       <Box display="flex" gap={2} sx={{ mb: 2 }}>
 
-        <ComposerCard composer={work.composer} />
+        {/* <ComposerCard composer={work.composer} /> */}
         
         <Box
           display="flex"
