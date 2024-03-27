@@ -1,3 +1,4 @@
+import { sort } from "d3-array";
 import { Work } from "../services/getMusicData";
 import { useMusicData } from "./useMusicData";
 import { useUserRatings } from "./useUserRatings";
@@ -24,7 +25,7 @@ export const useGetRatedWorks = () => {
     });
   });
 
-  return ratedWorks;
+  return sort(ratedWorks, d => d.composer.name, d => d.title);
 };
 
 // TODO I'm not fond of this sort method

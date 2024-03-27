@@ -10,7 +10,6 @@ export const LoaderIcon = () => {
         height: 30,
       }}
     >
-
       <div className="loader-icon__black-key loader-icon__f-sharp" />
       <div className="loader-icon__black-key loader-icon__g-sharp" />
       <div className="loader-icon__black-key loader-icon__a-sharp" />

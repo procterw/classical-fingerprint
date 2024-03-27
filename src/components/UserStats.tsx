@@ -3,7 +3,7 @@ import * as d3Array from 'd3-array';
 import { RatedWork, useGetRatedWorks } from '../state/selectors';
 import { Favorite, ThumbDown, ThumbDownAltRounded, ThumbDownOutlined, ThumbDownRounded, ThumbUp, ThumbUpRounded } from '@mui/icons-material';
 import { themeOptions } from '../main';
-import { Box, Grid, Typography } from '@mui/material';
+import { Box, Grid, Paper, Typography } from '@mui/material';
 
 interface NestedChartData {
   key: string | undefined,
@@ -31,34 +31,11 @@ const RatingChart = (props: {
 
   return (
     <div style={{
-      // position: 'absolute',
       display: 'flex',
       width: '100%',
-      // background: '#ddd',
       marginBottom: 10,
     }}>
-      {/* LABELS */}
-
-      {/* <ul style={{
-        listStyle: 'none',
-        padding: 0,
-        margin: 0,
-      }}>
-        { props.data.map((d) => (
-          <li key={d.key} style= {{
-            height: 20,
-            padding: 0,
-            margin: 0,
-            marginBottom: 5,
-          }}>
-
-            <label>{ d.key } </label>
-
-          </li>
-        ))}
-      </ul> */}
-
-      {/* DATA */}
+    
 
       <ul style={{
         listStyle: 'none',
@@ -75,19 +52,20 @@ const RatingChart = (props: {
               margin: 0,
               marginBottom: 5,
             }}>
-              <Typography variant="h5">
+              <Typography variant="h4" fontSize={15} fontWeight={500} sx={{ mb: 1 }}>
                 { categories.key }
               </Typography>
               <Box display="flex" flexDirection="row">
                 { categories.value.map((ratings) => {
                   return (
-                    <Box mr={1}>
+                    <Box mr={0.4}>
                       { ratings.value.map((_) => {
                         if (ratings.key === 1) {
-                          return <ThumbDownOutlined fontSize="small"   />
+                          // TODO change color value to not be hardcoded
+                          return <ThumbDownOutlined fontSize="small" sx={{ color: '#757575' }}  />
                         }
                         if (ratings.key === 2) {
-                          return <ThumbUpRounded fontSize="small" />
+                          return <ThumbUpRounded fontSize="small" sx={{ color: '#757575' }} />
                         }
                         if (ratings.key === 3) {
                           return <Favorite fontSize="small" color="primary" />
@@ -95,15 +73,6 @@ const RatingChart = (props: {
                       }) }
                     </Box>
                   );
-                // return (
-                //   <div key={ratings.key} id={String(categories.key)} style={{
-                //     height: 20,
-                //     width: (ratings.value.length || 0) * 30,
-                //     border: '1px solid black',
-                //     marginRight: '2px',
-                //     background: colorScale(ratings.key),
-                //   }} />
-                // );
                 }) }
               </Box>
             </li>
@@ -168,30 +137,46 @@ export const UserStats = () => {
     };
   });
 
-  const composerData = Array.from(
-    d3Array.group(ratedWorks, d => epochMap(d.composer.name), d => d.rating),
-    ([key, value]) => ({key, value}),
-  ).map((d) => {
-    return {
-      key: d.key,
-      value: Array.from(
-        d.value,
-        ([key, value]) => ({key, value})
-      ).sort((a, b) => {
-        return a.key - b.key;
-      }),
-    };
-  });
+  // const composerData = Array.from(
+  //   d3Array.group(ratedWorks, d => epochMap(d.composer.name), d => d.rating),
+  //   ([key, value]) => ({key, value}),
+  // ).map((d) => {
+  //   return {
+  //     key: d.key,
+  //     value: Array.from(
+  //       d.value,
+  //       ([key, value]) => ({key, value})
+  //     ).sort((a, b) => {
+  //       return a.key - b.key;
+  //     }),
+  //   };
+  // });
 
   return (
-    <Grid container spacing={2}>
-      <Grid item xs={6}>
-        <RatingChart data={epochData} />
-      </Grid>
-      <Grid item xs={6}>
-        <RatingChart data={genreData} />
-      </Grid>
-      {/* <RatingChart data={composerData} /> */}
-    </Grid>
+    <Box>
+      <Typography variant="h4" sx={{ mb: 3 }}>
+        My Summary
+      </Typography>
+
+      <Paper
+        elevation={0}
+        square={true}
+        sx={{
+          p: 2,
+          my: 3,
+        }}
+      >
+
+        <Grid container spacing={2}>
+          <Grid item xs={6}>
+            <RatingChart data={epochData} />
+          </Grid>
+          <Grid item xs={6}>
+            <RatingChart data={genreData} />
+          </Grid>
+          {/* <RatingChart data={composerData} /> */}
+        </Grid>
+      </Paper>
+    </Box>
   );
 };

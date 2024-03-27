@@ -6,6 +6,7 @@ import { useMusicData } from "./useMusicData";
 type WorkQueueContextType = {
   activeWorkIndex: number,
   setActiveWorkIndex: Function,
+  setActiveWork: Function,
   activeWork: Work | null,
   workQueue: Array<string>,
   getNextWork: Function,
@@ -15,6 +16,7 @@ type WorkQueueContextType = {
 const WorkQueueContext = createContext<WorkQueueContextType>({
   activeWorkIndex: 0,
   setActiveWorkIndex: () => {},
+  setActiveWork: () => {},
   activeWork: null,
   workQueue: [],
   getNextWork: () => {},
@@ -62,12 +64,21 @@ export const WorkQueueProvider = (props: { children: React.ReactNode }) => {
     setActiveWorkIndex(activeWorkIndex - 1);
   };
 
+  const setActiveWork = (wId: string) => {
+    const index = workQueue.findIndex(id => id === wId);
+    if (index === undefined) return;
+    if (index > -1) {
+      setActiveWorkIndex(index);
+    }
+  };
+
   const activeWorkId = workQueue[activeWorkIndex];
   const activeWork = musicData.works.find((w) => w.id === activeWorkId) || null;
 
   const state = {
     activeWorkIndex,
     setActiveWorkIndex,
+    setActiveWork,
     activeWork,
     workQueue,
     getNextWork,

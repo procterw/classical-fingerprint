@@ -23,7 +23,7 @@ export const WorkControl = () => {
         // variant="contained"
         color="secondary"
         disabled={activeWorkIndex < 1}
-        size="large"
+        // size="large"
       >
         <SkipPrevious/>
       </IconButton>
@@ -31,9 +31,9 @@ export const WorkControl = () => {
         startIcon={<SkipNext/>}
         onClick={() => getNextWork()}
         variant="contained"
-        size="large"
+        // size="large"
       >
-        Next
+        Another!
       </Button>
     </ButtonGroup>
   );

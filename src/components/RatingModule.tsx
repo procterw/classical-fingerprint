@@ -1,7 +1,8 @@
-import { ButtonGroup, Button } from "@mui/material";
+import { ButtonGroup, Button, Box } from "@mui/material";
 import { useUserRatings } from "../state/useUserRatings";
 import { useWorkQueue } from "../state/useWorkQueue";
-import { Favorite, ThumbDown, ThumbUp } from "@mui/icons-material";
+import { Favorite, FavoriteBorderOutlined, ThumbDown, ThumbDownAltOutlined, ThumbUp, ThumbUpOffAltOutlined } from "@mui/icons-material";
+import { themeOptions } from "../main";
 
 export const RatingModule = () => {
   const { activeWork } = useWorkQueue();
@@ -12,47 +13,45 @@ export const RatingModule = () => {
   const activeRating: number = userRatings[activeWork.id];
 
   const isSelectedStyle = (n: number) => {
-    if (!activeRating || activeRating !== n) return 'secondary';
-
-    return 'primary';
+    return (activeRating && activeRating === n);
   };
 
   const options = [
-    { rating: 1, label: 'Not for me', icon: <ThumbDown /> },
-    { rating: 2, label: 'I like this', icon: <ThumbUp /> },
-    { rating: 3, label: 'I love this!', icon: <Favorite /> },
+    { rating: 1, label: 'Not for me', icon: <ThumbDown />, icon2: <ThumbDownAltOutlined /> },
+    { rating: 2, label: 'I like this', icon: <ThumbUp />, icon2: <ThumbUpOffAltOutlined /> },
+    { rating: 3, label: 'I love this!', icon: <Favorite />, icon2: <FavoriteBorderOutlined /> },
   ];
 
   return (
-    <ButtonGroup
-      variant="text"
+    <Box
+      // variant="text"  
       // orientation="horizontal"
       // fullWidth
       sx={{
-        boxShadow: 'none',
-        // color: 'black',
+        // py: 2,
       }}
     >
-      { options.map(({ rating, label, icon }) => {
+      { options.map(({ rating, label, icon, icon2 }) => {
         return (
           <Button
+            // variant="outlined"
             key={rating}
             onClick={() => updateUserRatings(activeWork.id, rating)}
-            color={isSelectedStyle(rating)}
+            color={isSelectedStyle(rating) ? 'primary' : 'secondary'}
             sx={{
-              // px: 3
-              // py: 0,
-              color: 'black',
-              border: 'none',
+              px: 3,
+              py: 2,
+              // color: isSelectedStyle(rating) ? undefined : themeOptions.palette?.text?.primary,
+              // border: 'none',
             }}
             // size="large"
-            startIcon={icon}
+            startIcon={isSelectedStyle(rating) ? icon : icon2}
           >
             { label }
           </Button>
         );
       })}
-    </ButtonGroup>
+    </Box>
   );
 };
 

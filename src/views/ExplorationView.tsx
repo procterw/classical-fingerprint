@@ -42,7 +42,7 @@ export const ExplorationView = () => {
       <Container maxWidth="xl">
 
         <Grid container spacing={3} sx={{ my: 0 }} >
-          <Grid item md={6} sm={12}>
+          <Grid item md={7} sm={12}>
 
             {/* <AppBar
               position="sticky"
@@ -54,23 +54,32 @@ export const ExplorationView = () => {
 
               <WorkPreview work={activeWork} /> 
 
-
               <Box
                 display="flex"
-                // justifyContent="space-between"
-                flexDirection="row-reverse"
+                justifyContent="space-between"
+                flexDirection="row"
+                sx={{
+                  mb: 3,
+                  p: 2,
+                  background: '#2b2723',
+                }}
                 gap={2}
               >
-                <WorkControl />
+                <Box />
                 <RatingModule />
+                <WorkControl />
               </Box>
 
-              {/* <ComposerBio composer={activeWork?.composer} /> */}
+              <WorkCard work={activeWork} />
+              {/* <Paper square={true} elevation={0} sx={{ p: 2 }}> */}
+                <EpochTimeLine composer={activeWork?.composer} />
+                <ComposerBio composer={activeWork?.composer} />
+              {/* </Paper> */}
 
             {/* </AppBar> */}
           </Grid>
 
-          <Grid item md={6} sm={12}>
+          <Grid item md={5} sm={12}>
 
             {/* <AppBar> */}
               {/* <Container maxWidth={false}>
@@ -84,20 +93,39 @@ export const ExplorationView = () => {
               </Container> */}
             {/* </AppBar> */}
 
-
+{/* 
             <WorkCard work={activeWork} />
 
             <Box sx={{ mb: 2 }}>
               <EpochTimeLine composer={activeWork?.composer} />
-            </Box>
+            </Box> */}
 
             {/* <Paper sx={{ p: 2 }}> */}
-            <ComposerBio composer={activeWork?.composer} />
+            {/* <ComposerBio composer={activeWork?.composer} /> */}
             {/* </Paper> */}
 
-            <UserStats />
+            {/* <UserStats /> */}
 
-            {/* <RatedWorkList /> */}
+            <Typography
+              variant="h1"
+              sx={{
+                mb: 3,
+              }}
+            >
+              App Name Goes Here
+            </Typography>
+
+            <RatedWorkList />
+
+            <Box
+              sx={{
+                my: 3,
+              }}
+            >
+              <UserStats />
+            </Box>
+
+            {/* <ExplorationPlaylist /> */}
 
 {/* 
             <Box

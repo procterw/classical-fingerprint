@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { Composer } from "../services/getMusicData";
 
 
@@ -75,7 +75,7 @@ export const EpochTimeLine = (props: { composer?: Composer | null }) => {
         display: 'block',
         position: 'relative',
         width: '100%',
-        height: 50,
+        height: 75,
         // background: '#DDD',
       }}
     >
@@ -120,11 +120,12 @@ export const EpochTimeLine = (props: { composer?: Composer | null }) => {
               top: 16,
             }}
           >
-            <label
-              style={{
+            <Typography
+              variant="h6"
+              sx={{
                 position: 'absolute',
-                top: -15,
-                fontSize: 11  ,
+                top: -18,
+                fontSize: 12,
                 fontWeight: 700,
                 fontStyle: 'italic',
                 left: 0,
@@ -133,7 +134,7 @@ export const EpochTimeLine = (props: { composer?: Composer | null }) => {
               }}
             >
               { epoch.label }
-            </label>
+            </Typography>
           </div>
         ))}
 
@@ -158,15 +159,17 @@ export const EpochTimeLine = (props: { composer?: Composer | null }) => {
               top: 36,
             }}
           >
-            <label
-              style={{
+            <Typography
+              sx={{
                 fontSize: 11,
                 fontWeight: 700,
-                marginLeft: -12,
+                marginLeft: -1.6,
+                marginTop: 0.6,
+                fontStyle: 'italic',
               }}
             >
               { tick.showLabel ? tick.year : " " }
-            </label>
+            </Typography>
 
             <div
               style={{
