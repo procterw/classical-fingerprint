@@ -11,16 +11,13 @@ export const WorkControl = () => {
 
   return (
     <ButtonGroup
-      variant="contained"
+      variant="outlined"
       orientation="horizontal"
-      sx={{
-        my: 1,
-        boxShadow: 'none',
-      }}
+      size="large"
+      disableElevation
     >
       <IconButton
         onClick={() => getPreviousWork()}
-        // variant="contained"
         color="secondary"
         disabled={activeWorkIndex < 1}
         // size="large"
@@ -31,6 +28,7 @@ export const WorkControl = () => {
         startIcon={<SkipNext/>}
         onClick={() => getNextWork()}
         variant="contained"
+        sx={{ borderRadius: 0 }}
         // size="large"
       >
         Another!
