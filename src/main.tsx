@@ -31,16 +31,16 @@ export const themeOptions: ThemeOptions = {
     fontWeightRegular: 400,
     fontWeightMedium: 400,
     h1: {
-      fontSize: 42,
-    },
-    h2: {
       fontSize: 36,
     },
-    h3: {
+    h2: {
       fontSize: 30,
     },
-    h4: {
+    h3: {
       fontSize: 24,
+    },
+    h4: {
+      fontSize: 21,
     },
     h5: {
       fontSize: 15,

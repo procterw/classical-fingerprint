@@ -13,21 +13,21 @@ export const WorkPreview = (props: { work?: Work | null }) => {
         flexDirection: 'column',
       }}
     >
-      <div
+      {/* <div
         style={{
           width: '100%',
           height: '15px',
           background: '#000',
         }}
-      />
+      /> */}
       <div
         style={{
-          height: 650,
+          height: 450,
           overflow: 'hidden',
           background: '#000',
           position: 'relative',
-          borderLeft: '10px solid #000',
-          borderRight: '10px solid #000',
+          // borderLeft: '10px solid #000',
+          // borderRight: '10px solid #000',
         }}
       >
         <div
@@ -38,10 +38,10 @@ export const WorkPreview = (props: { work?: Work | null }) => {
             videoId={work.preview.video_id}
             opts={{
               width: '100%',
-              height: '710',
+              height: '510',
               // marginTop: -60 ,
               playerVars: {
-                autoplay: 0,
+                autoplay: 1,
                 start: work.preview.preview_start_s,
               },
             }}

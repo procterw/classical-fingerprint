@@ -37,7 +37,7 @@ export const WorkCard = (props: { work?: Work | null }) => {
           gap={0.5}
         >
           <Typography
-            variant="h3"
+            variant="h2"
             sx={{
               fontStyle: 'italic',
               // fontSize: 36,
@@ -71,13 +71,13 @@ export const WorkCard = (props: { work?: Work | null }) => {
             })}
           </Typography>
           
-          <Typography
+          {/* <Typography
             variant="h4"
             sx={{
               mt: 0,
             }} >
             { work.composer.complete_name }
-          </Typography>
+          </Typography> */}
         </Box>
       </Box>
     </Box>
