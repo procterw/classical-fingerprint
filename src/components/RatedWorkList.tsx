@@ -1,11 +1,11 @@
-import { Box, IconButton, List, ListItem, ListItemIcon, ListItemText, Typography } from '@mui/material';
+import { Box, IconButton, List, ListItem, ListItemIcon, ListItemText, Tab, Tabs, Typography } from '@mui/material';
 import { SxProps } from '@mui/system';
 import { useEffect, useRef, useState } from 'react';
 import { RatedWork, useGetRatedWorks } from '../state/selectors';
 import { Favorite, PlayCircleOutlineRounded, ThumbDownAltOutlined, ThumbUpAlt } from '@mui/icons-material';
 import { useWorkQueue } from '../state/useWorkQueue';
 import { LoaderIcon } from './LoaderIcon';
-import { cumsum, sum } from 'd3-array';
+import { cumsum, groups, sort } from 'd3-array';
 
 const WorkItem = (props: { work: RatedWork, sx?: SxProps, onRender: Function }) => {
   const { activeWork, playWork } = useWorkQueue();
@@ -82,24 +82,103 @@ const WorkItem = (props: { work: RatedWork, sx?: SxProps, onRender: Function }) 
 
 const heights: {[key: string]: number} = {};
 
-export const RatedWorkList = () => {
-  const { activeWork } = useWorkQueue();
-  const ratedWorks = useGetRatedWorks();
+export const RatedWorkSubList = (
+  props: { works: Array<RatedWork> }
+) => {
+
   const [t, setT] = useState<number>(0);
 
-  if (!activeWork) return null;
-
   const cumHeights = cumsum(
-    ratedWorks.map((w) => heights[w.id] || 0)
+    props.works.map((w) => heights[w.id] || 0)
   );
 
   const totalHeight = cumHeights[cumHeights.length - 1];
+
+  console.log(heights);
+
+  return (
+    <List
+      dense
+      disablePadding
+      sx={{
+        width: '100%',
+        bgcolor: 'background.paper',
+        mb: 2,
+        position: 'relative',
+        // height:   Math.min(450, totalHeight),
+        height: totalHeight,
+        // overflowY: 'scroll',
+      }}
+    >
+      { props.works.map((work, i) => {
+        return (
+          <WorkItem
+            key={work.id}
+            work={work}
+            onRender={(height: number) => {
+              heights[work.id] = height;
+              setT(Date.now());
+            }}
+            sx={{
+              position: 'absolute',
+              top: `${cumHeights[i - 1] || 0}px`,
+              transition: 'top 0.2s ease-out'
+            }}
+          />
+        );
+      })}
+    </List>
+  );
+};
+
+
+
+function a11yProps(index: number) {
+  return {
+    id: `full-width-tab-${index}`,
+    'aria-controls': `full-width-tabpanel-${index}`,
+  };
+}
+
+const getEpochIndex = (epoch: string) => {
+  return [
+    'Medieval',
+    'Renaissance',
+    'Baroque',
+    'Classical',
+    'Early Romantic',
+    'Romantic',
+    'Late Romantic',
+    '20th Century',
+    'Post-War',
+    '21st Century',
+  ].indexOf(epoch);
+};
+
+export const RatedWorkList = () => {
+  const { activeWork } = useWorkQueue();
+  const ratedWorks = useGetRatedWorks();
+
+  const [value, setValue] = useState(0);
+
+  if (!activeWork) return null;
+
+  const variations: Array<Array<[string, Array<RatedWork>]>> = [
+    [['', ratedWorks]],
+    sort(groups(ratedWorks, d => d.composer.epoch), d => getEpochIndex(d[0])),
+    sort(groups(ratedWorks, d => d.genre), d => d[0]),
+    sort(groups(ratedWorks, d => d.composer.name), d => d[0]),
+  ];
+
+  const handleChange = (_: React.SyntheticEvent, newValue: number) => {
+    setValue(newValue);
+  };
 
   return (
     <Box
       sx={{
         width: '100%',
-        pb: `${Math.min(450, totalHeight)}px`,
+        // pb: `${Math.min(450, totalHeight)}px`,
         mb: 2,
       }}
     >
@@ -107,36 +186,40 @@ export const RatedWorkList = () => {
         My Ratings
       </Typography>
 
-      <List
-        dense
-        disablePadding
-        sx={{
-          width: '100%',
-          bgcolor: 'background.paper',
-          mb: 2,
-          position: 'absolute',
-          height: Math.min(450, totalHeight),
-          overflowY: 'scroll',
-        }}
+      <Tabs
+        value={value}
+        onChange={handleChange}
+        indicatorColor="secondary"
+        textColor="inherit"
+        variant="fullWidth"
+        aria-label="full width tabs example"
       >
-        { ratedWorks.map((work, i) => {
+          <Tab label="All Works" {...a11yProps(0)} />
+          <Tab label="By Epoch" {...a11yProps(1)} />
+          <Tab label="By Genre" {...a11yProps(2)} />
+          <Tab label="By Composer" {...a11yProps(3)} />
+      </Tabs>
+
+      <Box sx={{
+        maxHeight: 600,
+        overflowY: 'scroll',
+      }}>
+        { variations[value].map((variation) => {
           return (
-            <WorkItem
-              key={work.id}
-              work={work}
-              onRender={(height: number) => {
-                heights[work.id] = height;
-                setT(Date.now());
-              }}
-              sx={{
-                position: 'absolute',
-                top: `${cumHeights[i - 1] || 0}px`,
-                transition: 'top 0.2s ease-out'
-              }}
-            />
+            <>
+              { variation[0] && (
+                <Typography variant="h5" sx={{ mb: 1 }}>
+                  { variation[0] }
+                </Typography>
+              )}
+
+                <RatedWorkSubList
+                  works={variation[1]}
+                />
+            </>
           );
         })}
-      </List>
+      </Box>
     </Box>
   );
 };

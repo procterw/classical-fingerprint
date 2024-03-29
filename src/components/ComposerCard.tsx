@@ -57,7 +57,7 @@ export const ComposerCard = (props: { composer?: Composer }) => {
       >
           <ComposerAvatar composer={composer} avatarSize={80} />
 
-          <Box>
+          <Box sx={{ ml: 2 }}>
 
             <Typography
               sx={{ mb: 1 }}

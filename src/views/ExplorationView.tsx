@@ -109,7 +109,7 @@ export const ExplorationView = () => {
 
             {/* <ComposerCard composer={activeWork?.composer} /> */}
 
-            <UserStats />
+            {/* <UserStats /> */}
 
           </Grid>
         </Grid>
