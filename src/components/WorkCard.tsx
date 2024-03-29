@@ -1,6 +1,5 @@
 import { Box, Typography, Zoom, Tooltip } from '@mui/material';
 import { Work } from '../services/getMusicData';
-import { ComposerCard } from './ComposerCard';
 import { getWorkTitleDefinitions } from '../services/getWorkTitleDefinitions';
 import { scaleOrdinal } from 'd3-scale';
 
@@ -10,15 +9,15 @@ export const WorkCard = (props: { work?: Work | null }) => {
   
   if (!work) return null;
 
-  const x = getWorkTitleDefinitions(work.title);
+  const definitions = getWorkTitleDefinitions(work.title);
   
-  let y = work.title;
+  let workTitle = work.title;
 
-  x.forEach((wt, i) => {
-    y = y.replace(wt.match, `___---${i}___`);
+  definitions.forEach((wt, i) => {
+    workTitle = workTitle.replace(wt.match, `___---${i}___`);
   });
 
-  const z = y.split('___');
+  const titleSegments = workTitle.split('___').filter(Boolean);
 
   const colorScale = scaleOrdinal(
     ['orchestration', 'counting', 'key', 'form'],
@@ -29,8 +28,6 @@ export const WorkCard = (props: { work?: Work | null }) => {
     <Box>
       <Box display="flex" gap={2} sx={{ mb: 2 }}>
 
-        {/* <ComposerCard composer={work.composer} /> */}
-        
         <Box
           display="flex"
           flexDirection="column"
@@ -40,44 +37,37 @@ export const WorkCard = (props: { work?: Work | null }) => {
             variant="h2"
             sx={{
               fontStyle: 'italic',
-              // fontSize: 36,
             }}
           >
-            { z.map((segment) => {
-              if (segment.startsWith('---')) {
-                const i = Number(segment.replace('---', ''));
+            { titleSegments.map((segment, j) => {
+              const key = `${segment}_${work.id}_${j}`;
 
-                return (
-                  <Tooltip
-                    TransitionComponent={Zoom}
-                    title={x[i].definition}
-                    key={segment}
-                  >
-                    <span
-                      style={{
-                        background: colorScale(x[i].category),
-                      }}
-                    >
-                      { x[i].match }
-                    </span>
-                  </Tooltip>
-                );
-              }
+              const i = Number(segment.replace('---', ''));
+
               return (
-                <span key={segment}>
-                  { segment }
+                <span key={key} id={key}>
+                  { segment.startsWith('---') ? (
+                    <Tooltip
+                      TransitionComponent={Zoom}
+                      title={definitions[i].definition}
+                    >
+                      <span
+                        style={{
+                          background: colorScale(definitions[i].category),
+                        }}
+                      >
+                        { definitions[i].match }
+                      </span>
+                    </Tooltip>
+                  ) : (
+                    <span>
+                      { segment }
+                    </span>
+                  )}
                 </span>
               );
             })}
           </Typography>
-          
-          {/* <Typography
-            variant="h4"
-            sx={{
-              mt: 0,
-            }} >
-            { work.composer.complete_name }
-          </Typography> */}
         </Box>
       </Box>
     </Box>

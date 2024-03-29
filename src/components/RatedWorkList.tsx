@@ -6,20 +6,20 @@ import { Favorite, PlayCircleOutlineRounded, ThumbDownAltOutlined, ThumbUpAlt } 
 import { useWorkQueue } from '../state/useWorkQueue';
 import { LoaderIcon } from './LoaderIcon';
 import { cumsum, groups, sort } from 'd3-array';
+import debounce from 'debounce';
 
 const WorkItem = (props: { work: RatedWork, sx?: SxProps, onRender: Function }) => {
   const { activeWork, playWork } = useWorkQueue();
   const refContainer = useRef(null);
+
+  // TODO why do I need to ignore this?
+  // @ts-ignore
+  const handleResize = debounce(() => props.onRender(refContainer?.current?.offsetHeight || 0), 500);
   
   useEffect(() => {
-    // TODO why do I need to ignore this?
     // @ts-ignore
-    let height = refContainer?.current?.offsetHeight || 0;
+    props.onRender(refContainer?.current?.offsetHeight || 0);
 
-    props.onRender(height);
-
-    // TODO debounce?
-    const handleResize = () => props.onRender(height);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -94,8 +94,6 @@ export const RatedWorkSubList = (
 
   const totalHeight = cumHeights[cumHeights.length - 1];
 
-  console.log(heights);
-
   return (
     <List
       dense
@@ -105,9 +103,7 @@ export const RatedWorkSubList = (
         bgcolor: 'background.paper',
         mb: 2,
         position: 'relative',
-        // height:   Math.min(450, totalHeight),
         height: totalHeight,
-        // overflowY: 'scroll',
       }}
     >
       { props.works.map((work, i) => {
@@ -178,7 +174,6 @@ export const RatedWorkList = () => {
     <Box
       sx={{
         width: '100%',
-        // pb: `${Math.min(450, totalHeight)}px`,
         mb: 2,
       }}
     >
@@ -212,7 +207,6 @@ export const RatedWorkList = () => {
                   { variation[0] }
                 </Typography>
               )}
-
                 <RatedWorkSubList
                   works={variation[1]}
                 />

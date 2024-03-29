@@ -13,21 +13,12 @@ export const WorkPreview = (props: { work?: Work | null }) => {
         flexDirection: 'column',
       }}
     >
-      {/* <div
-        style={{
-          width: '100%',
-          height: '15px',
-          background: '#000',
-        }}
-      /> */}
       <div
         style={{
           height: 450,
           overflow: 'hidden',
           background: '#000',
           position: 'relative',
-          // borderLeft: '10px solid #000',
-          // borderRight: '10px solid #000',
         }}
       >
         <div
@@ -39,15 +30,14 @@ export const WorkPreview = (props: { work?: Work | null }) => {
             opts={{
               width: '100%',
               height: '510',
-              // marginTop: -60 ,
               playerVars: {
                 autoplay: 1,
                 start: work.preview.preview_start_s,
               },
             }}
-            onReady={() => console.log('gotime!')}
-            onPlay={() => console.log('play time')}
-            onStateChange={() => console.log('hello?????')}
+            // onReady={() => console.log('gotime!')}
+            // onPlay={() => console.log('play time')}
+            // onStateChange={() => console.log('hello?????')}
           />
         </div>
       </div>

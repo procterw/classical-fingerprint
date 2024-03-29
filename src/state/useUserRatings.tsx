@@ -13,15 +13,17 @@ const UserRatingsContext = createContext<UserRatingsContextType>({
 });
 
 export const UserRatingsProvider = (props: { children: React.ReactNode }) => {
-
-  // Work id -> number rating from 0 - 4
+  // Work id -> number rating from 1 - 3
   const [userRatings, setUserRatings] = useState<{ [key: string]: Rating }>({});
 
   const updateUserRatings = (workId: string, rating: Rating) => {
-    const nextRatings = {
-      ...userRatings,
-      [workId]: rating,
-    };
+    let nextRatings = { ...userRatings };
+
+    if (nextRatings[workId] !== undefined) {
+      delete nextRatings[workId];
+    } else {
+      nextRatings[workId] = rating;
+    }
 
     setUserRatings(nextRatings);
 

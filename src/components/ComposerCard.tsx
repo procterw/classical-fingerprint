@@ -1,5 +1,5 @@
 import { Composer } from "../services/getMusicData";
-import { Box, Link, Paper, Typography } from "@mui/material";
+import { Box, Link, Typography } from "@mui/material";
 
 export const ComposerAvatar = (props: { composer?: Composer, avatarSize: number }) => {
   const { composer, avatarSize } = props;
@@ -13,7 +13,6 @@ export const ComposerAvatar = (props: { composer?: Composer, avatarSize: number 
         height: avatarSize,
         borderRadius: avatarSize,
       }}
-      // mr={2}
     >
       <img
         src={composer.portrait}
@@ -35,7 +34,7 @@ export const ComposerCard = (props: { composer?: Composer }) => {
   if (!composer) return null;
 
   return (
-    <Box mx={3}>
+    <Box px={3}>  
 
       <Typography
         variant="h3"
@@ -48,8 +47,6 @@ export const ComposerCard = (props: { composer?: Composer }) => {
       
       <Box
         display="flex"
-        // my={2}
-        // backgroundColor="paper"
         p={2}
         sx={{
           backgroundColor: theme => theme.palette.background.paper,

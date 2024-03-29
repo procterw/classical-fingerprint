@@ -1,4 +1,4 @@
-import { Button, Box, ButtonGroup } from "@mui/material";
+import { Button, ButtonGroup } from "@mui/material";
 import { useUserRatings } from "../state/useUserRatings";
 import { useWorkQueue } from "../state/useWorkQueue";
 import { Favorite, FavoriteBorderOutlined, ThumbDown, ThumbDownAltOutlined, ThumbUp, ThumbUpOffAltOutlined } from "@mui/icons-material";
@@ -23,11 +23,10 @@ export const RatingModule = () => {
 
   return (
     <ButtonGroup
-      // variant="outlined"
       sx={{
-        // borderRadius: 0,
       }}
       disableElevation
+      size="large"
     >
       { options.map(({ rating, label, icon, icon2 }) => {
         return (
@@ -35,16 +34,10 @@ export const RatingModule = () => {
             variant={isSelectedStyle(rating) ? 'contained' : 'outlined'}
             key={rating}
             onClick={() => updateUserRatings(activeWork.id, rating)}
-            // color={isSelectedStyle(rating) ? 'primary' : 'secondary'}
             color="secondary"
             sx={{
-              px: 3,
-              py: 1.5,
               borderRadius: 0,
-              // color: isSelectedStyle(rating) ? undefined : themeOptions.palette?.text?.primary,
-              // border: 'none',
             }}
-            // size="large"
             startIcon={isSelectedStyle(rating) ? icon : icon2}
           >
             { label }
