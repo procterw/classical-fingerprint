@@ -86,7 +86,7 @@ export const RatedWorkSubList = (
   props: { works: Array<RatedWork> }
 ) => {
 
-  const [t, setT] = useState<number>(0);
+  const [_, setT] = useState<number>(0);
 
   const cumHeights = cumsum(
     props.works.map((w) => heights[w.id] || 0)
