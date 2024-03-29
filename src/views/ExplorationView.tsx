@@ -25,6 +25,7 @@ export const ExplorationView = () => {
         disableGutters
         sx={{ m: 0, p: 0 }}
       >
+        
         <Grid
           container
           spacing={0}
@@ -39,7 +40,18 @@ export const ExplorationView = () => {
               p: 0,
             }}
           >
+
             <WorkPreview work={activeWork} />
+
+            <Box
+              sx={{
+                // background: 'white',
+                p: 0,
+                // pb: 0,
+              }}
+            >
+              <EpochTimeLine composer={activeWork?.composer} />
+            </Box>
 
             <Box p={3}>
 
@@ -91,7 +103,7 @@ export const ExplorationView = () => {
           </Grid>
           <Grid item md={5} sm={12} sx={{ p: 3 }}>
 
-            <EpochTimeLine composer={activeWork?.composer} />
+            {/* <EpochTimeLine composer={activeWork?.composer} /> */}
 
             <RatedWorkList />
 

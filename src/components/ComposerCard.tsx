@@ -1,12 +1,38 @@
 import { Composer } from "../services/getMusicData";
 import { Box, Link, Paper, Typography } from "@mui/material";
 
+export const ComposerAvatar = (props: { composer?: Composer, avatarSize: number }) => {
+  const { composer, avatarSize } = props;
+
+  if (!composer) return null;
+
+  return (
+    <Box
+      sx={{
+        width: avatarSize,
+        height: avatarSize,
+        borderRadius: avatarSize,
+      }}
+      // mr={2}
+    >
+      <img
+        src={composer.portrait}
+        width={avatarSize}
+        height={avatarSize}
+        style={{
+          borderRadius: avatarSize,
+          border: '1px solid black',
+          filter: 'grayscale(100%)  sepia(100%) hue-rotate(-40deg) contrast(110%)',
+        }}
+      />
+    </Box>
+  );
+};
+
 export const ComposerCard = (props: { composer?: Composer }) => {
   const { composer } = props;
 
   if (!composer) return null;
-
-  const avatarSize = 80;
 
   return (
     <Box mx={3}>
@@ -29,25 +55,7 @@ export const ComposerCard = (props: { composer?: Composer }) => {
           backgroundColor: theme => theme.palette.background.paper,
         }}
       >
-          <Box
-            sx={{
-              width: avatarSize,
-              height: avatarSize,
-              borderRadius: avatarSize,
-            }}
-            mr={2}
-          >
-            <img
-              src={composer.portrait}
-              width={avatarSize}
-              height={avatarSize}
-              style={{
-                borderRadius: avatarSize,
-                border: '1px solid black',
-                filter: 'grayscale(100%)  sepia(100%) hue-rotate(-40deg) contrast(110%)',
-              }}
-            />
-          </Box>
+          <ComposerAvatar composer={composer} avatarSize={80} />
 
           <Box>
 
