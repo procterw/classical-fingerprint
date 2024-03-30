@@ -1,9 +1,12 @@
+import { useRef } from 'react';
 import { Work } from '../services/getMusicData';
-import YouTube from 'react-youtube';
 
 export const WorkPreview = (props: { work?: Work | null }) => {
+
   const { work } = props;
-  
+
+  const refContainer = useRef(null);
+
   if (!work) return null;
 
   return (
@@ -12,34 +15,29 @@ export const WorkPreview = (props: { work?: Work | null }) => {
         display: 'flex',
         flexDirection: 'column',
       }}
+      ref={refContainer}
     >
       <div
         style={{
-          height: 450,
+          height: 'calc(50vh)',
+          minHeight: 300,
           overflow: 'hidden',
           background: '#000',
           position: 'relative',
         }}
       >
-        <div
+        <iframe
           style={{
             marginTop: -60,
-          }}>
-          <YouTube
-            videoId={work.preview.video_id}
-            opts={{
-              width: '100%',
-              height: '510',
-              playerVars: {
-                autoplay: 1,
-                start: work.preview.preview_start_s,
-              },
-            }}
-            // onReady={() => console.log('gotime!')}
-            // onPlay={() => console.log('play time')}
-            // onStateChange={() => console.log('hello?????')}
-          />
-        </div>
+            height: 'calc(50vh + 60px)',
+            width: '100%',
+            minHeight: 360,
+          }}
+          src={`https://www.youtube.com/embed/${work.preview.video_id || 'syK3EZpi1sw'}?controls=1&start=${work.preview.preview_start_s}&autoplay=1`}
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        />
       </div>
     </div>
   );

@@ -7,6 +7,7 @@ import { useWorkQueue } from '../state/useWorkQueue';
 import { LoaderIcon } from './LoaderIcon';
 import { cumsum, groups, sort } from 'd3-array';
 import debounce from 'debounce';
+import { useWidth } from '../state/useWidth';
 
 const WorkItem = (props: { work: RatedWork, sx?: SxProps, onRender: Function }) => {
   const { activeWork, playWork } = useWorkQueue();
@@ -154,6 +155,7 @@ const getEpochIndex = (epoch: string) => {
 export const RatedWorkList = () => {
   const { activeWork } = useWorkQueue();
   const ratedWorks = useGetRatedWorks();
+  const mq = useWidth();
 
   const [value, setValue] = useState(0);
 
@@ -171,16 +173,7 @@ export const RatedWorkList = () => {
   };
 
   return (
-    <Box
-      sx={{
-        width: '100%',
-        mb: 2,
-      }}
-    >
-      <Typography variant="h4" sx={{ mb: 2 }}>
-        My Ratings
-      </Typography>
-
+    <Box>
       <Tabs
         value={value}
         onChange={handleChange}
@@ -196,12 +189,12 @@ export const RatedWorkList = () => {
       </Tabs>
 
       <Box sx={{
-        maxHeight: 600,
+        maxHeight: mq(undefined, 600),
         overflowY: 'scroll',
       }}>
         { variations[value].map((variation) => {
           return (
-            <>
+            <Box key={variation[0]}>
               { variation[0] && (
                 <Typography variant="h5" sx={{ mb: 1 }}>
                   { variation[0] }
@@ -210,7 +203,7 @@ export const RatedWorkList = () => {
                 <RatedWorkSubList
                   works={variation[1]}
                 />
-            </>
+            </Box>
           );
         })}
       </Box>
