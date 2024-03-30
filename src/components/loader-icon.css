@@ -40,24 +40,24 @@
   left: 0;
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
-  animation: 0.25s linear 0s infinite alternate pulse;
+  animation: 0.2s linear 0s infinite alternate pulse;
 }
 
 .loader-icon__g-key {
   left: 9px;
-  animation: 0.5s linear 0.2s infinite alternate pulse
+  animation: 0.4s linear 0.2s infinite alternate pulse
 }
 
 .loader-icon__a-key {
   left: 18px;
-  animation: 0.3s linear 0.8s infinite alternate pulse
+  animation: 0.25s linear 0.8s infinite alternate pulse
 }
 
 .loader-icon__b-key {
   left: 27px;
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
-  animation: 0.4s linear 1s infinite alternate pulse
+  animation: 0.3s linear 1s infinite alternate pulse
 }
 
 @keyframes pulse {
