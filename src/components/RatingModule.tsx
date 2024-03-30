@@ -5,7 +5,7 @@ import { Favorite, FavoriteBorderOutlined, ThumbDown, ThumbDownAltOutlined, Thum
 import { useWidth } from "../state/useWidth";
 
 export const RatingModule = () => {
-  const { activeWork } = useWorkQueue();
+  const { activeWork, getNextWork } = useWorkQueue();
   const { userRatings, updateUserRatings } = useUserRatings();
   const mq = useWidth();
 
@@ -20,7 +20,7 @@ export const RatingModule = () => {
   const options = [
     {
       rating: 1,
-      label: 'Not for me',
+      label: 'Not for me, next!',
       icon: <ThumbDown />,
       icon2: <ThumbDownAltOutlined /> },
     {
@@ -38,6 +38,7 @@ export const RatingModule = () => {
   return (
     <ButtonGroup
       sx={{
+        backgroundColor: theme => theme.palette.background.paper,
       }}
       disableElevation
       size={mq('small', 'large')}
@@ -48,7 +49,11 @@ export const RatingModule = () => {
           <Button
             variant={isSelectedStyle(rating) ? 'contained' : 'outlined'}
             key={rating}
-            onClick={() => updateUserRatings(activeWork.id, rating)}
+            onClick={() => {
+              updateUserRatings(activeWork.id, rating);
+              // If you don't like it, move one!
+              if (rating === 1) getNextWork();
+            }}
             color="secondary"
             sx={{
               borderRadius: 0,

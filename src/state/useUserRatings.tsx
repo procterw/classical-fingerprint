@@ -19,7 +19,7 @@ export const UserRatingsProvider = (props: { children: React.ReactNode }) => {
   const updateUserRatings = (workId: string, rating: Rating) => {
     let nextRatings = { ...userRatings };
 
-    if (nextRatings[workId] !== undefined) {
+    if (nextRatings[workId] === rating) {
       delete nextRatings[workId];
     } else {
       nextRatings[workId] = rating;
