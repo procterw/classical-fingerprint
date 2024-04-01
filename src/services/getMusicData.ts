@@ -1,5 +1,6 @@
 import { selectedComposers } from "./selectedComposers";
 import { getWorkPreview } from "./workPreviews";
+import { getWorkSummary } from './getWorkSummary';
 
 export interface Work {
   genre: string,
@@ -10,6 +11,8 @@ export interface Work {
   title: string,
   preview: WorkPreview,
   composer: Composer,
+  summary: string,
+  wiki_url: string,
 };
 
 export interface WorkPreview {
@@ -41,6 +44,7 @@ export const getMusicData = async (onLoad: Function) => {
         const works = d.works
           .filter((w: Work) => w.popular === "1")
           .map((w: Work) => getWorkPreview(w))
+          .map((w: Work) => getWorkSummary(w))
 
         allWorks = [
           ...allWorks,
@@ -51,6 +55,8 @@ export const getMusicData = async (onLoad: Function) => {
             }
           }),
         ];
+
+        console.log(allWorks.map((w) => ({ id: w.id, composer: w.composer.complete_name, title: w.title })));
 
         return { ...c, works };
       })

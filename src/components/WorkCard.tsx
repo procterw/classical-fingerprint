@@ -69,6 +69,12 @@ export const WorkCard = (props: { work?: Work | null }) => {
             })}
           </Typography>
         </Box>
+
+        { work.summary && (
+          <Typography variant="body2">
+            { work.summary }
+          </Typography>
+        )}
       </Box>
     </Box>
   );
