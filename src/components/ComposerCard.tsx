@@ -38,25 +38,28 @@ export const ComposerCard = (props: { composer?: Composer }) => {
 
   return (
     <Box
-      display="flex"
+      // display="flex"
       p={2}
       sx={{
         backgroundColor: theme => theme.palette.background.paper,
       }}
     >
-        <ComposerAvatar composer={composer} avatarSize={mq(60, 80)} />
+        <Box sx={{ float: 'left', mb: 2, mr: 2 }} >
+          <ComposerAvatar composer={composer} avatarSize={mq(60, 80)} />
+        </Box>
 
-        <Box sx={{ ml: 2,  }}>
+        <Box>
 
           <Typography
             sx={{ mb: 1 }}
-            variant="body1">
+            variant="body2">
             { composer.bio_preview }
           </Typography>
 
           <Link
             href={composer.wiki_url}
             target="_blank"
+            fontSize={14}
           >
             Biography from Wikipedia
           </Link>

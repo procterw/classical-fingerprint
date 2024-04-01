@@ -43,48 +43,40 @@ export const ExplorationView = () => {
 
             <WorkPreview work={activeWork} />
 
-            <Box
-              sx={{
-                px: 3,
-                pt: 2,
-              }}
-            >
-              <EpochTimeLine composer={activeWork?.composer} />
-            </Box>
+            <Box display="flex" flexDirection="column" gap={3} p={mq(2,3)} mb={2}>
 
-            <Box p={mq(2,3)}>
-
-              <WorkCard work={activeWork} />
               <Box
                 display="flex"
                 justifyContent={mq('right', 'space-between')}
                 flexDirection="row"
                 flexWrap="wrap"
-                sx={{
-                  mt: 3,
-                }}
                 gap={2}
               >
                 <RatingModule />
                 <WorkControl />
               </Box>
-            </Box>
 
-            <Box p={mq(0, 3)}>
-              <Typography
-                variant="h4"
-                sx={{ mb: 3, pl: mq(2, 0)}}
-              >
-                { activeWork?.composer.complete_name }
-              </Typography>
-              <ComposerCard composer={activeWork?.composer} />
+              <WorkCard work={activeWork} />
             </Box>
-             
+ 
           </Grid>
           <Grid md={5} xs={12}>
             
+            <Box p={mq(0, 3)} pb={0}>
+              <Typography
+                variant="h4"
+                sx={{ mb: 2, pl: mq(2, 0)}}
+              >
+                { activeWork?.composer.complete_name }
+              </Typography>
+
+              <EpochTimeLine composer={activeWork?.composer} />
+
+              <ComposerCard composer={activeWork?.composer} />
+            </Box>
+
             <Box p={mq(0, 3)}>
-              <Typography variant="h4" sx={{ mb: 2, pl: mq(2, 0) }}>
+              <Typography variant="h4" sx={{ mb: 1, pl: mq(2, 0) }}>
                 My Ratings
               </Typography>
               <RatedWorkList />

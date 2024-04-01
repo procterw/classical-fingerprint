@@ -1,4 +1,4 @@
-import { Box, Typography, Zoom, Tooltip } from '@mui/material';
+import { Box, Typography, Zoom, Tooltip, Link } from '@mui/material';
 import { Work } from '../services/getMusicData';
 import { getWorkTitleDefinitions } from '../services/getWorkTitleDefinitions';
 import { scaleOrdinal } from 'd3-scale';
@@ -26,7 +26,7 @@ export const WorkCard = (props: { work?: Work | null }) => {
 
   return (
     <Box>
-      <Box display="flex" gap={2} sx={{ mb: 2 }}>
+      <Box display="flex" gap={2} flexDirection="column">
 
         <Box
           display="flex"
@@ -71,9 +71,20 @@ export const WorkCard = (props: { work?: Work | null }) => {
         </Box>
 
         { work.summary && (
-          <Typography variant="body2">
-            { work.summary }
-          </Typography>
+          <Box
+            // sx={{ p: 2, backgroundColor: theme => theme.palette.background.paper }}
+          >
+            <Typography variant="body2" sx={{ pb: 1 }}>
+              { work.summary }
+            </Typography>
+            <Link
+              href={work.wiki_url}
+              target="_blank"
+              fontSize={14}
+            >
+              Summary from Wikipedia
+            </Link>
+          </Box>
         )}
       </Box>
     </Box>
