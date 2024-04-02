@@ -42,7 +42,8 @@ export const RatingModule = () => {
       }}
       disableElevation
       size={mq('small', 'large')}
-      fullWidth={mq(true, false)}
+      // fullWidth={mq(true, false)}
+      fullWidth={true}
     >
       { options.map(({ rating, label, icon, icon2 }) => {
         return (

@@ -3,13 +3,14 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 import { WorkPreview } from '../components/WorkPreview';
 import { RatingModule } from '../components/RatingModule';
-import { Box, Typography } from '@mui/material';
+import { Box, Collapse, Typography } from '@mui/material';
 import { EpochTimeLine } from '../components/EpochTimeLine';
 import { WorkControl } from '../components/WorkControl';
 import { useWorkQueue } from '../state/useWorkQueue';
 import { RatedWorkList } from '../components/RatedWorkList';
 import { ComposerCard } from '../components/ComposerCard';
 import { useWidth } from '../state/useWidth';
+import { VideoWrapper } from '../components/VideoWrapper';
 
 export const ExplorationView = () => {
   const {
@@ -41,11 +42,13 @@ export const ExplorationView = () => {
             }}
           >
 
-            <WorkPreview work={activeWork} />
+            <VideoWrapper />
+
+            {/* <WorkPreview work={activeWork} /> */}
 
             <Box display="flex" flexDirection="column" gap={3} p={mq(2,3)} mb={2}>
 
-              <Box
+              {/* <Box
                 display="flex"
                 justifyContent={mq('right', 'space-between')}
                 flexDirection="row"
@@ -54,9 +57,16 @@ export const ExplorationView = () => {
               >
                 <RatingModule />
                 <WorkControl />
-              </Box>
+              </Box> */}
 
               <WorkCard work={activeWork} />
+
+              <Box p={mq(0, 3)}>
+                <Typography variant="h4" sx={{ mb: 1, pl: mq(2, 0) }}>
+                  My Ratings
+                </Typography>
+                <RatedWorkList />
+              </Box>
             </Box>
  
           </Grid>
@@ -75,12 +85,12 @@ export const ExplorationView = () => {
               <ComposerCard composer={activeWork?.composer} />
             </Box>
 
-            <Box p={mq(0, 3)}>
+            {/* <Box p={mq(0, 3)}>
               <Typography variant="h4" sx={{ mb: 1, pl: mq(2, 0) }}>
                 My Ratings
               </Typography>
               <RatedWorkList />
-            </Box>
+            </Box> */}
 
           </Grid>
         </Grid>

@@ -4,24 +4,26 @@ import { useWidth } from '../state/useWidth';
 import YouTube from 'react-youtube';
 import debounce from 'debounce';
 
-export const WorkPreview = (props: { work?: Work | null }) => {
+export const WorkPreview = (props: { work?: Work | null, height: number }) => {
 
   const { work } = props;
 
   const refContainer = useRef(null);
   const mq = useWidth();
 
+  // const [height, setHeight] = useState<number>(window.innerHeight);
 
-  const [height, setHeight] = useState<number>(window.innerHeight);
+  // const resetHeight = () => setHeight(Math.max(window.innerHeight - window.scrollY,  mq(200, 400)));
+  // const resetHeightDebounced = debounce(resetHeight, 200);
 
-  const resetHeight = debounce(() => setHeight(window.innerHeight), 200);
-
-  useEffect(() => {
-    window.addEventListener('resize', resetHeight);
-    return () => window.removeEventListener('resize', resetHeight);
-  }, []);
-
-  console.log(work?.preview.preview_start_s);
+  // useEffect(() => {
+  //   window.addEventListener('resize', resetHeightDebounced);
+  //   window.addEventListener('scroll', resetHeight);
+  //   return () => {
+  //     window.removeEventListener('resize', resetHeightDebounced);
+  //     window.removeEventListener('scroll', resetHeight);
+  //   }
+  // }, []);
 
   if (!work) return null;
 
@@ -35,8 +37,8 @@ export const WorkPreview = (props: { work?: Work | null }) => {
     >
       <div
         style={{
-          height: 'calc(50vh + 60px)',
-          minHeight: mq(200, 300),
+          // height: 'calc(50vh + 60px)',
+          height: props.height,
           overflow: 'hidden',
           background: '#000',
           position: 'relative',
@@ -55,13 +57,13 @@ export const WorkPreview = (props: { work?: Work | null }) => {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         /> */}
           <div
-            style={{ marginTop: -60 }}
+            // style={{ marginTop: -60 }}
           >
             <YouTube
               videoId={work.preview.video_id}
               opts={{
                 width: '100%',
-                height: (height / 2) + 120,
+                height: props.height,
                 // height: '710',
                 playerVars: {
                   autoplay: 1,

@@ -5,12 +5,12 @@ function App() {
   return (
     <Box
       sx={{
-        backgroundColor: theme => theme.palette.background.default,
-        pb: 4,
-        width: '100%',
-        height: '100%',
-        position: 'absolute',
-        overflow: 'scroll',
+        // backgroundColor: theme => theme.palette.background.default,
+        // pb: 4,
+        // width: '100%',
+        // height: '100%',
+        // position: 'absolute',
+        // overflow: 'scroll',
       }}
     >
       {/* <AppBar
