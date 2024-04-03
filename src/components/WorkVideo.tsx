@@ -2,9 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import { Work } from '../services/getMusicData';
 import { useWidth } from '../state/useWidth';
 import YouTube from 'react-youtube';
-import debounce from 'debounce';
 
-export const WorkPreview = (props: { work?: Work | null, height: number }) => {
+export const WorkVideo = (props: { work?: Work | null, height: number }) => {
 
   const { work } = props;
 

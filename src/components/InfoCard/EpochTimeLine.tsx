@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import { Composer } from "../services/getMusicData";
+import { Composer } from "../../services/getMusicData";
 
 
 export const EpochTimeLine = (props: { composer?: Composer | null }) => {
@@ -92,14 +92,15 @@ export const EpochTimeLine = (props: { composer?: Composer | null }) => {
             position: 'absolute',
             left: `${xScale(getComposerYear(composer?.birth))}%`,
             right: `${100 - xScale(getComposerYear(composer?.death))}%`,
-            top: 17,
-            height: 35,
+            top: 7,
+            height: 29,
             transitionProperty: 'left, right',
             transitionDuration: '0.5s',
             backgroundColor: theme => theme.palette.primary.light,
+            opacity: 0.7,
           }}
         >
-          <Box
+          {/* <Box
             position="absolute"
             width="200"
             left="-35px"
@@ -121,7 +122,7 @@ export const EpochTimeLine = (props: { composer?: Composer | null }) => {
             <Typography variant="caption" sx={{ fontSize: 16, fontWeight: 500 }}>
               { getComposerYear(composer?.death) }
             </Typography>
-          </Box>
+          </Box> */}
         </Box>
 
         {/* epoch bar wrappers */}
@@ -145,7 +146,7 @@ export const EpochTimeLine = (props: { composer?: Composer | null }) => {
                 left: `calc(${xScale(epoch.startYear)}% + 2px)`,
                 right: `calc(${100 - xScale(epoch.endYear)}% + 2px)`,
                 height: 10,
-                top: 18,
+                top: 12,
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
@@ -155,7 +156,7 @@ export const EpochTimeLine = (props: { composer?: Composer | null }) => {
                 variant="h6"
                 sx={{
                   position: 'absolute',
-                  top: -22,
+                  top: -2,
                   fontSize: 12,
                   fontWeight: 700,
                   color: 'black',
@@ -175,7 +176,7 @@ export const EpochTimeLine = (props: { composer?: Composer | null }) => {
           style={{
             position: 'absolute',
             left: 0,
-            top: 55,
+            top: 35,
             width: '100%',
             background: 'black',
             height: 1,
@@ -189,22 +190,22 @@ export const EpochTimeLine = (props: { composer?: Composer | null }) => {
             style={{
               position: 'absolute',
               left: `${xScale(tick.year)}%`,
-              top: 50,
+              top: 30,
               zIndex: 500,
             }}
           >
-            {/* <Typography
+            <Typography
               sx={{
-                fontSize: 12,
-                fontWeight: 700,
+                fontSize: 11,
+                fontWeight: 500,
                 marginLeft: -1.6,
-                marginTop: 0.4,
+                marginTop: 0.6,
                 fontStyle: 'italic',
                 color: 'black', 
               }}
             >
               { tick.showLabel ? tick.year : " " }
-            </Typography> */}
+            </Typography>
 
             <div
               style={{

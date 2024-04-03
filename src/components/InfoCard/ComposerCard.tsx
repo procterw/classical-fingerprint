@@ -1,11 +1,13 @@
-import { Composer } from "../services/getMusicData";
+import { Composer } from "../../services/getMusicData";
 import { Box, Link, Typography } from "@mui/material";
-import { useWidth } from "../state/useWidth";
+import { useWidth } from "../../state/useWidth";
 
 export const ComposerAvatar = (props: { composer?: Composer, avatarSize: number }) => {
   const { composer, avatarSize } = props;
 
   if (!composer) return null;
+
+  const borderSize = 2;
 
   return (
     <Box
@@ -13,16 +15,18 @@ export const ComposerAvatar = (props: { composer?: Composer, avatarSize: number 
         width: avatarSize,
         height: avatarSize,
         borderRadius: avatarSize,
+        background: '#da6a57;',
       }}
     >
       <img
         src={composer.portrait}
-        width={avatarSize}
-        height={avatarSize}
+        width={avatarSize - (borderSize * 2)}
+        height={avatarSize - (borderSize * 2)}
         style={{
           borderRadius: avatarSize,
-          border: '1px solid black',
-          filter: 'grayscale(100%)  sepia(100%) hue-rotate(-40deg) contrast(110%)',
+          marginLeft: borderSize,
+          marginTop: borderSize,
+          // filter: 'grayscale(100%)  sepia(100%) hue-rotate(-40deg) contrast(110%)',
         }}
       />
     </Box>

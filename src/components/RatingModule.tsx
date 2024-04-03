@@ -20,17 +20,17 @@ export const RatingModule = () => {
   const options = [
     {
       rating: 1,
-      label: 'Not for me, next!',
+      label: 'Next!',
       icon: <ThumbDown />,
       icon2: <ThumbDownAltOutlined /> },
     {
       rating: 2,
-      label: 'I like this',
+      label: 'Like it',
       icon: <ThumbUp />,
       icon2: <ThumbUpOffAltOutlined /> },
     {
       rating: 3,
-      label: 'I love this!',
+      label: 'Love it!',
       icon: <Favorite />,
       icon2: <FavoriteBorderOutlined /> },
   ];
@@ -41,9 +41,9 @@ export const RatingModule = () => {
         backgroundColor: theme => theme.palette.background.paper,
       }}
       disableElevation
-      size={mq('small', 'large')}
+      size={mq('small', 'medium')}
       // fullWidth={mq(true, false)}
-      fullWidth={true}
+      // fullWidth={true}
     >
       { options.map(({ rating, label, icon, icon2 }) => {
         return (

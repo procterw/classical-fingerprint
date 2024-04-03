@@ -1,5 +1,5 @@
 import { Box, Typography } from '@mui/material';
-import { Composer } from '../services/getMusicData';
+import { Composer } from '../../services/getMusicData';
 
 export const ComposerBio = (props: { composer?: Composer | null }) => {
 

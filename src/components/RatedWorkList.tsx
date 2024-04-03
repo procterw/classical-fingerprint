@@ -182,15 +182,15 @@ export const RatedWorkList = () => {
         variant="fullWidth"
         aria-label="full width tabs example"
       >
-          <Tab label="All Works" {...a11yProps(0)} />
+          <Tab label="My Ratings" {...a11yProps(0)} />
           <Tab label="By Epoch" {...a11yProps(1)} />
           <Tab label="By Genre" {...a11yProps(2)} />
           <Tab label="By Composer" {...a11yProps(3)} />
       </Tabs>
 
       <Box sx={{
-        maxHeight: mq(undefined, 600),
-        overflowY: 'scroll',
+        // maxHeight: mq(undefined, 600),
+        // overflowY: 'scroll',
       }}>
         { variations[value].map((variation) => {
           return (

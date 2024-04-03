@@ -11,6 +11,8 @@ type WorkQueueContextType = {
   workQueue: Array<string>,
   getNextWork: Function,
   getPreviousWork: Function,
+  filter: Filter | null,
+  setFilter: Function,
 };
 
 const WorkQueueContext = createContext<WorkQueueContextType>({
@@ -21,6 +23,8 @@ const WorkQueueContext = createContext<WorkQueueContextType>({
   workQueue: [],
   getNextWork: () => {},
   getPreviousWork: () => {},
+  filter: null,
+  setFilter: () => {},
 });
 
 const shuffleArray = (array: Array<any>): Array<any> => {
@@ -32,10 +36,16 @@ const shuffleArray = (array: Array<any>): Array<any> => {
   return arr;
 }
 
+export type Filter = { key: string, value: string };
+const defaultFilter = { key: '_any', value: 'Anything' };
+
 export const WorkQueueProvider = (props: { children: React.ReactNode }) => {
   const [activeDirectId, setActiveDirectId] = useState<string | undefined>();
   const [activeWorkIndex, setActiveWorkIndex]  = useState<number>(0);
   const [workQueue, setWorkQueue] = useState<Array<string>>([]);
+
+  const [filter, _setFilter] = useState<Filter>(defaultFilter);
+  const setFilter = (f: Filter) => f === null ? _setFilter(defaultFilter) : _setFilter(f);
 
   const [playMode, setPlayMode] = useState<'random' | 'direct'>('random');
 
@@ -91,6 +101,9 @@ export const WorkQueueProvider = (props: { children: React.ReactNode }) => {
     workQueue,
     getNextWork,
     getPreviousWork,
+
+    filter,
+    setFilter,
   };
 
   return (
