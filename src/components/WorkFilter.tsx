@@ -32,7 +32,7 @@ export const WorkFilter = () => {
   return (
     <Autocomplete
       id="work-filter"
-      sx={{ width: mq.mobile('100%', 250) }}
+      sx={{ width: mq.mobile('100%', 250), flexGrow: 1 }}
       value={filter}
       onChange={(_: any, newValue: Filter | null) => {
         setFilter(newValue);
