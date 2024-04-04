@@ -1,4 +1,4 @@
-import { Button, ButtonGroup, IconButton } from "@mui/material";
+import { Button, ButtonGroup } from "@mui/material";
 import { SkipNext, SkipPrevious } from "@mui/icons-material";
 import { useWorkQueue } from "../state/useWorkQueue";
 import { useWidth } from "../state/useWidth";
