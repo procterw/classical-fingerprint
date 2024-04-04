@@ -33,7 +33,7 @@ export const WorkCard = (props: { work?: Work | null }) => {
         gap={0.5}
       >
         <Typography
-          variant="h2"
+          variant="h3"
           sx={{
             fontStyle: 'italic',
           }}

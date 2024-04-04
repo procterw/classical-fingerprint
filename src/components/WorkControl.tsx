@@ -1,6 +1,7 @@
 import { Button, ButtonGroup, IconButton } from "@mui/material";
 import { SkipNext, SkipPrevious } from "@mui/icons-material";
 import { useWorkQueue } from "../state/useWorkQueue";
+import { useWidth } from "../state/useWidth";
 
 export const WorkControl = () => {
   const {
@@ -9,25 +10,32 @@ export const WorkControl = () => {
     getPreviousWork,
    } = useWorkQueue();
 
+   const mq = useWidth();
+
   return (
     <ButtonGroup
       variant="outlined"
       orientation="horizontal"
-      size="large"
+      size="medium"
       disableElevation
+      sx={{
+        flexGrow: mq.small(1, 0)
+      }}
     >
-      <IconButton
+      <Button
+        variant="outlined"
         onClick={() => getPreviousWork()}
         color="secondary"
         disabled={activeWorkIndex < 1}
-        // size="large"
+        sx={{ borderRadius: 0 }}
       >
         <SkipPrevious/>
-      </IconButton>
+      </Button>
       <Button
         startIcon={<SkipNext/>}
         onClick={() => getNextWork()}
         variant="contained"
+        fullWidth={mq.small(true, false)}
         sx={{ borderRadius: 0 }}
         // size="large"
       >

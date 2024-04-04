@@ -15,37 +15,35 @@ export const VideoWrapper = () => {
   const moduleRef = useRef(null);
 
   const [offset, setOffset] = useState(window.scrollY);
-  const [width, setWidth] = useState(0);
-  const [height, setHeight] = useState(0);
+  const [containerWidth, setContainerWidth] = useState(0);
+  const [fullVideoHeight, setFullVideoHeight] = useState(window.innerHeight * 0.5);
 
   const rescale = () => {
+    // @ts-ignore
+    setContainerWidth(wrapperRef?.current?.offsetWidth);
+    setFullVideoHeight(window.innerHeight * 0.5);
     setOffset(window.scrollY);
-    setWidth(wrapperRef?.current?.offsetWidth);
-
-    setHeight((window.innerHeight * 0.5) + moduleRef?.current?.offsetHeight);
   };
 
   useEffect(() => {
-    setOffset(window.scrollY);
+    rescale();
 
-    window.addEventListener('scroll', () => setOffset(window.scrollY));
-    window.addEventListener('resize', () => setOffset(window.scrollY));
+    window.addEventListener('scroll', rescale);
+    window.addEventListener('resize', rescale);
     return () => {
-      window.removeEventListener('scroll', () => setOffset(window.scrollY));
-      window.removeEventListener('resize', () => setOffset(window.scrollY));
+      window.removeEventListener('scroll', rescale);
+      window.removeEventListener('resize', rescale);
     }
   }, []);
-
-  const fullVideoHeight = (window.innerHeight * 0.5);
 
   // Scale down video height proportional to scroll offset until a threshold
   const videoHeight = Math.max(
     fullVideoHeight - offset,
-    mq(200, 0),
+    mq.mobile(0, 50),
   );
 
   // The difference in heights between the video players at 0 - max scroll
-  const breakpoint = fullVideoHeight - mq(200, 0);
+  const breakpoint = fullVideoHeight - mq.mobile(0, 50);
 
   // @ts-ignore
   const totalHeight = videoHeight + moduleRef?.current?.offsetHeight;
@@ -55,34 +53,31 @@ export const VideoWrapper = () => {
       sx={{
         position: 'relative',
         width: '100%',
-        // height: totalHeight >= offset ? totalHeight + offset : totalHeight + 130
         height: totalHeight + Math.min(offset, breakpoint),
-        // height: totalHeight - ((window.innerHeight * 0.5) - offset),
       }}
       ref={wrapperRef}
     >
       <Box
         sx={{
           position: 'fixed',
-          // display: 'flex',
-          // flexDirection: 'column',
-          // gap: 2,
-          // @ts-ignore
-          width: wrapperRef?.current?.offsetWidth,
+          width: containerWidth,
           height: totalHeight,
-          // backgroundColor: 'rgba(255, 255, 255, 0.8)',
           zIndex: 1000,
         }}
       >
-        <WorkVideo work={activeWork} height={videoHeight} />
+        <WorkVideo work={activeWork} height={videoHeight} fullHeight={fullVideoHeight} />
 
         <Box
           display="flex"
+          // display={mq.large("block", "flex")}
+          // flexDirection={mq.small("column", "row")}
+          flexWrap="wrap"
           flexDirection="row"
-          justifyContent="space-between"
-          gap={2}
+          justifyContent={mq.medium("right", "space-between")}
+          gap={mq.medium(1, 3)}
           ref={moduleRef}
-          pt={2}
+          py={2}
+          sx={{ backgroundColor: 'rgb(246, 241, 234, 0.9)' }}
         >
           <RatingModule />
           <WorkFilter />

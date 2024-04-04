@@ -1,4 +1,4 @@
-import { Box, IconButton, List, ListItem, ListItemIcon, ListItemText, Tab, Tabs, Typography } from '@mui/material';
+import { Box, Divider, IconButton, List, ListItem, ListItemIcon, ListItemText, Tab, Tabs, Typography } from '@mui/material';
 import { SxProps } from '@mui/system';
 import { useEffect, useRef, useState } from 'react';
 import { RatedWork, useGetRatedWorks } from '../state/selectors';
@@ -7,7 +7,7 @@ import { useWorkQueue } from '../state/useWorkQueue';
 import { LoaderIcon } from './LoaderIcon';
 import { cumsum, groups, sort } from 'd3-array';
 import debounce from 'debounce';
-import { useWidth } from '../state/useWidth';
+// import { useWidth } from '../state/useWidth';
 
 const WorkItem = (props: { work: RatedWork, sx?: SxProps, onRender: Function }) => {
   const { activeWork, playWork } = useWorkQueue();
@@ -155,7 +155,7 @@ const getEpochIndex = (epoch: string) => {
 export const RatedWorkList = () => {
   const { activeWork } = useWorkQueue();
   const ratedWorks = useGetRatedWorks();
-  const mq = useWidth();
+  // const mq = useWidth();
 
   const [value, setValue] = useState(0);
 
@@ -180,12 +180,11 @@ export const RatedWorkList = () => {
         indicatorColor="secondary"
         textColor="inherit"
         variant="fullWidth"
-        aria-label="full width tabs example"
       >
-          <Tab label="My Ratings" {...a11yProps(0)} />
-          <Tab label="By Epoch" {...a11yProps(1)} />
-          <Tab label="By Genre" {...a11yProps(2)} />
-          <Tab label="By Composer" {...a11yProps(3)} />
+          <Tab label="All works" {...a11yProps(0)} />
+          <Tab label="Epoch" {...a11yProps(1)} />
+          <Tab label="Genre" {...a11yProps(2)} />
+          <Tab label="Composer" {...a11yProps(3)} />
       </Tabs>
 
       <Box sx={{
@@ -196,9 +195,12 @@ export const RatedWorkList = () => {
           return (
             <Box key={variation[0]}>
               { variation[0] && (
-                <Typography variant="h5" sx={{ mb: 1 }}>
-                  { variation[0] }
-                </Typography>
+                <>
+                  <Typography variant="h4" sx={{ my: 1, mx: 2 }} fontSize={16}>
+                    { variation[0] }
+                  </Typography>
+                  <Divider />
+                </>
               )}
                 <RatedWorkSubList
                   works={variation[1]}

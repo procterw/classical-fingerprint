@@ -41,33 +41,27 @@ export const ComposerCard = (props: { composer?: Composer }) => {
   if (!composer) return null;
 
   return (
-    <Box
-      // display="flex"
-      p={2}
-      sx={{
-        backgroundColor: theme => theme.palette.background.paper,
-      }}
-    >
-        <Box sx={{ float: 'left', mb: 2, mr: 2 }} >
-          <ComposerAvatar composer={composer} avatarSize={mq(60, 80)} />
-        </Box>
+    <Box>
+      <Box sx={{ float: 'left', mb: 2, mr: 2 }} >
+        <ComposerAvatar composer={composer} avatarSize={mq.mobile(60, 80)} />
+      </Box>
 
-        <Box>
+      <Box>
 
-          <Typography
-            sx={{ mb: 1 }}
-            variant="body2">
-            { composer.bio_preview }
-          </Typography>
+        <Typography
+          sx={{ mb: 1 }}
+          variant="body2">
+          { composer.bio_preview }
+        </Typography>
 
-          <Link
-            href={composer.wiki_url}
-            target="_blank"
-            fontSize={14}
-          >
-            Biography from Wikipedia
-          </Link>
-        </Box>
+        <Link
+          href={composer.wiki_url}
+          target="_blank"
+          fontSize={14}
+        >
+          Biography from Wikipedia
+        </Link>
+      </Box>
     </Box>
   );
 };

@@ -20,17 +20,20 @@ export const RatingModule = () => {
   const options = [
     {
       rating: 1,
-      label: 'Next!',
+      label: 'Not for me, next!',
+      labelShort: 'Next!',
       icon: <ThumbDown />,
       icon2: <ThumbDownAltOutlined /> },
     {
       rating: 2,
-      label: 'Like it',
+      label: 'I like it',
+      labelShort: 'Like it',
       icon: <ThumbUp />,
       icon2: <ThumbUpOffAltOutlined /> },
     {
       rating: 3,
-      label: 'Love it!',
+      label: 'I love it!',
+      labelShort: 'Love it!',
       icon: <Favorite />,
       icon2: <FavoriteBorderOutlined /> },
   ];
@@ -41,11 +44,10 @@ export const RatingModule = () => {
         backgroundColor: theme => theme.palette.background.paper,
       }}
       disableElevation
-      size={mq('small', 'medium')}
-      // fullWidth={mq(true, false)}
-      // fullWidth={true}
+      size="medium"
+      fullWidth={mq.medium(true, false)}
     >
-      { options.map(({ rating, label, icon, icon2 }) => {
+      { options.map(({ rating, label, labelShort, icon, icon2 }) => {
         return (
           <Button
             variant={isSelectedStyle(rating) ? 'contained' : 'outlined'}
@@ -55,13 +57,15 @@ export const RatingModule = () => {
               // If you don't like it, move one!
               if (rating === 1) getNextWork();
             }}
+            // color={isSelectedStyle(rating) ? 'primary' : 'secondary'}
             color="secondary"
             sx={{
               borderRadius: 0,
+              py: 1,
             }}
             startIcon={isSelectedStyle(rating) ? icon : icon2}
           >
-            { label }
+            { mq.large(labelShort, label) }
           </Button>
         );
       })}

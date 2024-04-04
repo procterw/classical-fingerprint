@@ -157,7 +157,7 @@ export const EpochTimeLine = (props: { composer?: Composer | null }) => {
                 sx={{
                   position: 'absolute',
                   top: -2,
-                  fontSize: 12,
+                  fontSize: 11,
                   fontWeight: 700,
                   color: 'black',
                   textAlign: 'center',

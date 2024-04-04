@@ -1,6 +1,7 @@
 import { Autocomplete, TextField } from "@mui/material";
 import { useMusicData } from "../state/useMusicData";
 import { Filter, useWorkQueue } from "../state/useWorkQueue";
+import { useWidth } from "../state/useWidth";
 
 const uniq = (arr: Array<any>): Array<any> => {
   const nextArr: Array<any> = [];
@@ -14,6 +15,7 @@ const uniq = (arr: Array<any>): Array<any> => {
 };
 
 export const WorkFilter = () => {
+  const mq = useWidth();
   const { filter, setFilter } = useWorkQueue();
   const musicData = useMusicData();
 
@@ -30,7 +32,7 @@ export const WorkFilter = () => {
   return (
     <Autocomplete
       id="work-filter"
-      sx={{ width: 250 }}
+      sx={{ width: mq.mobile('100%', 250) }}
       value={filter}
       onChange={(_: any, newValue: Filter | null) => {
         setFilter(newValue);
@@ -41,7 +43,7 @@ export const WorkFilter = () => {
       renderInput={(params) => (
         <TextField
           {...params}
-          variant="standard"
+          variant="filled"
           label="Show me..."
         />
       )}
