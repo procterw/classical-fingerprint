@@ -7,7 +7,8 @@ import { useWorkQueue } from '../state/useWorkQueue';
 import { LoaderIcon } from './LoaderIcon';
 import { cumsum, groups, sort } from 'd3-array';
 import debounce from 'debounce';
-// import { useWidth } from '../state/useWidth';
+import { StickyHeader } from './StickyHeader';
+import { useWidth } from '../state/useWidth';
 
 const WorkItem = (props: { work: RatedWork, sx?: SxProps, onRender: Function }) => {
   const { activeWork, playWork } = useWorkQueue();
@@ -33,7 +34,7 @@ const WorkItem = (props: { work: RatedWork, sx?: SxProps, onRender: Function }) 
         <ListItemIcon
           sx={{
             marginLeft: -0.1,
-            marginRight: 0.1,
+            marginRight: -1.0,
           }}
         >
           <LoaderIcon />
@@ -42,7 +43,11 @@ const WorkItem = (props: { work: RatedWork, sx?: SxProps, onRender: Function }) 
     }
 
     return (
-      <ListItemIcon>
+      <ListItemIcon
+        sx={{
+          marginRight: -1.1
+        }}
+      >
         <IconButton
           size="small"
           onClick={() => playWork(props.work.id)}
@@ -60,7 +65,13 @@ const WorkItem = (props: { work: RatedWork, sx?: SxProps, onRender: Function }) 
     if (props.work.rating == 2) icon = <ThumbUpAlt fontSize="small" />;
     if (props.work.rating == 3) icon = <Favorite fontSize="small" color="primary" />;
 
-    return <ListItemIcon>{ icon }</ListItemIcon>;
+    return (
+      <ListItemIcon
+        sx={{ mr: -2.5 }}
+      >
+        { icon }
+      </ListItemIcon>
+    );
   };
 
   return (
@@ -86,7 +97,6 @@ const heights: {[key: string]: number} = {};
 export const RatedWorkSubList = (
   props: { works: Array<RatedWork> }
 ) => {
-
   const [_, setT] = useState<number>(0);
 
   const cumHeights = cumsum(
@@ -155,7 +165,7 @@ const getEpochIndex = (epoch: string) => {
 export const RatedWorkList = () => {
   const { activeWork } = useWorkQueue();
   const ratedWorks = useGetRatedWorks();
-  // const mq = useWidth();
+  const mq = useWidth();
 
   const [value, setValue] = useState(0);
 
@@ -172,25 +182,35 @@ export const RatedWorkList = () => {
     setValue(newValue);
   };
 
-  return (
-    <Box>
-      <Tabs
-        value={value}
-        onChange={handleChange}
-        indicatorColor="secondary"
-        textColor="inherit"
-        variant="fullWidth"
-      >
-          <Tab label="All works" {...a11yProps(0)} />
-          <Tab label="Epoch" {...a11yProps(1)} />
-          <Tab label="Genre" {...a11yProps(2)} />
-          <Tab label="Composer" {...a11yProps(3)} />
-      </Tabs>
+  const tabs = (
+    <Tabs
+      value={value}
+      onChange={handleChange}
+      indicatorColor="secondary"
+      textColor="inherit"
+      variant="fullWidth"
+      sx={{
+        backgroundColor: theme => theme.palette.background.default,
+      }}
+    >
+        <Tab label="My Ratings" {...a11yProps(0)} />
+        <Tab label="Epoch" {...a11yProps(1)} />
+        <Tab label="Genre" {...a11yProps(2)} />
+        <Tab label="Composer" {...a11yProps(3)} />
+    </Tabs>
+  );
 
-      <Box sx={{
-        // maxHeight: mq(undefined, 600),
-        // overflowY: 'scroll',
-      }}>
+  return (
+    <Box
+      position="relative"
+      width="100%"
+    >
+      { mq.small(
+        tabs,
+        <StickyHeader>{ tabs }</StickyHeader>,
+      )}
+
+      <Box>
         { variations[value].map((variation) => {
           return (
             <Box key={variation[0]}>

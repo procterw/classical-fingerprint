@@ -37,6 +37,7 @@ export const WorkFilter = () => {
       onChange={(_: any, newValue: Filter | null) => {
         setFilter(newValue);
       }}
+      isOptionEqualToValue={(o, f) => o.key === f.key}
       options={options}
       groupBy={(option) => option.key}
       getOptionLabel={(option) => option.value}

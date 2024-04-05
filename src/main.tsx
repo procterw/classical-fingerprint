@@ -14,11 +14,11 @@ export const themeOptions: ThemeOptions = {
       main: '#DA6A57',
     },
     secondary: {
-      main: '#000',
+      main: '#444',
     },
     background: {
       default: '#F6F1EA',
-      paper: '#FFF',
+      paper: '#fffcf7',
     },
     text: {
       primary: '#000',

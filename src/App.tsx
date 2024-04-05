@@ -1,5 +1,6 @@
-import { Box } from '@mui/material';
+import { AppBar, Box, Button, Container, Toolbar, Typography } from '@mui/material';
 import { ExplorationView } from './views/ExplorationView';
+import icon from './assets/logo.svg';
 
 function App() {
   return (
@@ -13,25 +14,42 @@ function App() {
         // overflow: 'scroll',
       }}
     >
-      {/* <AppBar
+      <AppBar
         position="static"
         sx={{
-          boxShadow: 'none',
-          mb: 4,
+          boxShadow: '0 8px 16px #e2d8ce66;',
+          mb: 2,
           backgroundColor: theme => theme.palette.background.default,
           color: theme => theme.palette.text.primary,
         }}
       >
-        <Container maxWidth="lg">
-          <Toolbar disableGutters>
-            <Typography
-              variant="h4"
-            >
-              Classical Fingerprint
-            </Typography>
+        <Container maxWidth={false}>
+          <Toolbar
+            disableGutters
+            sx={{ display: 'flex', alignItems: 'middle', justifyContent: 'space-between' }}
+          >
+            <Box />
+            <Box display="flex" alignItems="center">
+              <img
+                src={icon}
+                width={20}
+                height={20}
+                style={{ marginRight: 6 }}
+              />
+              <Typography
+                variant="h4"
+                fontSize={17}
+                fontWeight={100}
+              >
+                Classical Fingerprint
+              </Typography>
+            </Box>
+            <Button color="secondary">
+              About
+            </Button>
           </Toolbar>
         </Container>
-      </AppBar> */}
+      </AppBar>
 
       <ExplorationView />
     </Box>

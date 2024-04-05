@@ -1,6 +1,6 @@
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 import { RatedWorkList } from '../components/RatedWorkList';
 import { VideoWrapper } from '../components/VideoWrapper';
 import { InfoCard } from '../components/InfoCard/InfoCard';
@@ -36,12 +36,6 @@ export const ExplorationView = () => {
             </Box>
           </Grid>
           <Grid md={4} xs={12}>
-            <Typography
-              variant="h4"
-              sx={{ mb: 2 }}
-            >
-              My Ratings
-            </Typography>
             <RatedWorkList />
           </Grid>
         </Grid>

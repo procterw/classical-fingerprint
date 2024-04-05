@@ -56,8 +56,8 @@ export const getMusicData = async (onLoad: Function) => {
           }),
         ];
 
-        console.log(allWorks.map((w) => ({ id: w.id, composer: w.composer.complete_name, title: w.title })));
-
+        // console.log(allWorks.map((w) => ({ id: w.id, composer: w.composer.complete_name, title: w.title })));
+        
         return { ...c, works };
       })
   });
