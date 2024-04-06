@@ -1,10 +1,12 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Chip, Typography } from "@mui/material";
 import { Composer } from "../../services/getMusicData";
 
 
 export const EpochTimeLine = (props: { composer?: Composer | null }) => {
 
   const { composer } = props;
+
+  if (!composer) return null;
 
   const epochs = [
     { label: "Medieval", startYear: 1150, endYear: 1400, visible: true },
@@ -20,6 +22,20 @@ export const EpochTimeLine = (props: { composer?: Composer | null }) => {
     { label: "Modern", startYear: 1920, endYear: (new Date()).getFullYear(), visible: true },
   ];
 
+  const epochMap: { [key: string]: string } = {
+    'Medieval': 'Medieval',
+    'Renaissance': 'Renaissance',
+    'Baroque': 'Baroque',
+    'Classical': 'Classical',
+    'Early Romantic': 'Romantic',
+    'Romantic': 'Romantic',
+    'Late Romantic': 'Romantic',
+    '20th Century': 'Modern',
+    'Post-War': 'Modern',
+    '21st Century': 'Modern',
+    'Modern': 'Modern',
+  };
+  
   const yearRange = [
     Math.min(...epochs.map((e) => e.startYear)),
     Math.max(...epochs.map((e) => e.endYear)),
@@ -36,7 +52,7 @@ export const EpochTimeLine = (props: { composer?: Composer | null }) => {
         emphasizeTick: iYear % 100 === 0,
       });
 
-      iYear = iYear + 25;
+      iYear = iYear + 50;
     }
 
     return ticks;
@@ -89,17 +105,38 @@ export const EpochTimeLine = (props: { composer?: Composer | null }) => {
           display="flex"
           justifyContent="center"
           sx={{
-            position: 'absolute',
+            position: 'absolute', 
             left: `${xScale(getComposerYear(composer?.birth))}%`,
             right: `${100 - xScale(getComposerYear(composer?.death))}%`,
-            top: 7,
-            height: 29,
+            top: 26,
+            height: 10,
             transitionProperty: 'left, right',
             transitionDuration: '0.5s',
-            backgroundColor: theme => theme.palette.primary.light,
-            opacity: 0.7,
+            // backgroundColor: theme => theme.palette.primary.light,
+            opacity: 1,
           }}
         >
+          <Typography
+            color={"primary"}
+            sx={{
+              position: 'absolute',
+              left: 0 - 7,
+              fontSize: 12,
+            }}
+          >
+            ▲
+          </Typography>
+
+          <Typography
+            color={"primary"}
+            sx={{
+              position: 'absolute',
+              right: 0 - 7,
+              fontSize: 12,
+            }}
+          >
+            ▲
+          </Typography>
           {/* <Box
             position="absolute"
             width="200"
@@ -130,28 +167,34 @@ export const EpochTimeLine = (props: { composer?: Composer | null }) => {
         <div
           style={{
             position: 'absolute',
-            top: -5,
+            top: 2,
             left: 0,
             right: 0,
-            height: 18,
+            // height: 18,
           }}
         >
           { epochs.filter((e) => e.visible).map((epoch) => (
-            <Box
+            <Chip
               key={epoch.label}
+              label={epoch.label}
+              color={epoch.label === epochMap[composer?.epoch] ? "primary" : undefined}
+              size="small"
               style={{
+                fontSize: 12,
                 position: 'absolute',
-                border: '1px solid black',
-                borderBottom: 'none',
-                left: `calc(${xScale(epoch.startYear)}% + 2px)`,
-                right: `calc(${100 - xScale(epoch.endYear)}% + 2px)`,
-                height: 10,
-                top: 12,
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
+                // opacity: 0.8,
+                // border: '1px solid black',
+                // borderBottom: 'none',
+                left: `calc(${xScale(epoch.startYear)}% + 1px)`,
+                right: `calc(${100 - xScale(epoch.endYear)}% + 1px)`,
+                // height: 10,
+                // top: 12,
+                // display: 'flex',
+                // justifyContent: 'center',
+                // alignItems: 'center',
               }}
             >
+{/* 
               <Typography
                 variant="h6"
                 sx={{
@@ -166,8 +209,8 @@ export const EpochTimeLine = (props: { composer?: Composer | null }) => {
                 }}
               >
                 { epoch.label }
-              </Typography>
-            </Box>
+              </Typography> */}
+            </Chip>
           ))}
         </div>
 
@@ -176,10 +219,11 @@ export const EpochTimeLine = (props: { composer?: Composer | null }) => {
           style={{
             position: 'absolute',
             left: 0,
-            top: 35,
+            top: 29,
             width: '100%',
-            background: 'black',
-            height: 1,
+            // background: 'black',
+            height: 0,
+            borderBottom: '1px dotted #777',
             zIndex: 500,
           }}
         />
@@ -195,12 +239,13 @@ export const EpochTimeLine = (props: { composer?: Composer | null }) => {
             }}
           >
             <Typography
+              variant="h1"
               sx={{
                 fontSize: 11,
                 fontWeight: 500,
-                marginLeft: -1.6,
+                marginLeft: -1.4,
                 marginTop: 0.6,
-                fontStyle: 'italic',
+                // fontStyle: 'italic',
                 color: 'black', 
               }}
             >
@@ -210,11 +255,13 @@ export const EpochTimeLine = (props: { composer?: Composer | null }) => {
             <div
               style={{
                 position: 'absolute',
-                width: tick.emphasizeTick ? 3 : 1,
-                height: 5,
-                background: 'black',
+                // width: tick.emphasizeTick ? 3 : 1,
+                width: 3,
+                height: 3,
+                borderRadius: 3,
+                background: '#888',
                 left: `calc(50% - 1)`,
-                top: 0,
+                top: -2,
               }}
             />
           </div>
