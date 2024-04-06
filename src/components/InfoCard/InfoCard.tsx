@@ -15,7 +15,7 @@ export const InfoCard = () => {
     <Box display="flex" flexDirection="column" gap={2}>
       
 
-      <EpochTimeLine composer={activeWork.composer} />
+      <EpochTimeLine />
 
       <Box display="flex" flexDirection="column" gap={2}
         p={2}

@@ -66,6 +66,7 @@ export const WorkCard = (props: { work?: Work | null }) => {
           );
         })}
       </Typography>
+      {/* <span>{JSON.stringify(work.wiki_dates)}</span> */}
     </Box>
   );
 };

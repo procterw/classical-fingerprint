@@ -13,6 +13,7 @@ export interface Work {
   composer: Composer,
   summary: string,
   wiki_url: string,
+  wiki_dates: Array<number>,
 };
 
 export interface WorkPreview {

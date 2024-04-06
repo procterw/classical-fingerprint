@@ -1,12 +1,12 @@
 import { Box, Chip, Typography } from "@mui/material";
-import { Composer } from "../../services/getMusicData";
+import { useWorkQueue } from "../../state/useWorkQueue";
 
 
-export const EpochTimeLine = (props: { composer?: Composer | null }) => {
+export const EpochTimeLine = () => {
 
-  const { composer } = props;
+  const { activeWork } = useWorkQueue();
 
-  if (!composer) return null;
+  if (!activeWork) return null;
 
   const epochs = [
     { label: "Medieval", startYear: 1150, endYear: 1400, visible: true },
@@ -106,61 +106,34 @@ export const EpochTimeLine = (props: { composer?: Composer | null }) => {
           justifyContent="center"
           sx={{
             position: 'absolute', 
-            left: `${xScale(getComposerYear(composer?.birth))}%`,
-            right: `${100 - xScale(getComposerYear(composer?.death))}%`,
-            top: 26,
-            height: 10,
+            left: `${xScale(getComposerYear(activeWork.composer.birth))}%`,
+            right: `${100 - xScale(getComposerYear(activeWork.composer.death))}%`,
+            top: 29,
+            height: 8,
             transitionProperty: 'left, right',
-            transitionDuration: '0.5s',
-            // backgroundColor: theme => theme.palette.primary.light,
+            transitionDuration: '0.7s',
+            transitionTimingFunction: 'ease-in-out',
+            backgroundColor: theme => theme.palette.primary.light,
+            borderRadius: 20,
             opacity: 1,
           }}
-        >
-          <Typography
-            color={"primary"}
-            sx={{
-              position: 'absolute',
-              left: 0 - 7,
-              fontSize: 12,
-            }}
-          >
-            ▲
-          </Typography>
+        />
 
-          <Typography
-            color={"primary"}
-            sx={{
-              position: 'absolute',
-              right: 0 - 7,
-              fontSize: 12,
-            }}
-          >
-            ▲
-          </Typography>
-          {/* <Box
-            position="absolute"
-            width="200"
-            left="-35px"
-            textAlign="end"
-            // left="calc(0"
-          >
-            <Typography variant="caption" sx={{ fontSize: 16, fontWeight: 500 }}>
-              { getComposerYear(composer?.birth) }
+        { activeWork.wiki_dates.length > 0 && (
+            <Typography
+              sx={{
+                position: 'absolute',
+                left: `calc(${xScale(activeWork.wiki_dates[0])}% - 4.5px)`,
+                transitionProperty: 'left',
+                transitionDuration: '0.5s',
+                transitionTimingFunction: 'ease-in-out',
+                fontSize: 12,
+                top: 24,
+              }}
+            >
+              ▲
             </Typography>
-          </Box>
-
-          <Box
-            position="absolute"
-            right="-35px"
-            textAlign="start"
-            width="200"
-            // left="calc(0"
-          >
-            <Typography variant="caption" sx={{ fontSize: 16, fontWeight: 500 }}>
-              { getComposerYear(composer?.death) }
-            </Typography>
-          </Box> */}
-        </Box>
+          )}
 
         {/* epoch bar wrappers */}
 
@@ -170,47 +143,21 @@ export const EpochTimeLine = (props: { composer?: Composer | null }) => {
             top: 2,
             left: 0,
             right: 0,
-            // height: 18,
           }}
         >
           { epochs.filter((e) => e.visible).map((epoch) => (
             <Chip
               key={epoch.label}
               label={epoch.label}
-              color={epoch.label === epochMap[composer?.epoch] ? "primary" : undefined}
+              color={epoch.label === epochMap[activeWork.composer.epoch] ? "primary" : undefined}
               size="small"
               style={{
                 fontSize: 12,
                 position: 'absolute',
-                // opacity: 0.8,
-                // border: '1px solid black',
-                // borderBottom: 'none',
                 left: `calc(${xScale(epoch.startYear)}% + 1px)`,
                 right: `calc(${100 - xScale(epoch.endYear)}% + 1px)`,
-                // height: 10,
-                // top: 12,
-                // display: 'flex',
-                // justifyContent: 'center',
-                // alignItems: 'center',
               }}
-            >
-{/* 
-              <Typography
-                variant="h6"
-                sx={{
-                  position: 'absolute',
-                  top: -2,
-                  fontSize: 11,
-                  fontWeight: 700,
-                  color: 'black',
-                  textAlign: 'center',
-                  px: 0.5,
-                  py: 0.5,
-                }}
-              >
-                { epoch.label }
-              </Typography> */}
-            </Chip>
+            />
           ))}
         </div>
 
@@ -221,9 +168,8 @@ export const EpochTimeLine = (props: { composer?: Composer | null }) => {
             left: 0,
             top: 29,
             width: '100%',
-            // background: 'black',
             height: 0,
-            borderBottom: '1px dotted #777',
+            borderBottom: '1px dotted #444',
             zIndex: 500,
           }}
         />
@@ -245,7 +191,6 @@ export const EpochTimeLine = (props: { composer?: Composer | null }) => {
                 fontWeight: 500,
                 marginLeft: -1.4,
                 marginTop: 0.6,
-                // fontStyle: 'italic',
                 color: 'black', 
               }}
             >
@@ -255,11 +200,10 @@ export const EpochTimeLine = (props: { composer?: Composer | null }) => {
             <div
               style={{
                 position: 'absolute',
-                // width: tick.emphasizeTick ? 3 : 1,
                 width: 3,
                 height: 3,
                 borderRadius: 3,
-                background: '#888',
+                background: '#333',
                 left: `calc(50% - 1)`,
                 top: -2,
               }}
