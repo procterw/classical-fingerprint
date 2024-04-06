@@ -13,7 +13,7 @@ export const InfoCard = () => {
 
   return (
     <Box display="flex" flexDirection="column" gap={2}>
-      <WorkCard work={activeWork} />
+      
 
       <EpochTimeLine composer={activeWork.composer} />
 
@@ -25,12 +25,13 @@ export const InfoCard = () => {
         <Container maxWidth={false} disableGutters>
           <Grid container spacing={3}>
             <Grid item md={12} lg={6}>
-              <Typography
+              {/* <Typography
                 variant="h4"
                 mb={2}
               >
                 Background
-              </Typography>
+              </Typography> */}
+              <WorkCard work={activeWork} />
               <WorkSummary work={activeWork} />
             </Grid>
             <Grid item md={12} lg={6}>

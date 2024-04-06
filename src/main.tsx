@@ -31,16 +31,16 @@ export const themeOptions: ThemeOptions = {
     fontWeightRegular: 400,
     fontWeightMedium: 400,
     h1: {
-      fontSize: 36,
-    },
-    h2: {
       fontSize: 30,
     },
-    h3: {
+    h2: {
       fontSize: 24,
     },
-    h4: {
+    h3: {
       fontSize: 21,
+    },
+    h4: {
+      fontSize: 18,
     },
     h5: {
       fontSize: 15,
@@ -55,24 +55,41 @@ export const themeOptions: ThemeOptions = {
       fontWeight: 700,
     },
     body2: {
-      fontSize: 14,
+      fontSize: 13,
       fontFamily: '"Nunito Sans", sans-serif',
       // fontFamily: '"Cormorant", serif',
       // fontFamily: '"Source Serif 4", serif',
     },
     body1: {
-      fontSize: 16,
+      fontSize: 14,
       // fontFamily: '"Source Serif 4", serif',
       // fontFamily: '"Cormorant", serif',
       fontFamily: '"Nunito Sans", sans-serif',
     },
     button: {
-      // fontSize: '0.9rem',
+      fontSize: '0.9rem',
       // fontFamily: '"Baskerville", serif',
-      fontFamily: '"Nunito Sans", sans-serif',
-      fontWeight: 600,
+      // fontFamily: '"Nunito Sans", sans-serif',
+      fontWeight: 500,
       textTransform: 'none',
     },
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: 50,
+        },
+      }, 
+    }, 
+    MuiButtonGroup: {
+      styleOverrides: {
+        root: {
+          borderRadius: 50,
+          boxShadow: '0 4px 8px #e2d8ce66;',
+        },
+      }, 
+    }, 
   },
 };
 

@@ -25,49 +25,47 @@ export const WorkCard = (props: { work?: Work | null }) => {
   );
 
   return (
-    <Box display="flex" gap={2} flexDirection="column">
-
-      <Box
-        display="flex"
-        flexDirection="column"
-        gap={0.5}
+    <Box
+      display="flex"
+      flexDirection="column"
+      mb={2}
+      gap={0.5}
+    >
+      <Typography
+        variant="h3"
+        sx={{
+          fontStyle: 'italic',
+        }}
       >
-        <Typography
-          variant="h2"
-          sx={{
-            fontStyle: 'italic',
-          }}
-        >
-          { titleSegments.map((segment, j) => {
-            const key = `${segment}_${work.id}_${j}`;
+        { titleSegments.map((segment, j) => {
+          const key = `${segment}_${work.id}_${j}`;
 
-            const i = Number(segment.replace('---', ''));
+          const i = Number(segment.replace('---', ''));
 
-            return (
-              <span key={key} id={key}>
-                { segment.startsWith('---') ? (
-                  <Tooltip
-                    TransitionComponent={Zoom}
-                    title={definitions[i].definition}
+          return (
+            <span key={key} id={key}>
+              { segment.startsWith('---') ? (
+                <Tooltip
+                  TransitionComponent={Zoom}
+                  title={definitions[i].definition}
+                >
+                  <span
+                    style={{
+                      background: colorScale(definitions[i].category),
+                    }}
                   >
-                    <span
-                      style={{
-                        background: colorScale(definitions[i].category),
-                      }}
-                    >
-                      { definitions[i].match }
-                    </span>
-                  </Tooltip>
-                ) : (
-                  <span>
-                    { segment }
+                    { definitions[i].match }
                   </span>
-                )}
-              </span>
-            );
-          })}
-        </Typography>
-      </Box>
+                </Tooltip>
+              ) : (
+                <span>
+                  { segment }
+                </span>
+              )}
+            </span>
+          );
+        })}
+      </Typography>
     </Box>
   );
 };

@@ -5,7 +5,7 @@ import { useWidth } from "../state/useWidth";
 
 export const WorkControl = () => {
   const {
-    activeWorkIndex,
+    disablePrevious,
     getNextWork,
     getPreviousWork,
    } = useWorkQueue();
@@ -26,17 +26,17 @@ export const WorkControl = () => {
         variant="outlined"
         onClick={() => getPreviousWork()}
         color="secondary"
-        disabled={activeWorkIndex < 1}
-        sx={{ borderRadius: 0 }}
+        disabled={disablePrevious}
+        // sx={{ borderRadius: 0 }}
       >
-        <SkipPrevious/>
+        <SkipPrevious fontSize="small" />
       </Button>
       <Button
         startIcon={<SkipNext/>}
         onClick={() => getNextWork()}
         variant="contained"
         fullWidth={mq.small(true, false)}
-        sx={{ borderRadius: 0 }}
+        // sx={{ borderRadius: 0 }}
         // size="large"
       >
         Another!

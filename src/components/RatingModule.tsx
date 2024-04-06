@@ -60,7 +60,7 @@ export const RatingModule = () => {
             // color={isSelectedStyle(rating) ? 'primary' : 'secondary'}
             color="secondary"
             sx={{
-              borderRadius: 0,
+              // borderRadius: 0,
               py: 1,
             }}
             startIcon={isSelectedStyle(rating) ? icon : icon2}

@@ -7,12 +7,9 @@ export const StickyHeader = (props: { children: ReactNode, offset?: number }) =>
   const stickyRef = useRef(null);
 
   const [stickyOffset, setStickyOffset] = useState(0);
-  const [stickyHeight, setStickyHeight] = useState(0);
   const [stickyWidth, setStickyWidth] = useState(0);
 
   const rescale = () => {
-    // @ts-ignore
-    setStickyHeight(stickyRef?.current?.offsetHeight);
     // @ts-ignore
     setStickyWidth(stickyRef?.current?.offsetWidth);
   };
@@ -34,8 +31,6 @@ export const StickyHeader = (props: { children: ReactNode, offset?: number }) =>
     }
   }, []);
 
-  console.log(stickyOffset, stickyHeight, stickyWidth);
-
   return (
     <>
       <Box
@@ -47,7 +42,6 @@ export const StickyHeader = (props: { children: ReactNode, offset?: number }) =>
 
       <Box
         display={stickyOffset < 0 ? 'block' : 'none' }
-        // visibility={stickyOffset < 0 ? 'visible' : 'hidden' }
         position="fixed"
         top={0}
         zIndex={1000}

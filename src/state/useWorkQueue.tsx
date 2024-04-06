@@ -3,51 +3,40 @@ import { Work } from "../services/getMusicData";
 import { useUserRatings } from "./useUserRatings";
 import { useMusicData } from "./useMusicData";
 
+export type Filter = { key: string, value: string };
+const defaultFilter = { key: '_any', value: 'Anything' };
+
 type WorkQueueContextType = {
-  activeWorkIndex: number,
-  setActiveWorkIndex: Function,
-  playWork: Function,
   activeWork: Work | null,
-  workQueue: Array<string>,
+  setActiveWork: Function,
   getNextWork: Function,
   getPreviousWork: Function,
-  filter: Filter | null,
+
+  disablePrevious: boolean,
+
+  filter: Filter,
   setFilter: Function,
 };
 
 const WorkQueueContext = createContext<WorkQueueContextType>({
-  activeWorkIndex: 0,
-  setActiveWorkIndex: () => {},
-  playWork: () => {},
   activeWork: null,
-  workQueue: [],
+  setActiveWork: () => {},
   getNextWork: () => {},
   getPreviousWork: () => {},
-  filter: null,
+
+  disablePrevious: false,
+
+  filter: defaultFilter,
   setFilter: () => {},
 });
 
-const shuffleArray = (array: Array<any>): Array<any> => {
-  const arr = [...array];
-  for (let i = arr.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
-  return arr;
-}
-
-export type Filter = { key: string, value: string };
-const defaultFilter = { key: '_any', value: 'Anything' };
-
 export const WorkQueueProvider = (props: { children: React.ReactNode }) => {
-  const [activeDirectId, setActiveDirectId] = useState<string | undefined>();
-  const [activeWorkIndex, setActiveWorkIndex]  = useState<number>(0);
-  const [workQueue, setWorkQueue] = useState<Array<string>>([]);
+  const [activeWork, setActiveWork] = useState<Work | null>(null);
+
+  const [alreadyPlayed, setAlreadyPlayed] = useState<Array<Work | null>>([]);
 
   const [filter, _setFilter] = useState<Filter>(defaultFilter);
   const setFilter = (f: Filter) => f === null ? _setFilter(defaultFilter) : _setFilter(f);
-
-  const [playMode, setPlayMode] = useState<'random' | 'direct'>('random');
 
   const musicData = useMusicData();
   const { userRatings } = useUserRatings();
@@ -56,51 +45,60 @@ export const WorkQueueProvider = (props: { children: React.ReactNode }) => {
   useEffect(() => {
     if (musicData.completed) {
       getNextWork();
-
-      setWorkQueue(
-        shuffleArray(
-          musicData.works.map((w) => w.id)
-            .filter((wid) => !Object.keys(userRatings).includes(wid)),
-        ),
-      );
     }
   }, [musicData.completed]);
+
+  const listAvailableNextWorks = () => {
+    // Get all works
+    const filteredWorks = musicData.works
+      .filter((w) => w.id !== activeWork?.id)
+    // Remove filter non-matches
+      .filter((w) => {
+        if (filter.key === '_any') return w;
+        if (filter.key === 'epochs') return w.composer.epoch === filter.value;
+        if (filter.key === 'genres') return w.genre === filter.value;
+        if (filter.key === 'composers') return w.composer.name === filter.value;
+        return w;
+      })
+      // Remove already rated
+      .filter((w) => !Object.keys(userRatings).includes(w.id));
+    return filteredWorks;
+  }
   
   const getNextWork = () => {
-    // Remove direct play flag
-    setPlayMode('random');
-    if (activeWorkIndex >= workQueue.length) return;
-    setActiveWorkIndex(activeWorkIndex + 1);
+    const availableWorks = listAvailableNextWorks();
+
+    if (activeWork) {
+      setAlreadyPlayed([...alreadyPlayed, activeWork]);
+    }
+
+    if (!availableWorks.length) return;
+
+    const randomIndex = Math.floor(Math.random() * (availableWorks.length - 1));
+    setActiveWork(availableWorks[randomIndex]);
   }
 
   const getPreviousWork = () => {
-    // TODO
-    setPlayMode('random');
-    if (activeWorkIndex === 0) return;
-    setActiveWorkIndex(activeWorkIndex - 1);
-  };
+    if (alreadyPlayed.length < 1) return;
 
-  const playWork = (wId: string) => {
-    setPlayMode('direct');
-    setActiveDirectId(wId);
-  };
-
-  const activeWorkId = workQueue[activeWorkIndex];
-  const activeWork = musicData.works.find((w) => {
-    if (playMode === 'direct') {
-      return w.id === activeDirectId;
+    const alreadyPlayedCopy = [...alreadyPlayed];
+    const nextWork = alreadyPlayedCopy.pop();
+    if (nextWork) {
+      setActiveWork(nextWork);
+      setAlreadyPlayed(alreadyPlayedCopy);
     }
-    return w.id === activeWorkId;
-  }) || null;
+  };
+
+  console.log(alreadyPlayed);
 
   const state = {
-    activeWorkIndex,
-    setActiveWorkIndex,
-    playWork,
     activeWork,
-    workQueue,
+    setActiveWork,
     getNextWork,
     getPreviousWork,
+
+    disablePrevious: alreadyPlayed.length < 1,
+    disableNext: listAvailableNextWorks().length === 0,
 
     filter,
     setFilter,

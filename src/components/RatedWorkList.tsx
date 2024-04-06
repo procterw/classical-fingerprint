@@ -11,7 +11,7 @@ import { StickyHeader } from './StickyHeader';
 import { useWidth } from '../state/useWidth';
 
 const WorkItem = (props: { work: RatedWork, sx?: SxProps, onRender: Function }) => {
-  const { activeWork, playWork } = useWorkQueue();
+  const { activeWork, setActiveWork } = useWorkQueue();
   const refContainer = useRef(null);
 
   // TODO why do I need to ignore this?
@@ -50,7 +50,7 @@ const WorkItem = (props: { work: RatedWork, sx?: SxProps, onRender: Function }) 
       >
         <IconButton
           size="small"
-          onClick={() => playWork(props.work.id)}
+          onClick={() => setActiveWork(props.work.id)}
         >
           <PlayCircleOutlineRounded fontSize="small" />
         </IconButton>

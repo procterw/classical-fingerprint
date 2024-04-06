@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Work } from '../services/getMusicData';
-import YouTube from 'react-youtube';
+import { Box } from '@mui/material';
 
 export const WorkVideo = (props: { work?: Work | null}) => {
   const { work } = props;
@@ -26,14 +26,26 @@ export const WorkVideo = (props: { work?: Work | null}) => {
 
   if (!work) return null;
 
+  const params = new URLSearchParams({
+    autoplay: '1',
+    start: String(work.preview.preview_start_s),
+    color: 'white',
+    fs: '0', // disable fullscreen
+    iv_load_policy: '3', // disable annotations
+    rel: '0', // only show related videos from same channel
+  });
+
+  const url = `https://www.youtube.com/embed/${work.preview.video_id}?${params.toString()}`
+
   return (
-    <div
+    <Box
       style={{
         display: 'flex',
         flexDirection: 'column',
       }}
+      mb={2}
     >
-      <div
+      <Box
         style={{
           height: height,
           overflow: 'hidden',
@@ -41,22 +53,20 @@ export const WorkVideo = (props: { work?: Work | null}) => {
           position: 'relative',
         }}
       >
-        <div
+        <Box
           style={{ marginTop: 0 - offset }}
         >
-          <YouTube
-            videoId={work.preview.video_id}
-            opts={{
-              width: '100%',
-              height: height + offset,
-              playerVars: {
-                autoplay: 1,
-                start: work.preview.preview_start_s,
-              },
-            }}
+          <iframe
+            width="100%"
+            height={height + offset}
+            src={url}
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;"
+            referrerPolicy="strict-origin-when-cross-origin"
+            frameBorder="0"
           />
-        </div>
-      </div>
-    </div>
+        </Box>
+      </Box>
+    </Box>
   );
 };
