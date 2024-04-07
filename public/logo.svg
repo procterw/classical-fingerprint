@@ -1,9 +1,3 @@
-<svg width="330" height="330" viewBox="0 0 330 330" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="91" y="229" width="74" height="73" rx="1" fill="white" stroke="black" stroke-width="12" stroke-linejoin="round"/>
-<rect x="165" y="74" width="74" height="228" rx="1" fill="white" stroke="black" stroke-width="12" stroke-linejoin="round"/>
-<rect x="17" y="31" width="74" height="271" rx="1" fill="white" stroke="black" stroke-width="12" stroke-linejoin="round"/>
-<rect x="239" y="128" width="74" height="174" rx="1" fill="white" stroke="black" stroke-width="12" stroke-linejoin="round"/>
-<rect x="141" y="31" width="48" height="153" rx="7" fill="black"/>
-<rect x="215" y="31" width="48" height="153" rx="7" fill="black"/>
-<rect x="67" y="25" width="48" height="159" rx="7" fill="black"/>
+<svg width="442" height="442" viewBox="0 0 442 442" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M442 221C442 281.143 417.976 335.675 379 375.522C338.878 416.541 282.912 442 221 442C159.088 442 103.122 416.541 63 375.522C24.0244 335.675 0 281.143 0 221C0 98.9451 98.9451 0 221 0C343.055 0 442 98.9451 442 221ZM63 160V287C63 305.872 67.3869 318.981 71.0712 325.957C104.169 373.149 158.982 404 221 404C283.018 404 337.831 373.149 370.929 325.957C374.613 318.981 379 305.872 379 287V160C379 151.716 372.284 145 364 145H336C327.716 145 321 151.716 321 160V312.698C321 320.983 314.284 327.698 306 327.698H294C285.716 327.698 279 320.983 279 312.698V160C279 151.716 272.284 145 264 145H257C248.716 145 242 151.716 242 160V276.826C242 285.11 235.284 291.826 227 291.826H215C206.716 291.826 200 285.11 200 276.826V160C200 151.716 193.284 145 185 145H178C169.716 145 163 151.716 163 160V244.291C163 252.575 156.284 259.291 148 259.291H136C127.716 259.291 121 252.575 121 244.291V160C121 151.716 114.284 145 106 145H78C69.7157 145 63 151.716 63 160Z" fill="black"/>
 </svg>

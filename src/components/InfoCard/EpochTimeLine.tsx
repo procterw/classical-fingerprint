@@ -115,7 +115,7 @@ export const EpochTimeLine = () => {
             transitionTimingFunction: 'ease-in-out',
             backgroundColor: theme => theme.palette.primary.light,
             borderRadius: 20,
-            opacity: 1,
+            opacity: 0.6,
           }}
         />
 

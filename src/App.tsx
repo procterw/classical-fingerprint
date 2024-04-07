@@ -32,13 +32,13 @@ function App() {
             <Box display="flex" alignItems="center">
               <img
                 src={icon}
-                width={20}
-                height={20}
+                width={24}
+                height={24}
                 style={{ marginRight: 6 }}
               />
               <Typography
                 variant="h4"
-                fontSize={17}
+                fontSize={18}
                 fontWeight={100}
               >
                 Classical Fingerprint
