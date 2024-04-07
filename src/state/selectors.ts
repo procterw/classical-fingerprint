@@ -35,18 +35,3 @@ export const useGetRatedWorks = () => {
   
   return [{ ...activeWork, rating: 99 }, ...sortedRatedWorks];
 };
-
-// TODO I'm not fond of this sort method
-export const useGetWorkQueue = () => {
-  const { works } = useMusicData();
-  const { workQueue } = useWorkQueue();
-
-  const filledWorkQueue: Array<Work> = [];
-
-  workQueue.forEach((id) => {
-    const w = works.find((w) => w.id === id);
-    if (w) filledWorkQueue.push(w);
-  });
-
-  return filledWorkQueue;
-};
