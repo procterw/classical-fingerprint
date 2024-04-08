@@ -9,14 +9,13 @@ export const ComposerAvatar = (props: { composer?: Composer, avatarSize: number 
   const borderSize = 0;
 
   return (
-    // <Paper
-    //   elevation={3}
-    //   sx={{
-    //     width: avatarSize,
-    //     height: avatarSize,
-    //     borderRadius: avatarSize,
-    //   }}
-    // >
+    <Paper elevation={2}
+      sx={{
+        borderRadius: avatarSize,
+        width: avatarSize,
+        height: avatarSize,
+      }}
+    >
       <img
         src={composer.portrait}
         width={avatarSize - (borderSize * 2)}
@@ -27,7 +26,7 @@ export const ComposerAvatar = (props: { composer?: Composer, avatarSize: number 
           marginTop: borderSize,
         }}
       />
-    // </Paper>
+    </Paper>
   );
 };
 

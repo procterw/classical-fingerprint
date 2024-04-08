@@ -5,23 +5,26 @@ import { RatedWorkList } from '../components/RatedWorkList';
 import { VideoWrapper } from '../components/VideoWrapper';
 import { InfoCard } from '../components/InfoCard/InfoCard';
 import { Header } from './Header';
+import { useWidth } from '../state/useWidth';
 
 export const ExplorationView = () => {
+  const mq = useWidth();
+
   return (
     <>
       <Container
         maxWidth="xl"
         sx={{ mb: 4 }}
+        disableGutters={mq.mobile(true, false)}
       >
         <Grid
           container
-          spacing={4}
+          spacing={mq.mobile(0, 4)}
           height="100vh"
           sx={{ py: 2 }}
         >
-          <Grid md={8} xs={12}
-            spacing={4}
-          >
+          <Grid md={8} xs={12} spacing={4}>
+            { mq.medium(<Header />, null) }
             <Box
               display="flex"
               flexDirection="column"
@@ -32,7 +35,7 @@ export const ExplorationView = () => {
             </Box>
           </Grid>
           <Grid md={4} xs={12}>
-            <Header />
+            { mq.medium(null, <Header />) }
             <RatedWorkList />
           </Grid>
         </Grid>

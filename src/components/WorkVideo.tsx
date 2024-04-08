@@ -1,22 +1,32 @@
 import { useEffect, useState } from 'react';
 import { Box } from '@mui/material';
+import { useWidth } from '../state/useWidth';
 
 export const WorkVideo = (props: { work?: Work | null}) => {
   const { work } = props;
 
-  const [height, setHeight] = useState(window.innerHeight * 0.5);
+  const calcHeight = () => {
+    const height = window.innerHeight * 0.5;
+    const totalWidth = window.innerWidth;
+    return Math.min(height, totalWidth / 1.5);
+  }
+
+  const [height, setHeight] = useState(calcHeight());
+  const mq = useWidth();
 
   const rescale = () => {
-    setHeight(window.innerHeight * 0.5);
+    // On mobile, don't constantly resize the window
+    mq.mobile(
+      undefined,
+      setHeight(calcHeight())
+    );
   };
 
   useEffect(() => {
     rescale();
 
-    window.addEventListener('scroll', rescale);
     window.addEventListener('resize', rescale);
     return () => {
-      window.removeEventListener('scroll', rescale);
       window.removeEventListener('resize', rescale);
     }
   }, []);
@@ -50,10 +60,12 @@ export const WorkVideo = (props: { work?: Work | null}) => {
           overflow: 'hidden',
           background: '#000',
           position: 'relative',
+          borderTop: '8px solid #000',
+          // borderBottom: '8px solid #000',
         }}
       >
         <Box
-          style={{ marginTop: 0 - offset }}
+          style={{ marginTop: 0 - offset - 8}}
         >
           <iframe
             width="100%"

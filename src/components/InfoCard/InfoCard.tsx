@@ -3,20 +3,23 @@ import { EpochTimeLine } from "./EpochTimeLine";
 import { WorkCard, WorkSummary } from "./WorkCard";
 import { useWorkQueue } from "../../state/useWorkQueue";
 import { ComposerCard } from "./ComposerCard";
+import { useWidth } from "../../state/useWidth";
 
 
 // Combines the timeline, composer bio, and work background
 export const InfoCard = () => {
   const { activeWork } = useWorkQueue();
+  const mq = useWidth();
 
   if (!activeWork) return null;
 
   return (
     <Box display="flex" flexDirection="column" gap={2}>
+
+      <Box sx={{ px: mq.mobile(2, 0) }}>
+        <EpochTimeLine />
+      </Box>
       
-
-      <EpochTimeLine />
-
       <Box display="flex" flexDirection="column" gap={2}
         p={2}
         sx={{ backgroundColor: theme => theme.palette.background.paper }}

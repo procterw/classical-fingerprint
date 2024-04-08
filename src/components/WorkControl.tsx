@@ -36,10 +36,8 @@ export const WorkControl = () => {
         onClick={() => getNextWork()}
         variant="contained"
         fullWidth={mq.small(true, false)}
-        // sx={{ borderRadius: 0 }}
-        // size="large"
       >
-        Another!
+        { mq.mobile(null, 'Another!') }
       </Button>
     </ButtonGroup>
   );

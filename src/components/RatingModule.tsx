@@ -22,30 +22,30 @@ export const RatingModule = () => {
       rating: 1,
       label: 'Not for me, next!',
       labelShort: 'Next!',
-      icon: <ThumbDown />,
-      icon2: <ThumbDownAltOutlined /> },
+      icon: <ThumbDown fontSize="small" />,
+      icon2: <ThumbDownAltOutlined fontSize="small" /> },
     {
       rating: 2,
       label: 'I like it',
       labelShort: 'Like it',
-      icon: <ThumbUp />,
-      icon2: <ThumbUpOffAltOutlined /> },
+      icon: <ThumbUp fontSize="small" />,
+      icon2: <ThumbUpOffAltOutlined fontSize="small" /> },
     {
       rating: 3,
       label: 'I love it!',
       labelShort: 'Love it!',
-      icon: <Favorite />,
-      icon2: <FavoriteBorderOutlined /> },
+      icon: <Favorite fontSize="small" />,
+      icon2: <FavoriteBorderOutlined fontSize="small" /> },
   ];
 
   return (
     <ButtonGroup
       sx={{
         backgroundColor: theme => theme.palette.background.paper,
+        height: 53,
       }}
       disableElevation
       size="medium"
-      fullWidth={mq.medium(true, false)}
     >
       { options.map(({ rating, label, labelShort, icon, icon2 }) => {
         return (
@@ -57,15 +57,13 @@ export const RatingModule = () => {
               // If you don't like it, move one!
               if (rating === 1) getNextWork();
             }}
-            // color={isSelectedStyle(rating) ? 'primary' : 'secondary'}
             color="secondary"
             sx={{
-              // borderRadius: 0,
               py: 1,
             }}
-            startIcon={isSelectedStyle(rating) ? icon : icon2}
+            startIcon={mq.mobile(null, isSelectedStyle(rating) ? icon : icon2)}
           >
-            { mq.large(labelShort, label) }
+            { mq.mobile(isSelectedStyle(rating) ? icon : icon2, mq.large(labelShort, label)) }
           </Button>
         );
       })}

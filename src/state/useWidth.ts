@@ -1,7 +1,12 @@
 import debounce from "debounce";
 import { useEffect, useState } from "react";
 
-export const useWidth: Function = () => {
+export const useWidth: Function = (): {
+  mobile: Function,
+  small: Function,
+  medium: Function,
+  large: Function,
+} => {
   // const breakpoint = 600;
 
   const [width, setWidth] = useState(window.innerWidth);
@@ -50,5 +55,5 @@ export const useWidth: Function = () => {
     small,
     medium,
     large,
-  }
+  };
 };

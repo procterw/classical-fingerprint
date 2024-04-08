@@ -28,10 +28,11 @@ export const VideoWrapper = () => {
           justifyContent={mq.medium("right", "space-between")}
           gap={mq.medium(1, 3)}
           py={2}
-          sx={{ backgroundColor: 'rgb(246, 241, 234, 0.9)' }}
+          px={mq.mobile(2, 0)}
+          sx={{ backgroundColor: 'rgb(246, 241, 234, 0.95)' }}
         >
-          <RatingModule />
           <WorkFilter />
+          <RatingModule />
           <WorkControl />
         </Box>
       </StickyHeader>

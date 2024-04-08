@@ -78,9 +78,14 @@ export const WorkSummary = (props: { work?: Work | null }) => {
 
   return (
     <Box>
-      <Typography variant="body2" sx={{ pb: 1 }}>
-        { work.summary }
-      </Typography>
+      {
+        work.summary.split('\n')
+          .map(ws => (
+            <Typography key={ws} variant="body2" sx={{ pb: 1 }}>
+              { ws }
+            </Typography>
+          ))
+      }
       <Link
         href={work.wiki_url}
         target="_blank"
