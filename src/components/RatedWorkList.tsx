@@ -1,7 +1,7 @@
 import { Box, Divider, IconButton, List, ListItem, ListItemIcon, ListItemText, Tab, Tabs, Typography } from '@mui/material';
 import { SxProps } from '@mui/system';
 import { useEffect, useRef, useState } from 'react';
-import { RatedWork, useGetRatedWorks } from '../state/selectors';
+import { useGetRatedWorks } from '../state/selectors';
 import { Favorite, PlayCircleOutlineRounded, ThumbDownAltOutlined, ThumbUpAlt } from '@mui/icons-material';
 import { useWorkQueue } from '../state/useWorkQueue';
 import { LoaderIcon } from './LoaderIcon';

@@ -3,7 +3,7 @@ import { useMusicData } from "./useMusicData";
 import { useUserRatings } from "./useUserRatings";
 import { useWorkQueue } from "./useWorkQueue";
 
-export const useGetRatedWorks = () => {
+export const useGetRatedWorks = (): Array<RatedWork> => {
   const { works } = useMusicData();
   const { userRatings } = useUserRatings();
   const { activeWork } = useWorkQueue();
@@ -28,5 +28,8 @@ export const useGetRatedWorks = () => {
   if (activeRating) return sortedRatedWorks;
   if (!activeWork) return sortedRatedWorks;
   
-  return [{ ...activeWork, rating: 99 }, ...sortedRatedWorks];
+  return [
+    { ...activeWork, rating: 99 },
+    ...sortedRatedWorks,
+  ];
 };

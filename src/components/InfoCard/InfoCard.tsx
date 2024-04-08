@@ -25,12 +25,6 @@ export const InfoCard = () => {
         <Container maxWidth={false} disableGutters>
           <Grid container spacing={3}>
             <Grid item md={12} lg={6}>
-              {/* <Typography
-                variant="h4"
-                mb={2}
-              >
-                Background
-              </Typography> */}
               <WorkCard work={activeWork} />
               <WorkSummary work={activeWork} />
             </Grid>
@@ -39,7 +33,7 @@ export const InfoCard = () => {
                 variant="h4"
                 mb={2}
               >
-                { activeWork?.composer.complete_name }
+                { activeWork.composer.complete_name }
               </Typography>
               <ComposerCard composer={activeWork.composer} />
             </Grid>

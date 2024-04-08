@@ -27,14 +27,14 @@ export const WorkVideo = (props: { work?: Work | null}) => {
 
   const params = new URLSearchParams({
     autoplay: '1',
-    start: String(work.preview.preview_start_s),
+    start: String(work.yt_start),
     color: 'white',
     fs: '0', // disable fullscreen
     iv_load_policy: '3', // disable annotations
     rel: '0', // only show related videos from same channel
   });
 
-  const url = `https://www.youtube.com/embed/${work.preview.video_id}?${params.toString()}`
+  const url = `https://www.youtube.com/embed/${work.yt_id}?${params.toString()}`
 
   return (
     <Box

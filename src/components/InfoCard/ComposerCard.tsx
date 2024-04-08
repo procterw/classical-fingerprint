@@ -1,5 +1,4 @@
-import { Composer } from "../../services/getMusicData";
-import { Box, Link, Typography } from "@mui/material";
+import { Box, Link, Paper, Typography } from "@mui/material";
 import { useWidth } from "../../state/useWidth";
 
 export const ComposerAvatar = (props: { composer?: Composer, avatarSize: number }) => {
@@ -7,17 +6,17 @@ export const ComposerAvatar = (props: { composer?: Composer, avatarSize: number 
 
   if (!composer) return null;
 
-  const borderSize = 2;
+  const borderSize = 0;
 
   return (
-    <Box
-      sx={{
-        width: avatarSize,
-        height: avatarSize,
-        borderRadius: avatarSize,
-        background: '#da6a57;',
-      }}
-    >
+    // <Paper
+    //   elevation={3}
+    //   sx={{
+    //     width: avatarSize,
+    //     height: avatarSize,
+    //     borderRadius: avatarSize,
+    //   }}
+    // >
       <img
         src={composer.portrait}
         width={avatarSize - (borderSize * 2)}
@@ -26,10 +25,9 @@ export const ComposerAvatar = (props: { composer?: Composer, avatarSize: number 
           borderRadius: avatarSize,
           marginLeft: borderSize,
           marginTop: borderSize,
-          // filter: 'grayscale(100%)  sepia(100%) hue-rotate(-40deg) contrast(110%)',
         }}
       />
-    </Box>
+    // </Paper>
   );
 };
 
@@ -51,7 +49,7 @@ export const ComposerCard = (props: { composer?: Composer }) => {
         <Typography
           sx={{ mb: 1 }}
           variant="body2">
-          { composer.bio_preview }
+          { composer.biography }
         </Typography>
 
         <Link

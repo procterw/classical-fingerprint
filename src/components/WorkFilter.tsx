@@ -23,7 +23,7 @@ export const WorkFilter = () => {
   const epochs = uniq(musicData.composers.map(c => c.epoch));
   const genres = uniq(musicData.works.map(w => w.genre));
 
-  const options: Array<Filter> = [];
+  const options: Array<Filter> = [{ key: '_any', value: 'Anything' }];
 
   epochs.forEach(d => options.push({ value: d, key: 'epochs' }));
   genres.forEach(d => options.push({ value: d, key: 'genres' }));

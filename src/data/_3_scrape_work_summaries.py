@@ -32,6 +32,8 @@ def scrape_work_summaries():
     w["summary"] = page_py.summary
     w["wiki_url"] = wiki_url
     w["date"] = find_plausible_work_date(page_py.summary)
+    w["yt_id"] = ""
+    w["yt_start"] = 0
 
     works.append(w)
 

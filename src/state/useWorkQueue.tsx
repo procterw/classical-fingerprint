@@ -42,10 +42,8 @@ export const WorkQueueProvider = (props: { children: React.ReactNode }) => {
 
   // Get initial active work after load
   useEffect(() => {
-    if (musicData.completed) {
-      getNextWork();
-    }
-  }, [musicData.completed]);
+    getNextWork();
+  }, []);
 
   const listAvailableNextWorks = () => {
     // Get all works

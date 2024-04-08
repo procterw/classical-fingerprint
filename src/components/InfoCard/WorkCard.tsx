@@ -1,5 +1,4 @@
 import { Box, Typography, Zoom, Tooltip, Link } from '@mui/material';
-import { Work } from '../../services/getMusicData';
 import { getWorkTitleDefinitions } from '../../services/getWorkTitleDefinitions';
 import { scaleOrdinal } from 'd3-scale';
 

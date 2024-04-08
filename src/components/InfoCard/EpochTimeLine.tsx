@@ -119,11 +119,11 @@ export const EpochTimeLine = () => {
           }}
         />
 
-        { activeWork.wiki_dates.length > 0 && (
+        { activeWork.date > 0 && (
             <Typography
               sx={{
                 position: 'absolute',
-                left: `calc(${xScale(activeWork.wiki_dates[0])}% - 4.5px)`,
+                left: `calc(${xScale(activeWork.date)}% - 4.5px)`,
                 transitionProperty: 'left',
                 transitionDuration: '0.5s',
                 transitionTimingFunction: 'ease-in-out',
@@ -150,7 +150,6 @@ export const EpochTimeLine = () => {
               key={epoch.label}
               label={epoch.label}
               variant={epoch.label === epochMap[activeWork.composer.epoch] ? undefined : "outlined"}
-              // color={epoch.label === epochMap[activeWork.composer.epoch] ? "secondary" : undefined}
               size="small"
               style={{
                 fontSize: 12,

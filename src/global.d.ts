@@ -6,19 +6,19 @@
 declare interface Work {
   genre: string,
   id: string,
-  popular: "0" | "1",
-  recommended: "0" | "1",
   subtitle: string,
   title: string,
-  preview: WorkPreview,
   composer: Composer,
   summary: string,
   wiki_url: string,
-  wiki_dates: Array<number>,
+  date: number,
+  yt_id: string,
+  yt_start: number,
 };
 
 declare interface RatedWork extends Work {
   rating: number,
+  composer: Composer,
 }
 
 declare interface WorkMetadataManual {
