@@ -6,6 +6,7 @@ import { ThemeOptions, ThemeProvider, createTheme } from '@mui/material/styles';
 import { UserRatingsProvider } from './state/useUserRatings.tsx';
 import { WorkQueueProvider } from './state/useWorkQueue.tsx';
 import { MusicDataProvider } from './state/useMusicData.tsx';
+import './global.d.ts';
 
 export const themeOptions: ThemeOptions = {
   palette: {

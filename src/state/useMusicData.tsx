@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { Composer, Work, getMusicData } from "../services/getMusicData";
+import { getMusicData } from "../services/getMusicData";
 
 type MusicDataContextType = {
   composers: Array<Composer>,

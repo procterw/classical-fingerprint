@@ -4,15 +4,11 @@ import { Box } from '@mui/material';
 import { RatedWorkList } from '../components/RatedWorkList';
 import { VideoWrapper } from '../components/VideoWrapper';
 import { InfoCard } from '../components/InfoCard/InfoCard';
+import { Header } from './Header';
 
 export const ExplorationView = () => {
-  // const mq = useWidth();
-
   return (
     <>
-      {/* <Container>
-        <
-      </Container> */}
       <Container
         maxWidth="xl"
         sx={{ mb: 4 }}
@@ -36,6 +32,7 @@ export const ExplorationView = () => {
             </Box>
           </Grid>
           <Grid md={4} xs={12}>
+            <Header />
             <RatedWorkList />
           </Grid>
         </Grid>

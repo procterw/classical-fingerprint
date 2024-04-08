@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { Work } from '../services/getMusicData';
 import { Box } from '@mui/material';
 
 export const WorkVideo = (props: { work?: Work | null}) => {

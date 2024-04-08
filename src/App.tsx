@@ -14,7 +14,7 @@ function App() {
         // overflow: 'scroll',
       }}
     >
-      <AppBar
+      {/* <AppBar
         position="static"
         sx={{
           boxShadow: '0 8px 16px #e2d8ce66;',
@@ -49,7 +49,7 @@ function App() {
             </Button>
           </Toolbar>
         </Container>
-      </AppBar>
+      </AppBar> */}
 
       <ExplorationView />
     </Box>

@@ -1,12 +1,7 @@
 import { sort } from "d3-array";
-import { Work } from "../services/getMusicData";
 import { useMusicData } from "./useMusicData";
 import { useUserRatings } from "./useUserRatings";
 import { useWorkQueue } from "./useWorkQueue";
-
-export interface RatedWork extends Work {
-  rating: number,
-}
 
 export const useGetRatedWorks = () => {
   const { works } = useMusicData();

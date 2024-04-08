@@ -149,7 +149,8 @@ export const EpochTimeLine = () => {
             <Chip
               key={epoch.label}
               label={epoch.label}
-              color={epoch.label === epochMap[activeWork.composer.epoch] ? "primary" : undefined}
+              variant={epoch.label === epochMap[activeWork.composer.epoch] ? undefined : "outlined"}
+              // color={epoch.label === epochMap[activeWork.composer.epoch] ? "secondary" : undefined}
               size="small"
               style={{
                 fontSize: 12,

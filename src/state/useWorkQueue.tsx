@@ -1,5 +1,4 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { Work } from "../services/getMusicData";
 import { useUserRatings } from "./useUserRatings";
 import { useMusicData } from "./useMusicData";
 
