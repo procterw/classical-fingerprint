@@ -104,7 +104,7 @@ def build_music_data():
 # compile_composer_data()
 # compile_work_data()
 
-# merge_overrides("workOverrides_template.json", "workOverrides.json", 'workOverrides.json')
+merge_overrides("workOverrides_template.json", "workOverrides.json", 'workOverrides.json')
 # merge_overrides("composerOverrides_template.json", "composerOverrides.json", 'composerOverrides.json')
 
 build_music_data()
