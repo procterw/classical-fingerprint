@@ -50,7 +50,7 @@ const WorkItem = (props: { work: RatedWork, sx?: SxProps, onRender: Function }) 
       >
         <IconButton
           size="small"
-          onClick={() => setActiveWork(props.work.id)}
+          onClick={() => setActiveWork(props.work)}
         >
           <PlayCircleOutlineRounded fontSize="small" />
         </IconButton>

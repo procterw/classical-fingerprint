@@ -4,6 +4,7 @@
     "composer": "John Adams",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "2J8UtzDIEIA",
     "yt_start": 254,
     "performance": true
@@ -13,6 +14,7 @@
     "composer": "John Adams",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "a74Cg0jdR0c",
     "yt_start": 1759,
     "performance": true
@@ -22,6 +24,7 @@
     "composer": "John Adams",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "5LoUm_r7It8",
     "yt_start": 66,
     "performance": true
@@ -31,6 +34,7 @@
     "composer": "John Adams",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "G72JjpMEdKs",
     "yt_start": 3868,
     "performance": true
@@ -40,6 +44,7 @@
     "composer": "Johann Sebastian Bach",
     "summary": "",
     "wiki_url": "",
+    "date": 1720,
     "yt_id": "1prweT95Mo0",
     "yt_start": 38,
     "performance": true
@@ -49,6 +54,7 @@
     "composer": "Johann Sebastian Bach",
     "summary": "",
     "wiki_url": "",
+    "date": 1710,
     "yt_id": "zzBXZ__LN_M",
     "yt_start": 332,
     "performance": true
@@ -58,6 +64,7 @@
     "composer": "Johann Sebastian Bach",
     "summary": "",
     "wiki_url": "",
+    "date": 1707,
     "yt_id": "Nnuq9PXbywA",
     "yt_start": 222,
     "performance": true
@@ -67,6 +74,7 @@
     "composer": "Johann Sebastian Bach",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "NwCh4spYRwg",
     "yt_start": 73,
     "performance": true
@@ -76,6 +84,7 @@
     "composer": "Johann Sebastian Bach",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "qr0f6t2UbOo",
     "yt_start": 371,
     "performance": true
@@ -85,6 +94,7 @@
     "composer": "Johann Sebastian Bach",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "oqU4rF_ysQo",
     "yt_start": 397,
     "performance": true
@@ -94,6 +104,7 @@
     "composer": "Johann Sebastian Bach",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "VSwLeKWKtis",
     "yt_start": 596,
     "performance": true
@@ -103,6 +114,7 @@
     "composer": "Johann Sebastian Bach",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "VSwLeKWKtis",
     "yt_start": 602,
     "performance": true
@@ -112,6 +124,7 @@
     "composer": "Johann Sebastian Bach",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "h97JE4--p84",
     "yt_start": 978,
     "performance": true
@@ -121,6 +134,7 @@
     "composer": "Johann Sebastian Bach",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "ZwVW1ttVhuQ",
     "yt_start": 3617,
     "performance": true
@@ -130,6 +144,7 @@
     "composer": "B\u00e9la Bart\u00f3k",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "Q3NQvDTpbqw",
     "yt_start": 10,
     "performance": false
@@ -139,8 +154,9 @@
     "composer": "B\u00e9la Bart\u00f3k",
     "summary": "",
     "wiki_url": "",
-    "yt_id": "CjnbUmbHO9o",
-    "yt_start": 508,
+    "date": 0,
+    "yt_id": "-g0FbE3ZDTg",
+    "yt_start": 1798,
     "performance": true
   },
   "14658": {
@@ -148,6 +164,7 @@
     "composer": "B\u00e9la Bart\u00f3k",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "QElT9KD4uX8",
     "yt_start": 426,
     "performance": false
@@ -157,6 +174,7 @@
     "composer": "B\u00e9la Bart\u00f3k",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "l7J7L53b8U0",
     "yt_start": 209,
     "performance": true
@@ -166,6 +184,7 @@
     "composer": "Ludwig van Beethoven",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "ezRNLXBbB8Q",
     "yt_start": 1238,
     "performance": true
@@ -175,6 +194,7 @@
     "composer": "Ludwig van Beethoven",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "aG89Fdc1jk0",
     "yt_start": 1671,
     "performance": true
@@ -184,6 +204,7 @@
     "composer": "Ludwig van Beethoven",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "Zbo1U3e555w",
     "yt_start": 1875,
     "performance": true
@@ -193,6 +214,7 @@
     "composer": "Ludwig van Beethoven",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "iEyy7EfQfUQ",
     "yt_start": 111,
     "performance": true
@@ -202,8 +224,9 @@
     "composer": "Ludwig van Beethoven",
     "summary": "",
     "wiki_url": "",
-    "yt_id": "AU2G13qnKl8",
-    "yt_start": 807,
+    "date": 0,
+    "yt_id": "o_4s7hSfNII",
+    "yt_start": 84,
     "performance": true
   },
   "16419": {
@@ -211,6 +234,7 @@
     "composer": "Ludwig van Beethoven",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "E5JObP74jcw",
     "yt_start": 933,
     "performance": true
@@ -220,6 +244,7 @@
     "composer": "Ludwig van Beethoven",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "hDXWK3W477w",
     "yt_start": 97,
     "performance": true
@@ -229,6 +254,7 @@
     "composer": "Ludwig van Beethoven",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "-VVXqNt4qU0",
     "yt_start": 153,
     "performance": true
@@ -238,6 +264,7 @@
     "composer": "Ludwig van Beethoven",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "yf2rbcrZzDQ",
     "yt_start": 197,
     "performance": true
@@ -247,6 +274,7 @@
     "composer": "Ludwig van Beethoven",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "cokCgWPRZPg",
     "yt_start": 2085,
     "performance": true
@@ -256,8 +284,9 @@
     "composer": "Alban Berg",
     "summary": "",
     "wiki_url": "",
-    "yt_id": "1Qd9t18ene8",
-    "yt_start": 113,
+    "date": 0,
+    "yt_id": "iNrvX5uobG0",
+    "yt_start": 777,
     "performance": true
   },
   "20029": {
@@ -265,6 +294,7 @@
     "composer": "Hector Berlioz",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "b73bDY9j_Oo",
     "yt_start": 173,
     "performance": false
@@ -274,6 +304,7 @@
     "composer": "Hector Berlioz",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "Q4NC4E5RXik",
     "yt_start": 1912,
     "performance": true
@@ -283,6 +314,7 @@
     "composer": "Alexander Borodin",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "g4tlQxaHetI",
     "yt_start": 231,
     "performance": true
@@ -292,6 +324,7 @@
     "composer": "Alexander Borodin",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "wiexn6O9To4",
     "yt_start": 79,
     "performance": true
@@ -301,6 +334,7 @@
     "composer": "Alexander Borodin",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "jjXG0CjBhOs",
     "yt_start": 1306,
     "performance": true
@@ -310,6 +344,7 @@
     "composer": "Johannes Brahms",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "1Gw8JU53SWY",
     "yt_start": 1537,
     "performance": true
@@ -319,6 +354,7 @@
     "composer": "Johannes Brahms",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "c5D9FbG71eE",
     "yt_start": 1703,
     "performance": true
@@ -328,6 +364,7 @@
     "composer": "Johannes Brahms",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "BszBccYHuAk",
     "yt_start": 878,
     "performance": true
@@ -337,6 +374,7 @@
     "composer": "Johannes Brahms",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "u68ETRjNQME",
     "yt_start": 1341,
     "performance": true
@@ -346,6 +384,7 @@
     "composer": "Johannes Brahms",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "7QLuYj2jxoc",
     "yt_start": 1836,
     "performance": true
@@ -355,8 +394,9 @@
     "composer": "Johannes Brahms",
     "summary": "",
     "wiki_url": "",
-    "yt_id": "tV7APwv68tY",
-    "yt_start": 633,
+    "date": 0,
+    "yt_id": "wbHUG6utqhs",
+    "yt_start": 713,
     "performance": true
   },
   "7645": {
@@ -364,6 +404,7 @@
     "composer": "Johannes Brahms",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "ZXU9vqVdudM",
     "yt_start": 920,
     "performance": true
@@ -373,6 +414,7 @@
     "composer": "Benjamin Britten",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "ht9mQE6X0C0",
     "yt_start": 726,
     "performance": true
@@ -382,6 +424,7 @@
     "composer": "Benjamin Britten",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "bNriMpXLdow",
     "yt_start": 426,
     "performance": true
@@ -391,6 +434,7 @@
     "composer": "Benjamin Britten",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "QexU2At_lLQ",
     "yt_start": 925,
     "performance": true
@@ -400,6 +444,7 @@
     "composer": "Benjamin Britten",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "b8maztHwYhA",
     "yt_start": 523,
     "performance": true
@@ -409,6 +454,7 @@
     "composer": "Anton Bruckner",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "v45b8fets84",
     "yt_start": 3386,
     "performance": true
@@ -418,6 +464,7 @@
     "composer": "Anton Bruckner",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "c34QGfCknYc",
     "yt_start": 2275,
     "performance": true
@@ -427,6 +474,7 @@
     "composer": "Anton Bruckner",
     "summary": "",
     "wiki_url": "",
+    "date": 1885,
     "yt_id": "KeYuPPP1-Qw",
     "yt_start": 488,
     "performance": true
@@ -436,6 +484,7 @@
     "composer": "Fr\u00e9d\u00e9ric Chopin",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "QR10Od1cLaM",
     "yt_start": 151,
     "performance": true
@@ -445,6 +494,7 @@
     "composer": "Fr\u00e9d\u00e9ric Chopin",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "aZYYoDDmg8M",
     "yt_start": 371,
     "performance": true
@@ -454,6 +504,7 @@
     "composer": "Fr\u00e9d\u00e9ric Chopin",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "QWFR9joxbpc",
     "yt_start": 1560,
     "performance": true
@@ -463,6 +514,7 @@
     "composer": "Fr\u00e9d\u00e9ric Chopin",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "zc9n2SOdksE",
     "yt_start": 182,
     "performance": true
@@ -472,6 +524,7 @@
     "composer": "Fr\u00e9d\u00e9ric Chopin",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "614oSsDS734",
     "yt_start": 306,
     "performance": true
@@ -481,6 +534,7 @@
     "composer": "Aaron Copland",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "WoILPBDsfvI",
     "yt_start": 620,
     "performance": true
@@ -490,6 +544,7 @@
     "composer": "Aaron Copland",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "ZdqjcMmjeaA",
     "yt_start": 24,
     "performance": true
@@ -499,6 +554,7 @@
     "composer": "Aaron Copland",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "TXV8yO1FucA",
     "yt_start": 1220,
     "performance": true
@@ -508,6 +564,7 @@
     "composer": "Claude Debussy",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "5VMQuHMq8QQ",
     "yt_start": 66,
     "performance": true
@@ -517,6 +574,7 @@
     "composer": "Claude Debussy",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "VdaYiXepn7Q",
     "yt_start": 5,
     "performance": true
@@ -526,6 +584,7 @@
     "composer": "Claude Debussy",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "fZrm9h3JRGs",
     "yt_start": 158,
     "performance": true
@@ -535,6 +594,7 @@
     "composer": "Claude Debussy",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "ATT6ft_qd6k",
     "yt_start": 123,
     "performance": true
@@ -544,6 +604,7 @@
     "composer": "Claude Debussy",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "Y9iDOt2WbjY",
     "yt_start": 380,
     "performance": true
@@ -553,6 +614,7 @@
     "composer": "Josquin Des Prez",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "U4sjQdvAdg0",
     "yt_start": 611,
     "performance": false
@@ -562,6 +624,7 @@
     "composer": "Guillaume Dufay",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "ibSeyIbNGYA",
     "yt_start": 50,
     "performance": true
@@ -571,6 +634,7 @@
     "composer": "Guillaume Dufay",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "3VODbfs-LZA",
     "yt_start": 1,
     "performance": false
@@ -580,6 +644,7 @@
     "composer": "Anton\u00edn Dvo\u0159\u00e1k",
     "summary": "",
     "wiki_url": "",
+    "date": 1891,
     "yt_id": "b8EjHqBWgD0",
     "yt_start": 703,
     "performance": true
@@ -589,6 +654,7 @@
     "composer": "Anton\u00edn Dvo\u0159\u00e1k",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "xcU18AIz8V8",
     "yt_start": 248,
     "performance": true
@@ -598,6 +664,7 @@
     "composer": "Anton\u00edn Dvo\u0159\u00e1k",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "a1jNQgTVYrY",
     "yt_start": 444,
     "performance": true
@@ -607,6 +674,7 @@
     "composer": "Anton\u00edn Dvo\u0159\u00e1k",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "tgWDoUNnLRM",
     "yt_start": 272,
     "performance": true
@@ -616,6 +684,7 @@
     "composer": "Anton\u00edn Dvo\u0159\u00e1k",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "CRcbDMg56yg",
     "yt_start": 285,
     "performance": true
@@ -625,6 +694,7 @@
     "composer": "Anton\u00edn Dvo\u0159\u00e1k",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "RhbK_5cWbpU",
     "yt_start": 1814,
     "performance": true
@@ -634,6 +704,7 @@
     "composer": "Anton\u00edn Dvo\u0159\u00e1k",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "xyCYvoOEBbw",
     "yt_start": 39,
     "performance": true
@@ -643,6 +714,7 @@
     "composer": "Edward Elgar",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "7iM5dymBBI4",
     "yt_start": 162,
     "performance": true
@@ -652,6 +724,7 @@
     "composer": "Manuel de Falla",
     "summary": "",
     "wiki_url": "",
+    "date": 1924,
     "yt_id": "iQwk_pOxsbs",
     "yt_start": 333,
     "performance": true
@@ -661,6 +734,7 @@
     "composer": "C\u00e9sar Franck",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "MGHpugdtdB4",
     "yt_start": 28,
     "performance": false
@@ -670,6 +744,7 @@
     "composer": "C\u00e9sar Franck",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "nfbOVwzyh20",
     "yt_start": 1727,
     "performance": true
@@ -679,6 +754,7 @@
     "composer": "George Gershwin",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "9HI62_udgEI",
     "yt_start": 949,
     "performance": true
@@ -686,8 +762,9 @@
   "15562": {
     "title": "Rhapsody in Blue",
     "composer": "George Gershwin",
-    "summary": "",
-    "wiki_url": "",
+    "summary": "In 1434\u201335, while Guillaume Dufay was first in the service of the duke of Savoy, he wrote a chanson, Se la face ay pale, thought to be in honor of Anne de Lusignan, who was the duchess of Savoy (part of the kingdom of Burgundy). Although his whereabouts prior to 1452 are unknown, it is clear that he lived in Savoy between 1452 and 1458, and among the many compositions he wrote for various occasions was a cyclic mass, the Missa Se la face ay pale, based on the tenor of the earlier chanson. One can only guess at what might have been the very special significance the earlier chanson had for the Savoy court.",
+    "wiki_url": "https://www.encyclopedia.com/humanities/culture-magazines/missa-se-la-face-ay-pale",
+    "date": 1434,
     "yt_id": "cH2PH0auTUU",
     "yt_start": 318,
     "performance": true
@@ -695,8 +772,9 @@
   "2484": {
     "title": "Estancia, op. 8a",
     "composer": "Alberto Ginastera",
-    "summary": "",
-    "wiki_url": "",
+    "summary": "Estancia (Op. 8) is the second ballet composed by Argentinian composer Alberto Ginastera premiered in 1952 commissioned by American writer Lincoln Kirstein. Ginastera took inspiration for the ballet's plot from the epic Martin Fierro by Argentine writer Jos\u00e9 Hern\u00e1ndez, incorporating the nationalist themes and language into his musical score. The ballet was created the same year the composer had made his acquaintance with American composer Aaron Copland. The ballet began its life as a four-part orchestral suite in 1941 before being turned in a one-act ballet.The ballet form is approximately one hour in length and tells the story of the love between a boy living in the city and the daughter of a rancher. The girl finds the boy lacking in courage when compared to the gauchos. However, by the end of the ballet, he wins her over by outdancing the gauchos in a competition.",
+    "wiki_url": "https://en.wikipedia.org/wiki/Estancia_(Ginastera)",
+    "date": 1952,
     "yt_id": "fnb5byOyXyM",
     "yt_start": 547,
     "performance": true
@@ -706,6 +784,7 @@
     "composer": "Philip Glass",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "TWu9VxVQ6Lg",
     "yt_start": 289,
     "performance": true
@@ -715,6 +794,7 @@
     "composer": "Philip Glass",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "M73x3O7dhmg",
     "yt_start": 437,
     "performance": true
@@ -724,6 +804,7 @@
     "composer": "Philip Glass",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "5lGNtPXcA04",
     "yt_start": 990,
     "performance": true
@@ -733,6 +814,7 @@
     "composer": "Philip Glass",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "5PcgXev7VlU",
     "yt_start": 286,
     "performance": true
@@ -742,6 +824,7 @@
     "composer": "Christoph Willibald von Gluck",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "j1mgoXLUU8Y",
     "yt_start": 158,
     "performance": true
@@ -751,6 +834,7 @@
     "composer": "Christoph Willibald von Gluck",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "JUpZ1Npj23M",
     "yt_start": 2516,
     "performance": true
@@ -760,6 +844,7 @@
     "composer": "Edvard Grieg",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "j1wQ8ZMZq60",
     "yt_start": 463,
     "performance": true
@@ -769,6 +854,7 @@
     "composer": "Edvard Grieg",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "Wxs9-QDaDd0",
     "yt_start": 671,
     "performance": true
@@ -778,6 +864,7 @@
     "composer": "Edvard Grieg",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "Vj7vHmejrPA",
     "yt_start": 806,
     "performance": true
@@ -787,6 +874,7 @@
     "composer": "Edvard Grieg",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "3O2CT65NH9A",
     "yt_start": 815,
     "performance": true
@@ -796,6 +884,7 @@
     "composer": "Edvard Grieg",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "pfNvWmjtryQ",
     "yt_start": 1069,
     "performance": true
@@ -805,6 +894,7 @@
     "composer": "George Frideric Handel",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "1G2RKU7iJ-4",
     "yt_start": 671,
     "performance": true
@@ -814,6 +904,7 @@
     "composer": "George Frideric Handel",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "fNqJ8mED1VE",
     "yt_start": 671,
     "performance": true
@@ -823,6 +914,7 @@
     "composer": "George Frideric Handel",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "Mo6ekt2kTVg",
     "yt_start": 608,
     "performance": true
@@ -832,6 +924,7 @@
     "composer": "George Frideric Handel",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "DJ-3cakmglM",
     "yt_start": 300,
     "performance": true
@@ -841,6 +934,7 @@
     "composer": "George Frideric Handel",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "MiupqRjrDoE",
     "yt_start": 433,
     "performance": true
@@ -850,6 +944,7 @@
     "composer": "George Frideric Handel",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "jJyTfttQvdA",
     "yt_start": 297,
     "performance": true
@@ -859,6 +954,7 @@
     "composer": "George Frideric Handel",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "664QhBOhBgc",
     "yt_start": 125,
     "performance": true
@@ -868,6 +964,7 @@
     "composer": "George Frideric Handel",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "wQ9IymF3SzI",
     "yt_start": 484,
     "performance": true
@@ -877,6 +974,7 @@
     "composer": "George Frideric Handel",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "https://www.youtube.com/live/bR0cEOTpYSk",
     "yt_start": 2075,
     "performance": true
@@ -886,6 +984,7 @@
     "composer": "Franz Joseph Haydn",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "VFw-D-sF8Ds",
     "yt_start": 953,
     "performance": true
@@ -895,6 +994,7 @@
     "composer": "Franz Joseph Haydn",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "OpD9ofCm6Ak",
     "yt_start": 1120,
     "performance": true
@@ -904,6 +1004,7 @@
     "composer": "Franz Joseph Haydn",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "VOLy6JxEDLw",
     "yt_start": 301,
     "performance": true
@@ -913,6 +1014,7 @@
     "composer": "Franz Joseph Haydn",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "QSeFoFdURWk",
     "yt_start": 1067,
     "performance": true
@@ -922,6 +1024,7 @@
     "composer": "Franz Joseph Haydn",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "6GXAmM_gau0",
     "yt_start": 328,
     "performance": true
@@ -931,6 +1034,7 @@
     "composer": "Franz Joseph Haydn",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "OitPLIowJ70",
     "yt_start": 1320,
     "performance": true
@@ -940,6 +1044,7 @@
     "composer": "Charles Ives",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "cDNPpsUaVYo",
     "yt_start": 1073,
     "performance": true
@@ -949,8 +1054,9 @@
     "composer": "Charles Ives",
     "summary": "",
     "wiki_url": "",
-    "yt_id": "Lat4L5AqL2Q",
-    "yt_start": 379,
+    "date": 0,
+    "yt_id": "RC6jSHYQURc",
+    "yt_start": 328,
     "performance": true
   },
   "27009": {
@@ -958,6 +1064,7 @@
     "composer": "Charles Ives",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "d0OpTJlXdko",
     "yt_start": 226,
     "performance": true
@@ -967,6 +1074,7 @@
     "composer": "Charles Ives",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "WBiL0VEttZw",
     "yt_start": 226,
     "performance": true
@@ -976,6 +1084,7 @@
     "composer": "Leo\u0161 Jan\u00e1\u010dek",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "rmOH_myNYko",
     "yt_start": 448,
     "performance": true
@@ -985,6 +1094,7 @@
     "composer": "Leo\u0161 Jan\u00e1\u010dek",
     "summary": "",
     "wiki_url": "",
+    "date": 1928,
     "yt_id": "4sUmr01b_OQ",
     "yt_start": 160,
     "performance": false
@@ -994,6 +1104,7 @@
     "composer": "Leo\u0161 Jan\u00e1\u010dek",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "9aFTv50AoEQ",
     "yt_start": 154,
     "performance": false
@@ -1001,8 +1112,9 @@
   "10936": {
     "title": "Taras Bulba  JW VI/15",
     "composer": "Leo\u0161 Jan\u00e1\u010dek",
-    "summary": "",
-    "wiki_url": "",
+    "summary": "Taras Bulba is a rhapsody for orchestra by the Czech composer Leo\u0161 Jan\u00e1\u010dek.  It was composed between 1915 and 1918 and is one of the most famous of Jan\u00e1\u010dek's works. It is based on the novel by Nikolai Gogol.\nThe first version of the work was finished on 2 July 1915, but Jan\u00e1\u010dek later revised it and made substantial changes. The second, almost complete, version was finished on 29 March 1918. Taras Bulba was premiered at the National Theatre in Brno on 9 October 1921, conducted by Franti\u0161ek Neumann. The composition was dedicated to \"our army, the armed protector of our nation\". It was published by Hudebn\u00ed matice in 1924 in piano duet arrangement made by B\u0159etislav Bakala. In 1927 the full score was published with further changes. Jan\u00e1\u010dek described the piece as a \"rhapsody\" and chose three episodes from Gogol's story to portray in this programmatic work.",
+    "wiki_url": "https://en.wikipedia.org/wiki/Taras_Bulba_(rhapsody)",
+    "date": 1915,
     "yt_id": "2j_T_AcgphI",
     "yt_start": 156,
     "performance": false
@@ -1012,6 +1124,7 @@
     "composer": "Leo\u0161 Jan\u00e1\u010dek",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "IIBxjBIoUVc",
     "yt_start": 63,
     "performance": false
@@ -1019,8 +1132,9 @@
   "2068": {
     "title": "Lux aeterna, for a cappella chorus ",
     "composer": "Gy\u00f6rgy Ligeti",
-    "summary": "",
-    "wiki_url": "",
+    "summary": "Lux Aeterna is a piece for a 16-part mixed choir, written by Gy\u00f6rgy Ligeti in 1966. It is most famous for its use in Stanley Kubrick's 1968 film 2001: A Space Odyssey.\nThe text (in Latin) is from the Roman Catholic Requiem Mass: Lux aeterna luceat eis, Domine, cum sanctis tuis in aeternum, quia pius es.  Requiem aeternam dona eis, Domine; et lux perpetua luceat eis, which means \"May everlasting light shine upon them, O Lord, with thy saints in eternity, for thou art merciful.  Grant them eternal rest, O Lord, and may everlasting light shine upon them.\"\nThe piece features many of Ligeti's characteristic styles, including:\n\nMicropolyphony, which Ligeti describes as \"The complex polyphony of the individual parts[,] embodied in a harmonic-musical flow in which the harmonies do not change suddenly, but merge into one another; one clearly discernible interval combination is gradually blurred, and from this cloudiness it is possible to discern a new interval combination taking shape.\"\nCluster chords, where every note within a given interval is sung simultaneously\nA focus on timbre rather than melody, harmony, or rhythm",
+    "wiki_url": "https://en.wikipedia.org/wiki/Lux_Aeterna_(Ligeti)",
+    "date": 1966,
     "yt_id": "GwlksfO729I",
     "yt_start": 253,
     "performance": true
@@ -1030,6 +1144,7 @@
     "composer": "Franz Liszt",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "OildwFpdfiY",
     "yt_start": 278,
     "performance": true
@@ -1039,6 +1154,7 @@
     "composer": "Franz Liszt",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "B0TOvZ5U7nM",
     "yt_start": 1098,
     "performance": true
@@ -1048,6 +1164,7 @@
     "composer": "Witold Lutoslawski",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "34V7uPbYTZk",
     "yt_start": 388,
     "performance": false
@@ -1057,6 +1174,7 @@
     "composer": "Gustav Mahler",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "wgtSa6XYWdE",
     "yt_start": 5282,
     "performance": true
@@ -1066,6 +1184,7 @@
     "composer": "Gustav Mahler",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "bDg1VPUeQyI",
     "yt_start": 367,
     "performance": true
@@ -1075,6 +1194,7 @@
     "composer": "Bohuslav Martin\u016f",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "84y7WdTJf5Y",
     "yt_start": 422,
     "performance": true
@@ -1082,8 +1202,9 @@
   "970": {
     "title": "Piano Concerto no. 4, H.358, \"Incantations\"",
     "composer": "Bohuslav Martin\u016f",
-    "summary": "",
-    "wiki_url": "",
+    "summary": "NONE",
+    "wiki_url": "NONE",
+    "date": 1956,
     "yt_id": "jj_xUzMRcOs",
     "yt_start": 159,
     "performance": false
@@ -1093,6 +1214,7 @@
     "composer": "Felix Mendelssohn",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "Vw1kcQ-QbZw",
     "yt_start": 634,
     "performance": true
@@ -1102,6 +1224,7 @@
     "composer": "Felix Mendelssohn",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "sUm41WqTix8",
     "yt_start": 11,
     "performance": true
@@ -1111,6 +1234,7 @@
     "composer": "Felix Mendelssohn",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "RnkYSNA0-tA",
     "yt_start": 9,
     "performance": true
@@ -1120,8 +1244,9 @@
     "composer": "Felix Mendelssohn",
     "summary": "",
     "wiki_url": "",
-    "yt_id": "XMLyJNgd6LA",
-    "yt_start": 1529,
+    "date": 0,
+    "yt_id": "_HX_jF1_Tgc",
+    "yt_start": 1397,
     "performance": true
   },
   "16609": {
@@ -1129,6 +1254,7 @@
     "composer": "Felix Mendelssohn",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "I03Hs6dwj7E",
     "yt_start": 568,
     "performance": true
@@ -1138,6 +1264,7 @@
     "composer": "Olivier Messiaen",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "QAQmZvxVffY",
     "yt_start": 1003,
     "performance": true
@@ -1147,6 +1274,7 @@
     "composer": "Olivier Messiaen",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "xOnZ1-sOCwo",
     "yt_start": 3185,
     "performance": true
@@ -1156,6 +1284,7 @@
     "composer": "Darius Milhaud",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "zZanU1ZaN6k",
     "yt_start": 656,
     "performance": false
@@ -1165,6 +1294,7 @@
     "composer": "Darius Milhaud",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "_ijU_CbYl5c",
     "yt_start": 132,
     "performance": true
@@ -1174,6 +1304,7 @@
     "composer": "Darius Milhaud",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "9iqZ-lyUsNM",
     "yt_start": 386,
     "performance": true
@@ -1183,6 +1314,7 @@
     "composer": "Claudio Monteverdi",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "LdMATHdLfKw",
     "yt_start": 4442,
     "performance": false
@@ -1192,6 +1324,7 @@
     "composer": "Claudio Monteverdi",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "0FXECUmqBxQ",
     "yt_start": 2103,
     "performance": true
@@ -1201,6 +1334,7 @@
     "composer": "Wolfgang Amadeus Mozart",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "FpK1tjbeeA0",
     "yt_start": 953,
     "performance": true
@@ -1210,6 +1344,7 @@
     "composer": "Wolfgang Amadeus Mozart",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "f3oK4XVMARs",
     "yt_start": 601,
     "performance": true
@@ -1219,6 +1354,7 @@
     "composer": "Wolfgang Amadeus Mozart",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "1V0rGf9PjzI",
     "yt_start": 2,
     "performance": true
@@ -1228,6 +1364,7 @@
     "composer": "Wolfgang Amadeus Mozart",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "vp_h649sZ9A",
     "yt_start": 624,
     "performance": true
@@ -1237,6 +1374,7 @@
     "composer": "Wolfgang Amadeus Mozart",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "nheif2BuFz0",
     "yt_start": 687,
     "performance": true
@@ -1246,6 +1384,7 @@
     "composer": "Wolfgang Amadeus Mozart",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "Q-VGFxm2zT4",
     "yt_start": 125,
     "performance": true
@@ -1255,6 +1394,7 @@
     "composer": "Wolfgang Amadeus Mozart",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "tlemxI7QciA",
     "yt_start": 709,
     "performance": true
@@ -1264,6 +1404,7 @@
     "composer": "Wolfgang Amadeus Mozart",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "m7zBm_Tnf9M",
     "yt_start": 1642,
     "performance": true
@@ -1273,6 +1414,7 @@
     "composer": "Wolfgang Amadeus Mozart",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "707oHEGF6l8",
     "yt_start": 108,
     "performance": true
@@ -1282,6 +1424,7 @@
     "composer": "Wolfgang Amadeus Mozart",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "N1cexwLOvtY",
     "yt_start": 334,
     "performance": true
@@ -1291,6 +1434,7 @@
     "composer": "Wolfgang Amadeus Mozart",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "D1-CbocY21E",
     "yt_start": 32,
     "performance": true
@@ -1300,6 +1444,7 @@
     "composer": "Wolfgang Amadeus Mozart",
     "summary": "",
     "wiki_url": "",
+    "date": 1791,
     "yt_id": "KcnBPqOddSM",
     "yt_start": 11,
     "performance": true
@@ -1309,7 +1454,8 @@
     "composer": "Modest Mussorgsky",
     "summary": "",
     "wiki_url": "",
-    "yt_id": "com/https://youtu.be/Sq7Qd9PSmR0",
+    "date": 0,
+    "yt_id": "Sq7Qd9PSmR0",
     "yt_start": 1800,
     "performance": true
   },
@@ -1318,6 +1464,7 @@
     "composer": "Modest Mussorgsky",
     "summary": "",
     "wiki_url": "",
+    "date": 1867,
     "yt_id": "52iOdAVU4C8",
     "yt_start": 13,
     "performance": true
@@ -1327,6 +1474,7 @@
     "composer": "Carl Nielsen",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "4PD0xV8_dI4",
     "yt_start": 498,
     "performance": true
@@ -1336,6 +1484,7 @@
     "composer": "Carl Nielsen",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "ZYqVLY8JjyQ",
     "yt_start": 147,
     "performance": true
@@ -1345,6 +1494,7 @@
     "composer": "Carl Nielsen",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "mR-iJd2x6zE",
     "yt_start": 694,
     "performance": false
@@ -1354,6 +1504,7 @@
     "composer": "Giovanni Pierluigi da Palestrina",
     "summary": "",
     "wiki_url": "",
+    "date": 1562,
     "yt_id": "KSmT4VIjEtI",
     "yt_start": 280,
     "performance": true
@@ -1363,6 +1514,7 @@
     "composer": "Arvo P\u00e4rt",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "SMN9h85DrFM",
     "yt_start": 436,
     "performance": true
@@ -1372,6 +1524,7 @@
     "composer": "Francis Poulenc",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "QmSQBYLx0vo",
     "yt_start": 1047,
     "performance": true
@@ -1381,6 +1534,7 @@
     "composer": "Francis Poulenc",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "2-VSj7bSsfo",
     "yt_start": 264,
     "performance": true
@@ -1390,6 +1544,7 @@
     "composer": "Francis Poulenc",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "PAPFKUA7mQI",
     "yt_start": 65,
     "performance": true
@@ -1399,6 +1554,7 @@
     "composer": "Sergei Prokofiev",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "w2QIzHA3hVE",
     "yt_start": 696,
     "performance": true
@@ -1408,6 +1564,7 @@
     "composer": "Sergei Prokofiev",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "SefZnhpO5Ag",
     "yt_start": 385,
     "performance": true
@@ -1417,6 +1574,7 @@
     "composer": "Sergei Prokofiev",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "cY1lkh-T24Y",
     "yt_start": 509,
     "performance": true
@@ -1426,8 +1584,9 @@
     "composer": "Sergei Prokofiev",
     "summary": "",
     "wiki_url": "",
-    "yt_id": "AZwCi2GdBkU",
-    "yt_start": 114,
+    "date": 0,
+    "yt_id": "7qqrIusxVAI",
+    "yt_start": 95,
     "performance": true
   },
   "21536": {
@@ -1435,6 +1594,7 @@
     "composer": "Sergei Prokofiev",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "yJuEefm-JuU",
     "yt_start": 483,
     "performance": true
@@ -1444,6 +1604,7 @@
     "composer": "Sergei Prokofiev",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "YbaY7p5ahZo",
     "yt_start": 684,
     "performance": true
@@ -1453,6 +1614,7 @@
     "composer": "Giacomo Puccini",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "OkHGUaB1Bs8",
     "yt_start": 208,
     "performance": true
@@ -1462,6 +1624,7 @@
     "composer": "Giacomo Puccini",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "IYrbdiee9SU",
     "yt_start": 945,
     "performance": true
@@ -1471,6 +1634,7 @@
     "composer": "Giacomo Puccini",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "5-AF1T4OehM",
     "yt_start": 99,
     "performance": true
@@ -1480,6 +1644,7 @@
     "composer": "Sergei Rachmaninoff",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "rEGOihjqO9w",
     "yt_start": 641,
     "performance": true
@@ -1489,6 +1654,7 @@
     "composer": "Sergei Rachmaninoff",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "ppJ5uITLECE",
     "yt_start": 1012,
     "performance": true
@@ -1498,6 +1664,7 @@
     "composer": "Maurice Ravel",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "UlMJ6Ri-LMM",
     "yt_start": 171,
     "performance": true
@@ -1507,6 +1674,7 @@
     "composer": "Maurice Ravel",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "cJOW5mlhH_Y",
     "yt_start": 528,
     "performance": true
@@ -1516,6 +1684,7 @@
     "composer": "Maurice Ravel",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "s_pSJOkmYBA",
     "yt_start": 573,
     "performance": true
@@ -1525,6 +1694,7 @@
     "composer": "Steve Reich",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "fW9EwiXF3Eo",
     "yt_start": 1190,
     "performance": true
@@ -1532,8 +1702,9 @@
   "20081": {
     "title": "Music for Pieces of Wood, for 5 pairs of tuned claves",
     "composer": "Steve Reich",
-    "summary": "",
-    "wiki_url": "",
+    "summary": "Music for Pieces of Wood grows out of the same roots as Clapping Music: a desire to make music with the simplest possible instruments. The claves, or cylindrical pieces of hard wood, used here were selected for their particular pitches (A, B, C#, D#, and D# an octave above), and for their resonant timbre. This piece is one of the loudest I have ever composed, but uses no amplification whatsoever. The rhythmic structure is based entirely on the process of rhythmic \u201cbuildups\u201d or the substitution of beats for rests, and is in three sections of decreasing pattern length: 6/4, 4/4, 3/4. -Steve Reich",
+    "wiki_url": "https://stevereich.com/composition/music-for-pieces-of-wood/",
+    "date": 1973,
     "yt_id": "i4JQD0cy87I",
     "yt_start": 59,
     "performance": true
@@ -1543,6 +1714,7 @@
     "composer": "Nikolai Rimsky-Korsakov",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "X_HSpn3tE_A",
     "yt_start": 382,
     "performance": true
@@ -1552,6 +1724,7 @@
     "composer": "Nikolai Rimsky-Korsakov",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "hbDYtAHTQoE",
     "yt_start": 265,
     "performance": true
@@ -1561,6 +1734,7 @@
     "composer": "Nikolai Rimsky-Korsakov",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "zY4w4_W30aQ",
     "yt_start": 2694,
     "performance": true
@@ -1570,6 +1744,7 @@
     "composer": "Gioachino Rossini",
     "summary": "",
     "wiki_url": "",
+    "date": 1829,
     "yt_id": "S5Pk9CCkkvk",
     "yt_start": 472,
     "performance": true
@@ -1579,6 +1754,7 @@
     "composer": "Gioachino Rossini",
     "summary": "",
     "wiki_url": "",
+    "date": 1816,
     "yt_id": "QJsr2F_A33E",
     "yt_start": 1334,
     "performance": true
@@ -1588,6 +1764,7 @@
     "composer": "Camille Saint-Sa\u00ebns",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "7SjagpXeNhM",
     "yt_start": 513,
     "performance": true
@@ -1597,6 +1774,7 @@
     "composer": "Camille Saint-Sa\u00ebns",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "pfBkzWNQTpI",
     "yt_start": 42,
     "performance": true
@@ -1606,6 +1784,7 @@
     "composer": "Camille Saint-Sa\u00ebns",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "6bwsJ1GCu9Q",
     "yt_start": 1120,
     "performance": true
@@ -1615,6 +1794,7 @@
     "composer": "Camille Saint-Sa\u00ebns",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "ZWCZq33BrOo",
     "yt_start": 1695,
     "performance": true
@@ -1624,6 +1804,7 @@
     "composer": "Alfred Schnittke",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "7O7lyxIqtiU",
     "yt_start": 1192,
     "performance": true
@@ -1633,6 +1814,7 @@
     "composer": "Alfred Schnittke",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "EVAB2z1RPu4",
     "yt_start": 1604,
     "performance": true
@@ -1642,6 +1824,7 @@
     "composer": "Arnold Schoenberg",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "c4eCHbBqfrA",
     "yt_start": 1049,
     "performance": true
@@ -1651,8 +1834,9 @@
     "composer": "Arnold Schoenberg",
     "summary": "",
     "wiki_url": "",
-    "yt_id": "7vM4B1fNTQ8",
-    "yt_start": 1787,
+    "date": 0,
+    "yt_id": "bd2cBUJmDr8",
+    "yt_start": 122,
     "performance": true
   },
   "21352": {
@@ -1660,6 +1844,7 @@
     "composer": "Franz Schubert",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "0YNcI_SzADg",
     "yt_start": 1487,
     "performance": true
@@ -1669,6 +1854,7 @@
     "composer": "Franz Schubert",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "nioKJNp8ADE",
     "yt_start": 51,
     "performance": true
@@ -1678,6 +1864,7 @@
     "composer": "Franz Schubert",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "dwIr4kICW1E",
     "yt_start": 2036,
     "performance": true
@@ -1687,6 +1874,7 @@
     "composer": "Franz Schubert",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "T0GOv95iDf0",
     "yt_start": 1197,
     "performance": true
@@ -1696,6 +1884,7 @@
     "composer": "Franz Schubert",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "UyjzqPPXDcw",
     "yt_start": 54,
     "performance": true
@@ -1705,6 +1894,7 @@
     "composer": "Franz Schubert",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "3tisvEpblig",
     "yt_start": 157,
     "performance": true
@@ -1714,8 +1904,9 @@
     "composer": "Franz Schubert",
     "summary": "",
     "wiki_url": "",
+    "date": 1824,
     "yt_id": "bA6pzRx6gBE",
-    "yt_start": 1091,
+    "yt_start": 1111,
     "performance": true
   },
   "21086": {
@@ -1723,6 +1914,7 @@
     "composer": "Franz Schubert",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "sfQeLgFmNEI",
     "yt_start": 190,
     "performance": true
@@ -1732,8 +1924,9 @@
     "composer": "Franz Schubert",
     "summary": "",
     "wiki_url": "",
-    "yt_id": "vrgnGgOWJ2w",
-    "yt_start": 78,
+    "date": 0,
+    "yt_id": "N9GqYa5sqXY",
+    "yt_start": 145,
     "performance": true
   },
   "15111": {
@@ -1741,6 +1934,7 @@
     "composer": "Robert Schumann",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "J8SiSnUJjl0",
     "yt_start": 379,
     "performance": true
@@ -1750,8 +1944,9 @@
     "composer": "Robert Schumann",
     "summary": "",
     "wiki_url": "",
-    "yt_id": "LNo2aiKV-a0",
-    "yt_start": 767,
+    "date": 0,
+    "yt_id": "dB6UCcpeLQA",
+    "yt_start": 1203,
     "performance": true
   },
   "15076": {
@@ -1759,6 +1954,7 @@
     "composer": "Robert Schumann",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "ZRZjHKX-JMA",
     "yt_start": 779,
     "performance": true
@@ -1768,6 +1964,7 @@
     "composer": "Robert Schumann",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "fWDrJT0s1s8",
     "yt_start": 525,
     "performance": true
@@ -1777,6 +1974,7 @@
     "composer": "Dmitri Shostakovich",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "41HIXtBElH4",
     "yt_start": 309,
     "performance": true
@@ -1786,6 +1984,7 @@
     "composer": "Dmitri Shostakovich",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "iImL-M_YhPU",
     "yt_start": 589,
     "performance": true
@@ -1795,6 +1994,7 @@
     "composer": "Dmitri Shostakovich",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "5zFOf9m03-M",
     "yt_start": 555,
     "performance": true
@@ -1804,6 +2004,7 @@
     "composer": "Dmitri Shostakovich",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "Xbru9UcCLQQ",
     "yt_start": 2091,
     "performance": true
@@ -1813,6 +2014,7 @@
     "composer": "Dmitri Shostakovich",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "9jFesZ-jxRw",
     "yt_start": 1799,
     "performance": true
@@ -1822,6 +2024,7 @@
     "composer": "Jean Sibelius",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "8kzxhhAlBmI",
     "yt_start": 518,
     "performance": true
@@ -1831,6 +2034,7 @@
     "composer": "Jean Sibelius",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "qOSaT6U4e-8",
     "yt_start": 332,
     "performance": true
@@ -1840,6 +2044,7 @@
     "composer": "Jean Sibelius",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "iXU8EXL7a_4",
     "yt_start": 1991,
     "performance": true
@@ -1849,6 +2054,7 @@
     "composer": "Jean Sibelius",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "FMQRsWN-uGc",
     "yt_start": 606,
     "performance": true
@@ -1858,6 +2064,7 @@
     "composer": "Jean Sibelius",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "3u-unvYedx8",
     "yt_start": 825,
     "performance": true
@@ -1867,6 +2074,7 @@
     "composer": "Bedrich Smetana",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "Kl0-Pdo0vi8",
     "yt_start": 460,
     "performance": true
@@ -1876,6 +2084,7 @@
     "composer": "Bedrich Smetana",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "CmHqslLbpyY",
     "yt_start": 9,
     "performance": true
@@ -1885,6 +2094,7 @@
     "composer": "Igor Stravinsky",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "XepSyVHyySo",
     "yt_start": 389,
     "performance": true
@@ -1894,6 +2104,7 @@
     "composer": "Igor Stravinsky",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "ToYUCuUE9pk",
     "yt_start": 397,
     "performance": true
@@ -1903,6 +2114,7 @@
     "composer": "Igor Stravinsky",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "Dk0ppHkzJok",
     "yt_start": 542,
     "performance": true
@@ -1912,6 +2124,7 @@
     "composer": "Igor Stravinsky",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "esD90diWZds",
     "yt_start": 419,
     "performance": true
@@ -1921,6 +2134,7 @@
     "composer": "Igor Stravinsky",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "RZkIAVGlfWk",
     "yt_start": 734,
     "performance": true
@@ -1930,6 +2144,7 @@
     "composer": "Igor Stravinsky",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "EkwqPJZe8ms",
     "yt_start": 1438,
     "performance": true
@@ -1939,6 +2154,7 @@
     "composer": "Igor Stravinsky",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "AEx9NxFJ09Y",
     "yt_start": 859,
     "performance": true
@@ -1948,6 +2164,7 @@
     "composer": "Pyotr Ilyich Tchaikovsky",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "GiEIe0ClGIM",
     "yt_start": 312,
     "performance": true
@@ -1957,6 +2174,7 @@
     "composer": "Pyotr Ilyich Tchaikovsky",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "hNfpMRSCFPE",
     "yt_start": 350,
     "performance": true
@@ -1966,6 +2184,7 @@
     "composer": "Pyotr Ilyich Tchaikovsky",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "f6qZUCi7ToQ",
     "yt_start": 791,
     "performance": true
@@ -1975,6 +2194,7 @@
     "composer": "Pyotr Ilyich Tchaikovsky",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "Y7G5ithbFys",
     "yt_start": 523,
     "performance": true
@@ -1984,6 +2204,7 @@
     "composer": "Pyotr Ilyich Tchaikovsky",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "dYTUtDjK2Kc",
     "yt_start": 2242,
     "performance": true
@@ -1993,6 +2214,7 @@
     "composer": "Pyotr Ilyich Tchaikovsky",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "WQjIKkZEK7I",
     "yt_start": 51,
     "performance": true
@@ -2002,6 +2224,7 @@
     "composer": "Pyotr Ilyich Tchaikovsky",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "ovFPKu00cCc",
     "yt_start": 360,
     "performance": true
@@ -2011,6 +2234,7 @@
     "composer": "Giuseppe Verdi",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "b8rsOzPzYr8",
     "yt_start": 6109,
     "performance": true
@@ -2020,6 +2244,7 @@
     "composer": "Giuseppe Verdi",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "MdX3T_Kjcos",
     "yt_start": 62,
     "performance": true
@@ -2029,6 +2254,7 @@
     "composer": "Giuseppe Verdi",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "pu7zWrIMV_g",
     "yt_start": 132,
     "performance": true
@@ -2038,7 +2264,8 @@
     "composer": "Giuseppe Verdi",
     "summary": "",
     "wiki_url": "",
-    "yt_id": "com/live/mE90WPKl5aw",
+    "date": 0,
+    "yt_id": "mE90WPKl5aw",
     "yt_start": 3320,
     "performance": true
   },
@@ -2047,6 +2274,7 @@
     "composer": "Giuseppe Verdi",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "fYDI6MWkCW8",
     "yt_start": 1555,
     "performance": true
@@ -2056,6 +2284,7 @@
     "composer": "Giuseppe Verdi",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "Nlq9lJRElBk",
     "yt_start": 602,
     "performance": true
@@ -2065,6 +2294,7 @@
     "composer": "Heitor Villa-Lobos",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "9q7UlMiMQ-s",
     "yt_start": 285,
     "performance": true
@@ -2074,6 +2304,7 @@
     "composer": "Heitor Villa-Lobos",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "Zg4BvXuL0SE",
     "yt_start": 281,
     "performance": true
@@ -2081,8 +2312,9 @@
   "4889": {
     "title": "Ch\u00f4ros no. 5, A.207, \"Alma brasiliera\"",
     "composer": "Heitor Villa-Lobos",
-    "summary": "",
-    "wiki_url": "",
+    "summary": "Ch\u00f4ros No. 5 (\"Alma Brasileira\", Brazilian Soul) is a solo piano composition written in 1925 by the Brazilian composer Heitor Villa-Lobos. It forms a part of a series of fourteen numbered compositions collectively titled Ch\u00f4ros, ranging from solos for guitar and for piano up to works scored for soloist or chorus with orchestra or multiple orchestras, and in duration up to over an hour. Ch\u00f4ros No. 5 is one of the shorter members of the series, with a performance lasting about four-and-a-half minutes.",
+    "wiki_url": "https://en.wikipedia.org/wiki/Ch%C3%B4ros_No._5",
+    "date": 1925,
     "yt_id": "PrD9162myIs",
     "yt_start": 322,
     "performance": true
@@ -2092,6 +2324,7 @@
     "composer": "Heitor Villa-Lobos",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "cm3qZ8xiePs",
     "yt_start": 526,
     "performance": true
@@ -2101,6 +2334,7 @@
     "composer": "Heitor Villa-Lobos",
     "summary": "",
     "wiki_url": "",
+    "date": 1930,
     "yt_id": "wIG4h7lvj4Y",
     "yt_start": 39,
     "performance": true
@@ -2110,6 +2344,7 @@
     "composer": "Heitor Villa-Lobos",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "pUCuEd1tjCg",
     "yt_start": 80,
     "performance": true
@@ -2119,8 +2354,9 @@
     "composer": "Heitor Villa-Lobos",
     "summary": "",
     "wiki_url": "",
-    "yt_id": "SVEUsUr8D9c",
-    "yt_start": 397,
+    "date": 0,
+    "yt_id": "A99LEHV87U0",
+    "yt_start": 499,
     "performance": true
   },
   "11933": {
@@ -2128,6 +2364,7 @@
     "composer": "Antonio Vivaldi",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "xidC7TZRxkA",
     "yt_start": 43,
     "performance": true
@@ -2137,6 +2374,7 @@
     "composer": "Antonio Vivaldi",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "bwe8ycrMX2w",
     "yt_start": 18,
     "performance": true
@@ -2146,6 +2384,7 @@
     "composer": "Antonio Vivaldi",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "9FaE32klkhc",
     "yt_start": 23,
     "performance": true
@@ -2155,6 +2394,7 @@
     "composer": "Antonio Vivaldi",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "4rgSzQwe5DQ",
     "yt_start": 2032,
     "performance": true
@@ -2164,6 +2404,7 @@
     "composer": "Antonio Vivaldi",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "2eWjQOdYzMQ",
     "yt_start": 366,
     "performance": true
@@ -2173,6 +2414,7 @@
     "composer": "Richard Wagner",
     "summary": "",
     "wiki_url": "",
+    "date": 1869,
     "yt_id": "wolO4fJr70Y",
     "yt_start": 662,
     "performance": true
@@ -2182,6 +2424,7 @@
     "composer": "Richard Wagner",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "vewupKFIEAE",
     "yt_start": 118,
     "performance": true
@@ -2191,6 +2434,7 @@
     "composer": "Richard Wagner",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "s2RiOhYpRFc",
     "yt_start": 113,
     "performance": true
@@ -2200,6 +2444,7 @@
     "composer": "Richard Wagner",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "AIVHw3_7X-E",
     "yt_start": 101,
     "performance": true
@@ -2209,6 +2454,7 @@
     "composer": "Richard Wagner",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "824d07fAw2Y",
     "yt_start": 296,
     "performance": true
@@ -2218,6 +2464,7 @@
     "composer": "Anton Webern",
     "summary": "",
     "wiki_url": "",
+    "date": 0,
     "yt_id": "u37qhac1FUI",
     "yt_start": 184,
     "performance": true

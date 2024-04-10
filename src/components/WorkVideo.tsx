@@ -65,7 +65,10 @@ export const WorkVideo = (props: { work?: Work | null}) => {
         }}
       >
         <Box
-          style={{ marginTop: 0 - offset - 8}}
+          style={{
+            marginTop: 0 - offset - 8,
+            // filter: 'grayscale(100%)'
+          }}
         >
           <iframe
             width="100%"

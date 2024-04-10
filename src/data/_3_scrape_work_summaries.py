@@ -1,4 +1,5 @@
 import time
+import json
 import wikipediaapi
 import re
 from _1_get_open_opus_data import get_oo_works
@@ -12,6 +13,17 @@ def find_plausible_work_date(summary):
     return 0
   return int(match.group())
 
+
+def get_wiki_summary(slug):
+  # https://github.com/martin-majlis/Wikipedia-API
+  wiki = wikipediaapi.Wikipedia('MyProjectName (merlin@example.com)', 'en')
+
+  print("    Scraping Wikipedia for: " + slug)
+  page_py = wiki.page(slug)
+
+  return page_py.summary
+
+
 def scrape_work_summaries():
   oo_works = get_oo_works()
 
@@ -20,18 +32,14 @@ def scrape_work_summaries():
   print("#######")
   print("Scraping works...")
   
-  # https://github.com/martin-majlis/Wikipedia-API
-  wiki = wikipediaapi.Wikipedia('MyProjectName (merlin@example.com)', 'en')
-
   for w in oo_works:
     [slug, wiki_url] = get_wiki_slug("%s (%s)" % (w["title"], w["composer"]))
 
-    print("    Scraping Wikipedia for: " + slug)
-    page_py = wiki.page(slug)
+    summary = get_wiki_summary(slug)
 
-    w["summary"] = page_py.summary
+    w["summary"] = summary
     w["wiki_url"] = wiki_url
-    w["date"] = find_plausible_work_date(page_py.summary)
+    w["date"] = find_plausible_work_date(summary)
     w["yt_id"] = ""
     w["yt_start"] = 0
 
@@ -40,4 +48,3 @@ def scrape_work_summaries():
     time.sleep(2)
 
   return works
-

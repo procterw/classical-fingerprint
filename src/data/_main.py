@@ -26,6 +26,7 @@ def write_work_override_template_file(works):
       "composer": w["composer"],
       "summary": "",
       "wiki_url": "",
+      "date": 0,
       "yt_id": "",
       "yt_start": "",
     }
