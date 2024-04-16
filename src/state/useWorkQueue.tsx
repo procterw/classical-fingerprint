@@ -2,9 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { useUserRatings } from "./useUserRatings";
 import { useMusicData } from "./useMusicData";
 
-export type Filter = { key: string, value: string };
-const defaultFilter = { key: '_any', value: 'Anything' };
-
+export type Filter = { key: string, value: string } | null;
 type WorkQueueContextType = {
   activeWork: Work | null,
   setActiveWork: Function,
@@ -25,7 +23,7 @@ const WorkQueueContext = createContext<WorkQueueContextType>({
 
   disablePrevious: false,
 
-  filter: defaultFilter,
+  filter: null,
   setFilter: () => {},
 });
 
@@ -34,11 +32,20 @@ export const WorkQueueProvider = (props: { children: React.ReactNode }) => {
 
   const [alreadyPlayed, setAlreadyPlayed] = useState<Array<Work | null>>([]);
 
-  const [filter, _setFilter] = useState<Filter>(defaultFilter);
-  const setFilter = (f: Filter) => f === null ? _setFilter(defaultFilter) : _setFilter(f);
-
+  const [filter, _setFilter] = useState<Filter>(null);
   const musicData = useMusicData();
   const { userRatings } = useUserRatings();
+
+  const setFilter = (f: Filter) => {
+    if (!f) return;
+    // If the filter is a work, don't add a filter but play the work instead
+    if (f.key === "Works") {
+      const [title, composer] = f.value.split('__SPLIT__');
+      const nextWork = musicData.works.find(w => w.title === title && w.composer.complete_name === composer);
+      if (nextWork) setActiveWork(nextWork);
+    }
+    _setFilter(f);
+  };
 
   // Get initial active work after load
   useEffect(() => {
@@ -51,7 +58,7 @@ export const WorkQueueProvider = (props: { children: React.ReactNode }) => {
       .filter((w) => w.id !== activeWork?.id)
     // Remove filter non-matches
       .filter((w) => {
-        if (filter.key === '_any') return w;
+        if (filter === null) return w;
         if (filter.key === 'epochs') return w.composer.epoch === filter.value;
         if (filter.key === 'genres') return w.genre === filter.value;
         if (filter.key === 'composers') return w.composer.name === filter.value;
@@ -62,12 +69,17 @@ export const WorkQueueProvider = (props: { children: React.ReactNode }) => {
     return filteredWorks;
   }
   
-  const getNextWork = () => {
-    const availableWorks = listAvailableNextWorks();
-
+  const getNextWork = (work?: Work) => {
     if (activeWork) {
       setAlreadyPlayed([...alreadyPlayed, activeWork]);
     }
+
+    if (work) {
+      setActiveWork(work);
+      return;
+    }
+
+    const availableWorks = listAvailableNextWorks();
 
     if (!availableWorks.length) return;
 
@@ -85,8 +97,6 @@ export const WorkQueueProvider = (props: { children: React.ReactNode }) => {
       setAlreadyPlayed(alreadyPlayedCopy);
     }
   };
-
-  console.log(alreadyPlayed);
 
   const state = {
     activeWork,

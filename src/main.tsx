@@ -12,6 +12,7 @@ export const themeOptions: ThemeOptions = {
   palette: {
     mode: 'light',
     primary: {
+      // main: '#376DB3',
       main: '#DA6A57',
     },
     secondary: {
@@ -20,6 +21,8 @@ export const themeOptions: ThemeOptions = {
     background: {
       default: '#F6F1EA',
       paper: '#fffcf7',
+      // default: 'white',
+      // paper: '#f7f7f7',
     },
     text: {
       primary: '#000',
@@ -79,14 +82,14 @@ export const themeOptions: ThemeOptions = {
     MuiButton: {
       styleOverrides: {
         root: {
-          borderRadius: 50,
+          borderRadius: 4,
         },
       }, 
     }, 
     MuiButtonGroup: {
       styleOverrides: {
         root: {
-          borderRadius: 50,
+          borderRadius: 4,
           boxShadow: '0 4px 8px #e2d8ce66;',
         },
       }, 

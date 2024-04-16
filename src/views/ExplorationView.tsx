@@ -12,6 +12,9 @@ export const ExplorationView = () => {
 
   return (
     <>
+      <Container maxWidth={false}>
+        <Header />
+      </Container>
       <Container
         maxWidth="xl"
         sx={{ mb: 4 }}
@@ -24,7 +27,6 @@ export const ExplorationView = () => {
           sx={{ py: 2 }}
         >
           <Grid md={8} xs={12} spacing={4}>
-            { mq.medium(<Header />, null) }
             <Box
               display="flex"
               flexDirection="column"
@@ -35,7 +37,6 @@ export const ExplorationView = () => {
             </Box>
           </Grid>
           <Grid md={4} xs={12}>
-            { mq.medium(null, <Header />) }
             <RatedWorkList />
           </Grid>
         </Grid>

@@ -1,5 +1,6 @@
 import { Box, Link, Paper, Typography } from "@mui/material";
 import { useWidth } from "../../state/useWidth";
+import { CollapsibleSection } from "../CollapsibleSection";
 
 export const ComposerAvatar = (props: { composer?: Composer, avatarSize: number }) => {
   const { composer, avatarSize } = props;
@@ -39,26 +40,28 @@ export const ComposerCard = (props: { composer?: Composer }) => {
 
   return (
     <Box>
-      <Box sx={{ float: 'left', mb: 2, mr: 2 }} >
-        <ComposerAvatar composer={composer} avatarSize={mq.mobile(60, 80)} />
-      </Box>
+      <CollapsibleSection>
+        <Box sx={{ float: 'left', mb: 2, mr: 2 }} >
+          <ComposerAvatar composer={composer} avatarSize={mq.mobile(60, 75)} />
+        </Box>
 
-      <Box>
+        <Box>
 
-        <Typography
-          sx={{ mb: 1 }}
-          variant="body2">
-          { composer.biography }
-        </Typography>
+          <Typography
+            sx={{ mb: 1 }}
+            variant="body2">
+            { composer.biography }
+          </Typography>
 
-        <Link
-          href={composer.wiki_url}
-          target="_blank"
-          fontSize={14}
-        >
-          Biography from Wikipedia
-        </Link>
-      </Box>
+          <Link
+            href={composer.wiki_url}
+            target="_blank"
+            fontSize={14}
+          >
+            Biography from Wikipedia
+          </Link>
+        </Box>
+      </CollapsibleSection>
     </Box>
   );
 };

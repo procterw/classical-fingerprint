@@ -25,13 +25,16 @@ export const VideoWrapper = () => {
           display="flex"
           flexWrap="wrap"
           flexDirection="row"
-          justifyContent={mq.medium("right", "space-between")}
-          gap={mq.medium(1, 3)}
-          py={2}
-          px={mq.mobile(2, 0)}
-          sx={{ backgroundColor: 'rgb(246, 241, 234, 0.95)' }}
+          justifyContent="right"
+          // justifyContent={mq.medium("right", "space-between")}
+          gap={mq.medium(1, 2)}
+          py={1}
+          px={mq.mobile(1, 0)}
+          // sx={{ backgroundColor: 'rgb(246, 241, 234, 0.95)' }}
+          // sx={{ backgroundColor: 'white' }}
+
         >
-          <WorkFilter />
+          {/* <WorkFilter /> */}
           <RatingModule />
           <WorkControl />
         </Box>

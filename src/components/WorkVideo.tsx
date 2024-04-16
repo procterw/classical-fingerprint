@@ -31,7 +31,7 @@ export const WorkVideo = (props: { work?: Work | null}) => {
     }
   }, []);
 
-  const offset = 60;
+  const offset = 50;
 
   if (!work) return null;
 
@@ -48,19 +48,20 @@ export const WorkVideo = (props: { work?: Work | null}) => {
 
   return (
     <Box
-      style={{
+      sx={{
         display: 'flex',
         flexDirection: 'column',
       }}
       mb={2}
     >
       <Box
-        style={{
+        sx={{
           height: height,
           overflow: 'hidden',
           background: '#000',
           position: 'relative',
-          borderTop: '8px solid #000',
+          borderRadius: 3,
+          // borderTop: '8px solid #000',
           // borderBottom: '8px solid #000',
         }}
       >

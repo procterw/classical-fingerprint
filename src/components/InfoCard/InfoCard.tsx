@@ -15,23 +15,23 @@ export const InfoCard = () => {
 
   return (
     <Box display="flex" flexDirection="column" gap={2}>
-
+{/* 
       <Box sx={{ px: mq.mobile(2, 0) }}>
         <EpochTimeLine />
-      </Box>
+      </Box> */}
       
       <Box display="flex" flexDirection="column" gap={2}
-        p={2}
-        sx={{ backgroundColor: theme => theme.palette.background.paper }}
+        // p={2}
+        // sx={{ backgroundColor: theme => theme.palette.background.paper }}
         >
 
         <Container maxWidth={false} disableGutters>
           <Grid container spacing={3}>
-            <Grid item md={12} lg={6}>
+            <Grid item md={6}>
               <WorkCard work={activeWork} />
               <WorkSummary work={activeWork} />
             </Grid>
-            <Grid item md={12} lg={6}>
+            <Grid item md={6}>
               <Typography
                 variant="h4"
                 mb={2}

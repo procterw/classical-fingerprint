@@ -1,6 +1,9 @@
-import { Box, Typography, Zoom, Tooltip, Link } from '@mui/material';
+import { Box, Typography, Zoom, Tooltip, Link, Collapse, Chip } from '@mui/material';
 import { getWorkTitleDefinitions } from '../../services/getWorkTitleDefinitions';
 import { scaleOrdinal } from 'd3-scale';
+import { ArrowCircleDown, ExpandCircleDown, ExpandCircleDownOutlined } from '@mui/icons-material';
+import { ReactNode } from 'react';
+import { CollapsibleSection } from '../CollapsibleSection';
 
 export const WorkCard = (props: { work?: Work | null }) => {
 
@@ -70,6 +73,7 @@ export const WorkCard = (props: { work?: Work | null }) => {
   );
 };
 
+
 export const WorkSummary = (props: { work?: Work | null }) => {
 
   const { work } = props;
@@ -78,21 +82,20 @@ export const WorkSummary = (props: { work?: Work | null }) => {
 
   return (
     <Box>
-      {
-        work.summary.split('\n')
-          .map(ws => (
-            <Typography key={ws} variant="body2" sx={{ pb: 1 }}>
-              { ws }
-            </Typography>
-          ))
-      }
-      <Link
-        href={work.wiki_url}
-        target="_blank"
-        fontSize={14}
-      >
-        Summary from Wikipedia
-      </Link>
+      <CollapsibleSection>
+        <Typography variant="body2">
+          { work.summary }
+        </Typography>
+
+        <Link
+          href={work.wiki_url}
+          target="_blank"
+          fontSize={14}
+        >
+          Summary from Wikipedia
+        </Link>
+
+      </CollapsibleSection>
     </Box>
   );
 };
