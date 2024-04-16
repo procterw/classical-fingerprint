@@ -40,7 +40,7 @@ export const ComposerCard = (props: { composer?: Composer }) => {
 
   return (
     <Box>
-      <CollapsibleSection>
+      <CollapsibleSection contentKey={composer.complete_name}>
         <Box sx={{ float: 'left', mb: 2, mr: 2 }} >
           <ComposerAvatar composer={composer} avatarSize={mq.mobile(60, 75)} />
         </Box>

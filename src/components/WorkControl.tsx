@@ -23,9 +23,9 @@ export const WorkControl = () => {
       }}
     >
       <Button
-        variant="outlined"
+        variant="contained"
         onClick={() => getPreviousWork()}
-        color="secondary"
+        color="info"
         disabled={disablePrevious}
         // sx={{ borderRadius: 0 }}
       >

@@ -7,8 +7,6 @@ export const useWidth: Function = (): {
   medium: Function,
   large: Function,
 } => {
-  // const breakpoint = 600;
-
   const [width, setWidth] = useState(window.innerWidth);
 
   const resetWidth = debounce(() => setWidth(window.innerWidth), 200);

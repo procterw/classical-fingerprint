@@ -1,21 +1,31 @@
 import { ExpandCircleDown } from "@mui/icons-material";
 import { Box, Button, Collapse } from "@mui/material";
-import { ReactNode, useState } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 
 export const CollapsibleSection = (props: {
   children: ReactNode,
+  contentKey: string,
   height?: number,
 }) => {
-
+  const childRef = useRef(null);
   const [open, setOpen] = useState(false);
   const toggle = () => setOpen(!open);
+  const [childHeight, setChildHeight] = useState(0);
 
-  const height = props.height || 94;
+  const height = props.height || 110;
+
+  useEffect(() => {
+    setOpen(false);
+    // @ts-ignore
+    setChildHeight(childRef?.current?.offsetHeight || 0);
+  }, [props.contentKey])
+
+  const alwaysOpen = childHeight < (height + 20);
 
   return (
     <Box>
-      <Collapse in={open} collapsedSize={height}>
-        <Box>
+      <Collapse in={open || alwaysOpen} collapsedSize={height} timeout={0.3}>
+        <Box ref={childRef}>
           { props.children }
         </Box>
       </Collapse>
@@ -32,18 +42,21 @@ export const CollapsibleSection = (props: {
         />
       )} */}
 
-      <Button
-        // variant="outlined"
-        color="secondary"
-        size="small"
-        startIcon={<ExpandCircleDown />}
-        onClick={toggle}
-        sx={{
-          fontSize: 13,
-        }}
-      >
-        Show more
-      </Button>
+
+      { !alwaysOpen && (
+        <Button
+          // variant="outlined"
+          color="secondary"
+          size="small"
+          startIcon={<ExpandCircleDown />}
+          onClick={toggle}
+          sx={{
+            fontSize: 13,
+          }}
+        >
+          Show more
+        </Button>
+      )}
 
     </Box>
   );

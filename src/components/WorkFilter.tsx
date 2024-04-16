@@ -1,7 +1,6 @@
 import { Autocomplete, TextField, Typography } from "@mui/material";
 import { useMusicData } from "../state/useMusicData";
 import { Filter, useWorkQueue } from "../state/useWorkQueue";
-import { useWidth } from "../state/useWidth";
 import { useState } from "react";
 
 const uniq = (arr: Array<any>): Array<any> => {
@@ -80,8 +79,6 @@ export const WorkFilter = () => {
     works.forEach(d => options.push({ value: d, key: 'Works' }));
   }
 
-  console.log(filter);
-  
   return (
     <Autocomplete
       id="work-filter"
@@ -102,6 +99,15 @@ export const WorkFilter = () => {
       }}
       getOptionLabel={(option) => {
         if (option === null) return "";
+        if (option.key === 'Epochs') {
+          return `Playing ${option.value} music`;
+        }
+        if (option.key === 'Genres') {
+          return `Playing ${option.value} music`;
+        }
+        if (option.key === 'Composers') {
+          return `Playing music by ${option.value}`;
+        }
         return option.value.replace(/__SPLIT__/g, ' - ');
       }}
       renderOption={(props, option) => {
@@ -119,7 +125,7 @@ export const WorkFilter = () => {
           InputProps={{
             style: {
               height: 35,
-              fontSize: 16,
+              fontSize: 18,
               // backgroundColor: 'white',
               // padding: 8,
               // border: 'none',

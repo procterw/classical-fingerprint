@@ -37,14 +37,21 @@ export const WorkQueueProvider = (props: { children: React.ReactNode }) => {
   const { userRatings } = useUserRatings();
 
   const setFilter = (f: Filter) => {
-    if (!f) return;
+    if (!f) {
+      _setFilter(null);
+      return;
+    }
+    _setFilter(f);
+
     // If the filter is a work, don't add a filter but play the work instead
     if (f.key === "Works") {
       const [title, composer] = f.value.split('__SPLIT__');
       const nextWork = musicData.works.find(w => w.title === title && w.composer.complete_name === composer);
-      if (nextWork) setActiveWork(nextWork);
+      if (nextWork) getNextWork(nextWork);
+      return;
+    } else {
+      setTimeout(() => getNextWork(undefined, f), 0);
     }
-    _setFilter(f);
   };
 
   // Get initial active work after load
@@ -52,24 +59,28 @@ export const WorkQueueProvider = (props: { children: React.ReactNode }) => {
     getNextWork();
   }, []);
 
-  const listAvailableNextWorks = () => {
+  const listAvailableNextWorks = (f: Filter = filter) => {
     // Get all works
     const filteredWorks = musicData.works
       .filter((w) => w.id !== activeWork?.id)
     // Remove filter non-matches
       .filter((w) => {
-        if (filter === null) return w;
-        if (filter.key === 'epochs') return w.composer.epoch === filter.value;
-        if (filter.key === 'genres') return w.genre === filter.value;
-        if (filter.key === 'composers') return w.composer.name === filter.value;
+        if (f === null) return true;
+        if (f.key === 'Works') return true;
+        if (f.key === 'Epochs') return w.composer.epoch === f.value;
+        if (f.key === 'Genres') return w.genre === f.value;
+        if (f.key === 'Composers') return w.composer.complete_name === f.value;
         return w;
       })
-      // Remove already rated
-      .filter((w) => !Object.keys(userRatings).includes(w.id));
+      // Remove already rated if there is no filter
+      .filter((w) => {
+        if (filter) return true;
+        return !Object.keys(userRatings).includes(w.id);
+       });
     return filteredWorks;
   }
   
-  const getNextWork = (work?: Work) => {
+  const getNextWork = (work?: Work, f?: Filter) => {
     if (activeWork) {
       setAlreadyPlayed([...alreadyPlayed, activeWork]);
     }
@@ -79,7 +90,7 @@ export const WorkQueueProvider = (props: { children: React.ReactNode }) => {
       return;
     }
 
-    const availableWorks = listAvailableNextWorks();
+    const availableWorks = listAvailableNextWorks(f);
 
     if (!availableWorks.length) return;
 

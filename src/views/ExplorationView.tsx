@@ -6,6 +6,7 @@ import { VideoWrapper } from '../components/VideoWrapper';
 import { InfoCard } from '../components/InfoCard/InfoCard';
 import { Header } from './Header';
 import { useWidth } from '../state/useWidth';
+import { EpochTimeLine } from '../components/InfoCard/EpochTimeLine';
 
 export const ExplorationView = () => {
   const mq = useWidth();
@@ -37,6 +38,7 @@ export const ExplorationView = () => {
             </Box>
           </Grid>
           <Grid md={4} xs={12}>
+            <EpochTimeLine />
             <RatedWorkList />
           </Grid>
         </Grid>

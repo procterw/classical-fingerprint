@@ -42,7 +42,7 @@ export const RatingModule = () => {
     <ButtonGroup
       sx={{
         backgroundColor: theme => theme.palette.background.paper,
-        height: 53,
+        height: 43,
       }}
       disableElevation
       size="medium"
@@ -50,14 +50,15 @@ export const RatingModule = () => {
       { options.map(({ rating, label, labelShort, icon, icon2 }) => {
         return (
           <Button
-            variant={isSelectedStyle(rating) ? 'contained' : 'outlined'}
+            variant="contained"
             key={rating}
             onClick={() => {
               updateUserRatings(activeWork.id, rating);
               // If you don't like it, move one!
               if (rating === 1) getNextWork();
             }}
-            color="secondary"
+            color="info"
+            // color={isSelectedStyle(rating) ? 'primary' : 'info'}
             sx={{
               py: 1,
             }}

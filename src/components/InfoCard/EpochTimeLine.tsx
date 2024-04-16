@@ -149,13 +149,17 @@ export const EpochTimeLine = () => {
             <Chip
               key={epoch.label}
               label={epoch.label}
-              variant={epoch.label === epochMap[activeWork.composer.epoch] ? undefined : "outlined"}
+              // variant={epoch.label === epochMap[activeWork.composer.epoch] ? undefined : "outlined"}
+              color={epoch.label === epochMap[activeWork.composer.epoch] ? "secondary" : undefined }
               size="small"
+              sx={{
+                px: 0,
+              }}
               style={{
-                fontSize: 12,
+                fontSize: 10,
                 position: 'absolute',
-                left: `calc(${xScale(epoch.startYear)}% + 1px)`,
-                right: `calc(${100 - xScale(epoch.endYear)}% + 1px)`,
+                left: `calc(${xScale(epoch.startYear)}%)`,
+                right: `calc(${100 - xScale(epoch.endYear)}%)`,
               }}
             />
           ))}
@@ -187,7 +191,7 @@ export const EpochTimeLine = () => {
             <Typography
               variant="h1"
               sx={{
-                fontSize: 11,
+                fontSize: 12,
                 fontWeight: 500,
                 marginLeft: -1.4,
                 marginTop: 0.6,
@@ -204,7 +208,7 @@ export const EpochTimeLine = () => {
                 height: 3,
                 borderRadius: 3,
                 background: '#333',
-                left: `calc(50% - 1)`,
+                // left: `calc(50% - 1)`,
                 top: -2,
               }}
             />

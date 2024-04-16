@@ -31,19 +31,21 @@ export const StickyHeader = (props: { children: ReactNode, offset?: number }) =>
     }
   }, []);
 
+  const headerHeight = 64;
+
   return (
     <>
       <Box
         ref={stickyRef}
-        visibility={stickyOffset >= 0 ? 'visible' : 'hidden' }
+        visibility={stickyOffset >= headerHeight ? 'visible' : 'hidden' }
       >
         { props.children }
       </Box>
 
       <Box
-        display={stickyOffset < 0 ? 'block' : 'none' }
+        display={stickyOffset < headerHeight ? 'block' : 'none' }
         position="fixed"
-        top={0}
+        top={headerHeight}
         zIndex={1000}
         width={stickyWidth}>
         { props.children }

@@ -15,8 +15,6 @@ export const MusicDataProvider = (props: { children: React.ReactNode }) => {
 
   const { composers, works } = musicData;
   
-  console.log('oh boy')
-
   const state = {
     composers,
     works,

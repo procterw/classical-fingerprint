@@ -1,8 +1,8 @@
-import { Box, Divider, IconButton, List, ListItem, ListItemIcon, ListItemText, Tab, Tabs, Typography } from '@mui/material';
+import { Box, List, ListItem, ListItemIcon, ListItemText, Tab, Tabs, Typography } from '@mui/material';
 import { SxProps } from '@mui/system';
 import { useEffect, useRef, useState } from 'react';
 import { useGetRatedWorks } from '../state/selectors';
-import { Favorite, PlayCircleOutlineRounded, ThumbDownAltOutlined, ThumbUpAlt } from '@mui/icons-material';
+import { Favorite, ThumbDownAltOutlined, ThumbUpAlt } from '@mui/icons-material';
 import { useWorkQueue } from '../state/useWorkQueue';
 import { LoaderIcon } from './LoaderIcon';
 import { cumsum, groups, sort } from 'd3-array';
@@ -28,13 +28,14 @@ const WorkItem = (props: { work: RatedWork, sx?: SxProps, onRender: Function }) 
 
   if (!activeWork) return null;
 
-  const getPlayingIcon = () => {
+  const getIcon = () => {
     if (activeWork && activeWork.id === props.work.id) {
       return (
         <ListItemIcon
           sx={{
-            marginLeft: -0.1,
-            marginRight: -1.0,
+            marginLeft: -0.75,
+            marginRight: -0.75,
+            transform: 'scale(90%)'
           }}
         >
           <LoaderIcon />
@@ -42,23 +43,6 @@ const WorkItem = (props: { work: RatedWork, sx?: SxProps, onRender: Function }) 
       );
     }
 
-    return (
-      <ListItemIcon
-        sx={{
-          marginRight: -1.1
-        }}
-      >
-        <IconButton
-          size="small"
-          onClick={() => setActiveWork(props.work)}
-        >
-          <PlayCircleOutlineRounded fontSize="small" />
-        </IconButton>
-      </ListItemIcon>
-    )
-  }
-
-  const getIcon = () => {
     let icon = null;
 
     if (props.work.rating == 1) icon = <ThumbDownAltOutlined fontSize="small" />;
@@ -67,7 +51,7 @@ const WorkItem = (props: { work: RatedWork, sx?: SxProps, onRender: Function }) 
 
     return (
       <ListItemIcon
-        sx={{ mr: -2.5 }}
+        sx={{ mr: -1.5 }}
       >
         { icon }
       </ListItemIcon>
@@ -76,11 +60,15 @@ const WorkItem = (props: { work: RatedWork, sx?: SxProps, onRender: Function }) 
 
   return (
     <ListItem
-      sx={props.sx}
+      sx={{
+        ...props.sx,
+        cursor: 'pointer',
+      }}
       ref={refContainer}
+      onClick={() => setActiveWork(props.work)}
     >
       { getIcon() }
-      { getPlayingIcon() }
+      {/* { getPlayingIcon() } */}
       <ListItemText 
         primary={props.work.title}
         secondary={props.work.composer.name}
@@ -193,7 +181,7 @@ export const RatedWorkList = () => {
         backgroundColor: theme => theme.palette.background.default,
       }}
     >
-        <Tab label="My Ratings" {...a11yProps(0)} />
+        <Tab label="All" {...a11yProps(0)} />
         <Tab label="Epoch" {...a11yProps(1)} />
         <Tab label="Genre" {...a11yProps(2)} />
         <Tab label="Composer" {...a11yProps(3)} />
@@ -201,34 +189,47 @@ export const RatedWorkList = () => {
   );
 
   return (
-    <Box
-      position="relative"
-      width="100%"
-    >
-      { mq.small(
-        tabs,
-        <StickyHeader>{ tabs }</StickyHeader>,
-      )}
+    <>
+      <Typography variant="h3" pt={3} pb={1}>
+        My Ratings        
+      </Typography>
 
-      <Box>
-        { variations[value].map((variation) => {
-          return (
-            <Box key={variation[0]}>
-              { variation[0] && (
-                <>
-                  <Typography variant="h4" sx={{ my: 1, mx: 2 }} fontSize={16}>
-                    { variation[0] }
-                  </Typography>
-                  <Divider />
-                </>
-              )}
-                <RatedWorkSubList
-                  works={variation[1]}
-                />
-            </Box>
-          );
-        })}
+      <Box
+        position="relative"
+        width="100%"
+        borderRadius={3}
+        sx={{
+          backgroundColor: theme => theme.palette.background.paper,
+        }}
+        overflow="hidden"
+      >
+        { mq.small(
+          tabs,
+          <StickyHeader>{ tabs }</StickyHeader>,
+        )}
+
+        <Box
+          maxHeight={mq.mobile(undefined, 450)}
+          overflow={mq.mobile(undefined, 'scroll')}
+        >
+          { variations[value].map((variation) => {
+            return (
+              <Box key={variation[0]}>
+                { variation[0] && (
+                  <>
+                    <Typography variant="h4" sx={{ my: 1, mx: 2 }} fontSize={15} fontWeight={500}>
+                      { variation[0] }
+                    </Typography>
+                  </>
+                )}
+                  <RatedWorkSubList
+                    works={variation[1]}
+                  />
+              </Box>
+            );
+          })}
+        </Box>
       </Box>
-    </Box>
+    </>
   );
 };

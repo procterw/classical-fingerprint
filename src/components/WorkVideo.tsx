@@ -6,7 +6,7 @@ export const WorkVideo = (props: { work?: Work | null}) => {
   const { work } = props;
 
   const calcHeight = () => {
-    const height = window.innerHeight * 0.5;
+    const height = window.innerHeight * 0.45;
     const totalWidth = window.innerWidth;
     return Math.min(height, totalWidth / 1.5);
   }
@@ -61,7 +61,7 @@ export const WorkVideo = (props: { work?: Work | null}) => {
           background: '#000',
           position: 'relative',
           borderRadius: 3,
-          // borderTop: '8px solid #000',
+          borderTop: '6px solid #000',
           // borderBottom: '8px solid #000',
         }}
       >

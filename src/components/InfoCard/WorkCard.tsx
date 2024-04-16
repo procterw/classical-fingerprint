@@ -1,8 +1,6 @@
-import { Box, Typography, Zoom, Tooltip, Link, Collapse, Chip } from '@mui/material';
+import { Box, Typography, Zoom, Tooltip, Link } from '@mui/material';
 import { getWorkTitleDefinitions } from '../../services/getWorkTitleDefinitions';
 import { scaleOrdinal } from 'd3-scale';
-import { ArrowCircleDown, ExpandCircleDown, ExpandCircleDownOutlined } from '@mui/icons-material';
-import { ReactNode } from 'react';
 import { CollapsibleSection } from '../CollapsibleSection';
 
 export const WorkCard = (props: { work?: Work | null }) => {
@@ -36,7 +34,7 @@ export const WorkCard = (props: { work?: Work | null }) => {
       <Typography
         variant="h3"
         sx={{
-          fontStyle: 'italic',
+          // fontStyle: 'italic',
         }}
       >
         { titleSegments.map((segment, j) => {
@@ -68,7 +66,6 @@ export const WorkCard = (props: { work?: Work | null }) => {
           );
         })}
       </Typography>
-      {/* <span>{JSON.stringify(work.wiki_dates)}</span> */}
     </Box>
   );
 };
@@ -82,7 +79,7 @@ export const WorkSummary = (props: { work?: Work | null }) => {
 
   return (
     <Box>
-      <CollapsibleSection>
+      <CollapsibleSection contentKey={work.summary}>
         <Typography variant="body2">
           { work.summary }
         </Typography>

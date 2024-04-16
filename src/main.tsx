@@ -16,7 +16,11 @@ export const themeOptions: ThemeOptions = {
       main: '#DA6A57',
     },
     secondary: {
-      main: '#444',
+      main: '#333',
+      // main: '#444',
+    },
+    info: {
+      main: '#fffcf7',
     },
     background: {
       default: '#F6F1EA',
@@ -49,18 +53,18 @@ export const themeOptions: ThemeOptions = {
     h5: {
       fontSize: 15,
       // fontFamily: '"Cormorant", serif',
-      fontFamily: '"Nunito Sans", sans-serif',
+      fontFamily: '"Mulish", sans-serif;',
       fontWeight: 700,
     },
     h6: {
       fontSize: 14,
       // fontFamily: '"Cormorant", serif',
-      fontFamily: '"Nunito Sans", sans-serif',
+      fontFamily: '"Mulish", sans-serif;',
       fontWeight: 700,
     },
     body2: {
       fontSize: 13,
-      fontFamily: '"Nunito Sans", sans-serif',
+      fontFamily: '"Mulish", sans-serif;',
       // fontFamily: '"Cormorant", serif',
       // fontFamily: '"Source Serif 4", serif',
     },
@@ -68,12 +72,12 @@ export const themeOptions: ThemeOptions = {
       fontSize: 14,
       // fontFamily: '"Source Serif 4", serif',
       // fontFamily: '"Cormorant", serif',
-      fontFamily: '"Nunito Sans", sans-serif',
+      fontFamily: '"Mulish", sans-serif;',
     },
     button: {
       fontSize: '0.9rem',
       // fontFamily: '"Baskerville", serif',
-      // fontFamily: '"Nunito Sans", sans-serif',
+      // fontFamily: '"Mulish", sans-serif;',
       fontWeight: 500,
       textTransform: 'none',
     },
