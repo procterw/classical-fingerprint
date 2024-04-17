@@ -65,7 +65,7 @@ export const WorkVideo = (props: { work?: Work | null}) => {
     // @ts-ignore
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
     // @ts-ignore
-    let _player;
+    let _player: { pauseVideo: () => void; mute: () => void; playVideo: () => void; seekTo: (arg0: number) => void; unMute: () => void; };
     window.onYouTubeIframeAPIReady = () => {
       new window.YT.Player(`yt-player`, {
         events: {
@@ -83,48 +83,58 @@ export const WorkVideo = (props: { work?: Work | null}) => {
 
     function onStateChange(event) {
 
-      if (event.data === 1 && videoState.loading) {
-        _player.seekTo(getStartTime());
-        _player.unMute();
-
-        setTimeout(() => {
-          _player.pauseVideo();
-          _player.seekTo(getStartTime());
-          setTimeout(() => {
-            _player.playVideo();
-            _player.unMute();
-            videoState.loading = false;
-  
-            setTimeout(() => {
-              setLoading(false);
-            }, 200);
-          }, 200);
-        }, 200);
+      if (event.data === 0) {
+        if (videoState.mode === 'radio') {
+          getNextWork();
+        }
       }
-
 
       // If the video is 'unstarted', go through a series of steps
       // to force the video back to the correct start time
       if (event.data === -1 && !videoState.loading) {
         videoState.loading = true;
+
         _player.pauseVideo();
+        // Because we have to play the video in order to seekTo the
+        // correct time, make sure it is muted
         _player.mute();
-
+        
         // https://stackoverflow.com/a/76468771/1676699
+        // Checks if the video is available and embeddable
+        // Otherwise, clear the loading screen so the user can see what's going on
         fetch(`https://www.youtube.com/oembed?url=http://www.youtube.com/watch?v=${videoState.id}&format=json`)
-          .then((r) => {
-            // Checks if the video is available and embeddable
-            // Otherwise, clear the loading screen so the user can see what's going on
-            if (r.status !== 200) {
-              videoState.loading = false;
-              setLoading(false);
-            }
-          });
-
+        .then((r) => {
+          if (r.status !== 200) {
+            videoState.loading = false;
+            setLoading(false);
+          }
+        });
+        
         setTimeout(() => {
-          // This gets youtube's 'currentTime' out of it's system
+          // This gets youtube's 'currentTime' out of it's system;
+          // It will try to force the player back to where you watched it last
+          // even if you use "start" and "seekTo"
           _player.playVideo();
-        }, 100);
+        }, 50);
+      }
+
+      // If a play was triggered from within the "understarted" block...
+      if (event.data === 1 && videoState.loading) {
+        setTimeout(() => {
+          // Now go to the correct time
+          _player.seekTo(getStartTime());
+
+          setTimeout(() => {
+            _player.playVideo();
+            _player.unMute();
+
+            videoState.loading = false;
+  
+            setTimeout(() => {
+              setLoading(false);
+            }, 250);
+          }, 250);
+        }, 250);
       }
     }
 
