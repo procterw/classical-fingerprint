@@ -17,6 +17,7 @@ export const WorkVideo = (props: { work?: Work | null}) => {
   const [playerReady, setPlayerReady] = useState(false);
   const [player, setPlayer] = useState(null);
 
+  videoState.id = work?.yt_id;
   videoState.start = work?.yt_start;
   videoState.mode = playMode;
 
@@ -46,6 +47,7 @@ export const WorkVideo = (props: { work?: Work | null}) => {
     if (!playerReady) return;
 
     setLoading(true);
+    videoState.loading = false;
 
     player.stopVideo();
     player.loadVideoById(work?.yt_id, getStartTime());
@@ -80,43 +82,49 @@ export const WorkVideo = (props: { work?: Work | null}) => {
     }
 
     function onStateChange(event) {
+
       if (event.data === 1 && videoState.loading) {
-        clearTimeout(videoState.tt);
+        _player.seekTo(getStartTime());
+        _player.unMute();
 
         setTimeout(() => {
           _player.pauseVideo();
           _player.seekTo(getStartTime());
-          _player.unMute();
-
           setTimeout(() => {
-            _player.seekTo(getStartTime());
             _player.playVideo();
+            _player.unMute();
             videoState.loading = false;
-
+  
             setTimeout(() => {
               setLoading(false);
             }, 200);
-          }, 100);
-        }, 50);
+          }, 200);
+        }, 200);
       }
+
 
       // If the video is 'unstarted', go through a series of steps
       // to force the video back to the correct start time
       if (event.data === -1 && !videoState.loading) {
         videoState.loading = true;
         _player.pauseVideo();
+        _player.mute();
+
+        // https://stackoverflow.com/a/76468771/1676699
+        fetch(`https://www.youtube.com/oembed?url=http://www.youtube.com/watch?v=${videoState.id}&format=json`)
+          .then((r) => {
+            // Checks if the video is available and embeddable
+            // Otherwise, clear the loading screen so the user can see what's going on
+            if (r.status !== 200) {
+              videoState.loading = false;
+              setLoading(false);
+            }
+          });
 
         setTimeout(() => {
           // This gets youtube's 'currentTime' out of it's system
-          // Mute so there's no jarring flash of audio
-          _player.mute();
           _player.playVideo();
-
-          videoState.tt = setTimeout(() => {
-            videoState.loading = false;
-            setLoading(false);
-          }, 5000);
-        }, 50);
+        }, 100);
       }
     }
 
