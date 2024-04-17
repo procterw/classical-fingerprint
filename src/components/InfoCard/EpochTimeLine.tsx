@@ -109,7 +109,7 @@ export const EpochTimeLine = () => {
             left: `${xScale(getComposerYear(activeWork.composer.birth))}%`,
             right: `${100 - xScale(getComposerYear(activeWork.composer.death))}%`,
             top: 29,
-            height: 8,
+            height: 12,
             transitionProperty: 'left, right',
             transitionDuration: '0.7s',
             transitionTimingFunction: 'ease-in-out',
@@ -127,7 +127,7 @@ export const EpochTimeLine = () => {
                 transitionProperty: 'left',
                 transitionDuration: '0.5s',
                 transitionTimingFunction: 'ease-in-out',
-                fontSize: 12,
+                fontSize: 15,
                 top: 24,
               }}
             >
@@ -149,14 +149,20 @@ export const EpochTimeLine = () => {
             <Chip
               key={epoch.label}
               label={epoch.label}
+              variant="filled"
               // variant={epoch.label === epochMap[activeWork.composer.epoch] ? undefined : "outlined"}
-              color={epoch.label === epochMap[activeWork.composer.epoch] ? "secondary" : undefined }
+              // color={epoch.label === epochMap[activeWork.composer.epoch] ? "secondary" : undefined }
               size="small"
-              sx={{
-                px: 0,
-              }}
               style={{
-                fontSize: 10,
+                padding: 0,
+              }}
+              sx={{
+                "& .MuiChip-label": {
+                  px: 0.2,
+                },
+                backgroundColor: 'inherit',
+                fontSize: 11,
+                fontWeight: 500,
                 position: 'absolute',
                 left: `calc(${xScale(epoch.startYear)}%)`,
                 right: `calc(${100 - xScale(epoch.endYear)}%)`,
@@ -194,7 +200,7 @@ export const EpochTimeLine = () => {
                 fontSize: 12,
                 fontWeight: 500,
                 marginLeft: -1.4,
-                marginTop: 0.6,
+                marginTop: 1.2,
                 color: 'black', 
               }}
             >

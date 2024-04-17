@@ -4,10 +4,21 @@ import { useWidth } from '../state/useWidth';
 import { useWorkQueue } from '../state/useWorkQueue';
 
 const videoState = {
+  id: '',
   start: 0,
   mode: '',
   loading: false,
   tt: null,
+};
+
+type Player = {
+  pauseVideo: Function,
+  mute: Function,
+  unMute: Function,
+  playVideo: Function,
+  seekTo: Function,
+  stopVideo: Function,
+  loadVideoById: Function,
 };
 
 export const WorkVideo = (props: { work?: Work | null}) => {
@@ -15,10 +26,10 @@ export const WorkVideo = (props: { work?: Work | null}) => {
   const [loading, setLoading] = useState(true);
   const { getNextWork, playMode } = useWorkQueue();
   const [playerReady, setPlayerReady] = useState(false);
-  const [player, setPlayer] = useState(null);
+  const [player, setPlayer] = useState<Player | null>(null);
 
-  videoState.id = work?.yt_id;
-  videoState.start = work?.yt_start;
+  videoState.id = work?.yt_id || '';
+  videoState.start = work?.yt_start || 0;
   videoState.mode = playMode;
 
   const calcHeight = () => {
@@ -49,9 +60,10 @@ export const WorkVideo = (props: { work?: Work | null}) => {
     setLoading(true);
     videoState.loading = false;
 
-    player.stopVideo();
-    player.loadVideoById(work?.yt_id, getStartTime());
-
+    if (player) {
+      player.stopVideo();
+      player.loadVideoById(work?.yt_id, getStartTime());
+    }
   }, [work?.yt_id, playerReady]);
 
   useEffect(() => {
@@ -64,9 +76,12 @@ export const WorkVideo = (props: { work?: Work | null}) => {
     var firstScriptTag = document.getElementsByTagName('script')[0];
     // @ts-ignore
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    let _player: Player;
+
     // @ts-ignore
-    let _player: { pauseVideo: () => void; mute: () => void; playVideo: () => void; seekTo: (arg0: number) => void; unMute: () => void; };
     window.onYouTubeIframeAPIReady = () => {
+      // @ts-ignore
       new window.YT.Player(`yt-player`, {
         events: {
           'onReady': onReady,
@@ -75,13 +90,13 @@ export const WorkVideo = (props: { work?: Work | null}) => {
       });
     }
 
-    function onReady(event) {
+    function onReady(event: { target: Player  }) {
       _player = event.target;
       setPlayer(event.target);
       setPlayerReady(true);
     }
 
-    function onStateChange(event) {
+    function onStateChange(event: { data: number, target: Player }) {
 
       if (event.data === 0) {
         if (videoState.mode === 'radio') {
