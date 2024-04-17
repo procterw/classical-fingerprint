@@ -9,6 +9,9 @@ type WorkQueueContextType = {
   getNextWork: Function,
   getPreviousWork: Function,
 
+  playMode: PlayMode,
+  setPlayMode: Function,
+
   disablePrevious: boolean,
 
   filter: Filter,
@@ -20,6 +23,9 @@ const WorkQueueContext = createContext<WorkQueueContextType>({
   setActiveWork: () => {},
   getNextWork: () => {},
   getPreviousWork: () => {},
+
+  playMode: 'discovery',
+  setPlayMode: () => {},
 
   disablePrevious: false,
 
@@ -35,6 +41,8 @@ export const WorkQueueProvider = (props: { children: React.ReactNode }) => {
   const [filter, _setFilter] = useState<Filter>(null);
   const musicData = useMusicData();
   const { userRatings } = useUserRatings();
+
+  const [playMode, setPlayMode] = useState<PlayMode>('discovery');
 
   const setFilter = (f: Filter) => {
     if (!f) {
@@ -114,6 +122,9 @@ export const WorkQueueProvider = (props: { children: React.ReactNode }) => {
     setActiveWork,
     getNextWork,
     getPreviousWork,
+
+    playMode,
+    setPlayMode,
 
     disablePrevious: alreadyPlayed.length < 1,
     disableNext: listAvailableNextWorks().length === 0,

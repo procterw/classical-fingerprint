@@ -57,3 +57,5 @@ declare interface ComposerMetadataManual {
   complete_name: string,
   biography: string,
 };
+
+declare type PlayMode = 'discovery' | 'radio';

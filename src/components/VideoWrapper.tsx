@@ -5,6 +5,7 @@ import { RatingModule } from "./RatingModule";
 import { WorkControl } from "./WorkControl";
 import { useWidth } from "../state/useWidth";
 import { StickyHeader } from "./StickyHeader";
+import { ControlOptions } from "./ControlOptions";
 
 export const VideoWrapper = () => {
   const { activeWork } = useWorkQueue();
@@ -33,6 +34,7 @@ export const VideoWrapper = () => {
           // sx={{ backgroundColor: 'white' }}
 
         >
+          <ControlOptions />
           {/* <WorkFilter /> */}
           <RatingModule />
           <WorkControl />
