@@ -22,19 +22,19 @@ export const EpochTimeLine = () => {
     { label: "Modern", startYear: 1920, endYear: (new Date()).getFullYear(), visible: true },
   ];
 
-  const epochMap: { [key: string]: string } = {
-    'Medieval': 'Medieval',
-    'Renaissance': 'Renaissance',
-    'Baroque': 'Baroque',
-    'Classical': 'Classical',
-    'Early Romantic': 'Romantic',
-    'Romantic': 'Romantic',
-    'Late Romantic': 'Romantic',
-    '20th Century': 'Modern',
-    'Post-War': 'Modern',
-    '21st Century': 'Modern',
-    'Modern': 'Modern',
-  };
+  // const epochMap: { [key: string]: string } = {
+  //   'Medieval': 'Medieval',
+  //   'Renaissance': 'Renaissance',
+  //   'Baroque': 'Baroque',
+  //   'Classical': 'Classical',
+  //   'Early Romantic': 'Romantic',
+  //   'Romantic': 'Romantic',
+  //   'Late Romantic': 'Romantic',
+  //   '20th Century': 'Modern',
+  //   'Post-War': 'Modern',
+  //   '21st Century': 'Modern',
+  //   'Modern': 'Modern',
+  // };
   
   const yearRange = [
     Math.min(...epochs.map((e) => e.startYear)),
@@ -150,8 +150,6 @@ export const EpochTimeLine = () => {
               key={epoch.label}
               label={epoch.label}
               variant="filled"
-              // variant={epoch.label === epochMap[activeWork.composer.epoch] ? undefined : "outlined"}
-              // color={epoch.label === epochMap[activeWork.composer.epoch] ? "secondary" : undefined }
               size="small"
               style={{
                 padding: 0,
