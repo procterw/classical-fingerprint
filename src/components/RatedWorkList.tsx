@@ -2,7 +2,7 @@ import { Box, IconButton, List, ListItem, ListItemIcon, ListItemText, Tab, Tabs,
 import { SxProps } from '@mui/system';
 import { useEffect, useRef, useState } from 'react';
 import { useGetRatedWorks } from '../state/selectors';
-import { Favorite, PlayArrowOutlined, PlayArrowRounded, PlayCircleFilled, PlayCircleOutlined, ThumbDownAltOutlined, ThumbUpAlt } from '@mui/icons-material';
+import { Favorite, PlayCircleOutlined, ThumbDownAltOutlined, ThumbUpAlt } from '@mui/icons-material';
 import { useWorkQueue } from '../state/useWorkQueue';
 import { LoaderIcon } from './LoaderIcon';
 import { cumsum, groups, sort } from 'd3-array';
