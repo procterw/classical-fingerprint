@@ -1,8 +1,8 @@
-import { Box, List, ListItem, ListItemIcon, ListItemText, Tab, Tabs, Typography } from '@mui/material';
+import { Box, IconButton, List, ListItem, ListItemIcon, ListItemText, Tab, Tabs, Typography } from '@mui/material';
 import { SxProps } from '@mui/system';
 import { useEffect, useRef, useState } from 'react';
 import { useGetRatedWorks } from '../state/selectors';
-import { Favorite, ThumbDownAltOutlined, ThumbUpAlt } from '@mui/icons-material';
+import { Favorite, PlayArrowOutlined, PlayArrowRounded, PlayCircleFilled, PlayCircleOutlined, ThumbDownAltOutlined, ThumbUpAlt } from '@mui/icons-material';
 import { useWorkQueue } from '../state/useWorkQueue';
 import { LoaderIcon } from './LoaderIcon';
 import { cumsum, groups, sort } from 'd3-array';
@@ -13,6 +13,7 @@ import { useWidth } from '../state/useWidth';
 const WorkItem = (props: { work: RatedWork, sx?: SxProps, onRender: Function }) => {
   const { activeWork, setActiveWork } = useWorkQueue();
   const refContainer = useRef(null);
+  const [isHovered, setIsHovered] = useState(false);
 
   // TODO why do I need to ignore this?
   // @ts-ignore
@@ -29,7 +30,8 @@ const WorkItem = (props: { work: RatedWork, sx?: SxProps, onRender: Function }) 
   if (!activeWork) return null;
 
   const getIcon = () => {
-    if (activeWork && activeWork.id === props.work.id) {
+    // If work is currently playing
+    if (activeWork.id === props.work.id) {
       return (
         <ListItemIcon
           sx={{
@@ -40,6 +42,22 @@ const WorkItem = (props: { work: RatedWork, sx?: SxProps, onRender: Function }) 
         >
           <LoaderIcon />
         </ListItemIcon>
+      );
+    }
+
+    // If work is hovered and not playing
+    // if (props.work.title.includes('an')) {
+    if (isHovered && activeWork.id !== props.work.id) {
+      return (
+        <IconButton
+          sx={{
+            marginLeft: -1,
+            marginRight: 1.65,
+            marginTop: -0.2,
+          }}
+        >
+          <PlayCircleOutlined fontSize="small" />
+        </IconButton>
       );
     }
 
@@ -64,8 +82,10 @@ const WorkItem = (props: { work: RatedWork, sx?: SxProps, onRender: Function }) 
         ...props.sx,
         cursor: 'pointer',
       }}
-      ref={refContainer}
       onClick={() => setActiveWork(props.work)}
+      ref={refContainer}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       { getIcon() }
       {/* { getPlayingIcon() } */}
