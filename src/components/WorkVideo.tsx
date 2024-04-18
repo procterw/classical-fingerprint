@@ -9,6 +9,15 @@ const videoState = {
   mode: '',
   loading: false,
   tt: null,
+  e: {
+    initialPlay: false,
+    secondPlay: false,
+  },
+  reset: function() {
+    this.loading = false,
+    this.e.initialPlay = false;
+    this.e.secondPlay = false;
+  },
 };
 
 type Player = {
@@ -94,7 +103,7 @@ export const WorkVideo = (props: { work?: Work | null}) => {
     // https://developers.google.com/youtube/iframe_api_reference
     function onError(error: { data: number }) {
       if ([2, 5, 100, 101, 150].includes(error.data)) {
-        videoState.loading = false;
+        videoState.reset();
         setLoading(false);
       }
     }
@@ -106,7 +115,6 @@ export const WorkVideo = (props: { work?: Work | null}) => {
     }
 
     function onStateChange(event: { data: number, target: Player }) {
-
       if (event.data === 0) {
         if (videoState.mode === 'radio') {
           getNextWork();
@@ -122,37 +130,38 @@ export const WorkVideo = (props: { work?: Work | null}) => {
         // Because we have to play the video in order to seekTo the
         // correct time, make sure it is muted
         _player.mute();
-
-        setTimeout(() => {
-        }, 2500);
         
         setTimeout(() => {
           // This gets youtube's 'currentTime' out of it's system;
           // It will try to force the player back to where you watched it last
           // even if you use "start" and "seekTo"
+          videoState.e.initialPlay = true;
           _player.playVideo();
-        }, 50);
+        }, 100);
       }
 
       // If a play was triggered from within the "understarted" block...
-      if (event.data === 1 && videoState.loading) {
-        setTimeout(() => {
+      if (event.data === 1 && videoState.e.initialPlay) {
           // Now go to the correct time
-          _player.seekTo(getStartTime());
+        _player.seekTo(getStartTime());
 
-          setTimeout(() => {
-            _player.playVideo();
+        setTimeout(() => {
+          videoState.e.secondPlay = true;
+          videoState.e.initialPlay = false;
+          _player.playVideo();
+        }, 250);
+        // }, 250);
+      }
 
-            videoState.loading = false;
-  
-            setTimeout(() => {
-              _player.unMute(); 
-              setLoading(false);
-            }, 200);
-          }, 200);
-        }, 200);
+      if (event.data === 1 && videoState.e.secondPlay) {
+        _player.unMute();
+        setTimeout(() => {
+          videoState.reset();
+          setLoading(false);
+        }, 250);
       }
     }
+
 
     window.addEventListener('resize', rescale);
     return () => {
@@ -205,7 +214,7 @@ export const WorkVideo = (props: { work?: Work | null}) => {
             height: '100%',
             opacity: loading ? 1 : 0,
             // opacity: 0.5,
-            // transition: '0.3s opacity',
+            // transition: loading ? undefined : '0.25s opacity',
             left: 0,
             right: 0,
             bottom: 0,

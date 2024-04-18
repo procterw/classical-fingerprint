@@ -98,6 +98,17 @@ export const themeOptions: ThemeOptions = {
         },
       }, 
     }, 
+    MuiTooltip: {
+      styleOverrides: {
+        tooltip: {
+          backgroundColor: '#444',
+          padding: '10px 14px',
+          fontFamily: '"Mulish", sans-serif;',
+          fontSize: 14,
+          fontWeight: 600,
+        }
+      }
+    }
   },
 };
 

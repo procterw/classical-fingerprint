@@ -1,6 +1,5 @@
 import { AppBar, Box, Button, Container, Drawer, Toolbar, Typography, styled } from "@mui/material";
 import icon from '../assets/logo.svg';
-// import { useWidth } from "../state/useWidth";
 import { WorkFilter } from "../components/WorkFilter";
 import { useState } from "react";
 
@@ -43,7 +42,7 @@ export const Header = () => {
                 fontWeight={300}
                 color="black"
               >
-                Classical Walk
+                Balade
               </Typography>
             </Box>
             <WorkFilter />
@@ -74,7 +73,7 @@ export const Header = () => {
           }}
         >
           <Typography variant="h4">
-            About Classical Fingerprint
+            About Balade
           </Typography>
           <Typography variant="body2">
             I haven't written anything for this section yet.
