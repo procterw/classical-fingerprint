@@ -86,8 +86,17 @@ export const WorkVideo = (props: { work?: Work | null}) => {
         events: {
           'onReady': onReady,
           'onStateChange': onStateChange,
+          'onError': onError,
         }
       });
+    }
+
+    // https://developers.google.com/youtube/iframe_api_reference
+    function onError(error: { data: number }) {
+      if ([2, 5, 100, 101, 150].includes(error.data)) {
+        videoState.loading = false;
+        setLoading(false);
+      }
     }
 
     function onReady(event: { target: Player  }) {
@@ -113,17 +122,9 @@ export const WorkVideo = (props: { work?: Work | null}) => {
         // Because we have to play the video in order to seekTo the
         // correct time, make sure it is muted
         _player.mute();
-        
-        // https://stackoverflow.com/a/76468771/1676699
-        // Checks if the video is available and embeddable
-        // Otherwise, clear the loading screen so the user can see what's going on
-        fetch(`https://www.youtube.com/oembed?url=http://www.youtube.com/watch?v=${videoState.id}&format=json`)
-        .then((r) => {
-          if (r.status !== 200) {
-            videoState.loading = false;
-            setLoading(false);
-          }
-        });
+
+        setTimeout(() => {
+        }, 2500);
         
         setTimeout(() => {
           // This gets youtube's 'currentTime' out of it's system;
@@ -141,15 +142,15 @@ export const WorkVideo = (props: { work?: Work | null}) => {
 
           setTimeout(() => {
             _player.playVideo();
-            _player.unMute();
 
             videoState.loading = false;
   
             setTimeout(() => {
+              _player.unMute(); 
               setLoading(false);
-            }, 250);
-          }, 250);
-        }, 250);
+            }, 200);
+          }, 200);
+        }, 200);
       }
     }
 
@@ -203,6 +204,7 @@ export const WorkVideo = (props: { work?: Work | null}) => {
             background: 'black',
             height: '100%',
             opacity: loading ? 1 : 0,
+            // opacity: 0.5,
             // transition: '0.3s opacity',
             left: 0,
             right: 0,
